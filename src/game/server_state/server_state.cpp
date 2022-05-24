@@ -57,6 +57,10 @@ void ServerState::Update(float dt) {
                     ClientRequestConnect(msg, client_id);
                     break;
                 }
+                case GameMessage::PLAYER_MOVE: {
+                    PlayerMove(msg, client_id);
+                    break;
+                }
             }
         }
     }

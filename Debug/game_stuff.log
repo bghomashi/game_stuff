@@ -1,47 +1,20 @@
 ﻿  engine.cpp
-  input.cpp
-  character_attack_state.cpp
-  character_damage_state.cpp
-  character_die_state.cpp
-  character_idle_state.cpp
-  character_walk_state.cpp
-  app_draw.cpp
-  app_load_resource.cpp
-  app_setup_hooks.cpp
-  app_start_up.cpp
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\application\app_start_up.cpp(66,17): warning C4101: 'ability_handle': unreferenced local variable
-C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(97,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77): message : see reference to function template instantiation 'void EntityManager::Remove<T>(EntityID)' being compiled
-          with
-          [
-              T=TransformComponent
-          ]
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\application\app_start_up.cpp(30): message : see reference to function template instantiation 'ComponentID EntityManager::Add<TransformComponent,Vec2,float,Vec2,float>(EntityID,Vec2,float,Vec2,float)' being compiled
   app_update.cpp
   main_client_state.cpp
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(166,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(292,17): warning C4101: 'ability_handle': unreferenced local variable
-C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(97,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77): message : see reference to function template instantiation 'void EntityManager::Remove<T>(EntityID)' being compiled
-          with
-          [
-              T=TransformComponent
-          ]
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(252): message : see reference to function template instantiation 'ComponentID EntityManager::Add<TransformComponent,Vec2,float,Vec2,float>(EntityID,Vec2,float,Vec2,float)' being compiled
-  start_client_state.cpp
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\start_client_state.cpp(42,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(181,9): error C2360: initialization of 'uuid' is skipped by 'case' label
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(177): message : see declaration of 'uuid'
   client_request_connection.cpp
+  player_move.cpp
   server_state.cpp
 C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(44,19): warning C4018: '<': signed/unsigned mismatch
 C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(53,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(85,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(89,23): warning C4018: '<': signed/unsigned mismatch
 C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(97,27): warning C4018: '<': signed/unsigned mismatch
 C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77): message : see reference to function template instantiation 'void EntityManager::Remove<T>(EntityID)' being compiled
           with
           [
               T=TransformComponent
           ]
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(113): message : see reference to function template instantiation 'ComponentID EntityManager::Add<TransformComponent,Vec2,float,Vec2,float>(EntityID,Vec2,float,Vec2,float)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(117): message : see reference to function template instantiation 'ComponentID EntityManager::Add<TransformComponent,Vec2,float,Vec2,float>(EntityID,Vec2,float,Vec2,float)' being compiled
   main.cpp
   Generating Code...
-  game_stuff.vcxproj -> C:\Users\bghom\source\repos\bghomashi\Debug\game_stuff.exe

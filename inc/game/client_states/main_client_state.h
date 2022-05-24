@@ -6,6 +6,8 @@
 #include "engine/network/network.h"
 
 class MainClientState : public ApplicationState {
+    EntityID _client_entity;
+
     bool LoadResources();
     bool SetupHooks();
 

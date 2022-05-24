@@ -100,7 +100,7 @@ namespace Net {
         Address _addr;
         Connection _connection;
         std::queue<message> _outgoing_messages;
-        std::vector<message> _incoming_messages;
+        std::queue<message> _incoming_messages;
 
         bool Recv();
     public:
@@ -109,7 +109,8 @@ namespace Net {
         void Update();
         void Send(const message& msg);
 
-
+        bool messages_waiting() const;
+        message pop_incoming_message();
     };
 
     

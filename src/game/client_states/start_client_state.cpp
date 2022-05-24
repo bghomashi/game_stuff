@@ -33,29 +33,25 @@ bool StartClientState::Start() {
 
     return true;
 }
-bool accepted = false;
 void StartClientState::Update(float dt) {
-    std::vector<Net::message> messages;
     Engine::client.Update();                    // send all waiting messages
-    
-    if (accepted || Engine::client.Recv(messages)) {
-        for (int i = 0; i < messages.size(); i++) {
-            auto& msg = messages[i];
-            switch (msg.header.id) {
-            case GameMessage::SERVER_ACCEPT_CONNECTION:
-                // new game state;
-                accepted = true;
-                status = "server accepted client";
 
-                msg >> Engine::client_id;
+    while (Engine::client.messages_waiting()) {
+        auto msg = Engine::client.pop_incoming_message();
+
+        switch (msg.header.id) {
+        case GameMessage::SERVER_ACCEPT_CONNECTION:
+            // new game state;
+
+            msg >> Engine::client_id;
                 
-                MainClientState* s = new MainClientState();
-                Engine::SetState(std::shared_ptr<ApplicationState>(s));
+            MainClientState* s = new MainClientState();
+            Engine::SetState(std::shared_ptr<ApplicationState>(s));
 
-                return;
-            }
+            return;
         }
     }
+    
 
     wait_timer -= dt;
 

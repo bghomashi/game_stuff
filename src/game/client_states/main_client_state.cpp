@@ -27,15 +27,18 @@ bool MainClientState::SetupHooks() {
     });
 
     Input::SetKeyUp(Input::Space,[=](){
-        EntityID client_entity;
-        NetworkComponent::ForEach([&client_entity](const NetworkComponent& nc){
-            if (nc.client_id == Engine::client_id) {
-                client_entity = nc.parent;
-            }
-        });
+        auto position = EntityManager::Get<TransformComponent>(_client_entity)->position;
+        auto point = Engine::GetMouseLocationWorldSpace();
+        auto dir = (point - position).norm();
 
+        // send message to server
+        Net::message move_msg = { GameMessage::PLAYER_MOVE };
+        move_msg << Engine::client_id;
+        move_msg << dir.x << dir.y;
+        Engine::client.Send(move_msg);
+        // post message
         EntityAttackCommand* msg = new EntityAttackCommand();
-        msg->entity = client_entity;
+        msg->entity = _client_entity;
         msg->attack = "sword_swing";
         MessageQueue::Push(msg);
     });
@@ -135,7 +138,7 @@ bool MainClientState::Start() {
     return true;
 }
 void MainClientState::Update(float dt) {
-    // user input
+    // user input -- this info stays on client
     if (Engine::GetKeyPressed(Input::W))
         Engine::camera.position += Vec2{ 0.f, 1.f};
     if (Engine::GetKeyPressed(Input::A))
@@ -144,37 +147,40 @@ void MainClientState::Update(float dt) {
         Engine::camera.position += Vec2{ 0.f,-1.f};
     if (Engine::GetKeyPressed(Input::D))
         Engine::camera.position += Vec2{ 1.f, 0.f};
-    
+    // -----------------------------------------
 
     if (Input::MousePressed(Input::MouseLeft)) {
-        EntityID client_entity;
-        NetworkComponent::ForEach([&client_entity](const NetworkComponent& nc){
-            if (nc.client_id == Engine::client_id) {
-                client_entity = nc.parent;
-            }
-        });
-        
+        // move "me"
+        Vec2 destination = Engine::GetMouseLocationWorldSpace();
+
+        // send message to server
+        Net::message move_msg = {GameMessage::PLAYER_MOVE};
+        move_msg << Engine::client_id;
+        move_msg << destination.x << destination.y;
+        Engine::client.Send(move_msg);
+
+        // post message
         EntityMoveToCommand* msg = new EntityMoveToCommand();
-        msg->entity = client_entity;
-        msg->destination = Engine::GetMouseLocationWorldSpace();
+        msg->entity = _client_entity;
+        msg->destination = destination;
         MessageQueue::Push(msg);
     }
 
-    std::vector<Net::message> messages;
     Engine::client.Update();
-    if (Engine::client.Recv(messages)) {
-        for (int i = 0; i < messages.size(); i++) {
-            auto& msg = messages[i];
-            switch (msg.header.id) {
-            case GameMessage::SERVER_ACCEPT_CONNECTION:
-                break;
-            case GameMessage::CHARACTER_SPAWN:
-                Net::ClientID uuid;
-                msg >> uuid;
-                SpawnPlayer(uuid);
-                break;
-            
-            }
+    while (Engine::client.messages_waiting()) {
+        auto msg = Engine::client.pop_incoming_message();
+
+        switch (msg.header.id) {
+        case GameMessage::SERVER_ACCEPT_CONNECTION:
+            break;
+        case GameMessage::CHARACTER_SPAWN:
+            Net::ClientID uuid;
+            msg >> uuid;
+            SpawnPlayer(uuid);
+            break;
+        case GameMessage::CHARACTER_POSITIONS:
+            // update character positions
+            break;
         }
     }
 
@@ -248,6 +254,8 @@ void MainClientState::SpawnPlayer(const Net::ClientID& uuid) {
     ComponentID network_handle;
 
     EntityID entity = EntityManager::Create();
+    if (Engine::client_id == uuid)
+        _client_entity = entity;
     // add transform component
     transform_handle = EntityManager::Add<TransformComponent>(entity, Vec2{0.f,0.f}, 0.f, Vec2{0.f,0.f}, 0.f);
     // sprite

@@ -9,7 +9,8 @@
 class ServerState : public ApplicationState {
     std::vector<std::string> status;
 
-    void ClientRequestConnect(Net::message& msg, const Net::ClientID& addr);
+    void ClientRequestConnect(Net::message& msg, const Net::ClientID& uuid);
+    void PlayerMove(Net::message& msg, const Net::ClientID& uuid);
 
     void SpawnPlayer(const Net::ClientID& uuid);
 public:

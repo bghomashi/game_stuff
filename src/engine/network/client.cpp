@@ -12,15 +12,15 @@ namespace Net {
         std::vector<Packet::Ptr_t> packets;
 
         Packet::Ptr_t packet;
-        if (!_message_queue.empty()) {
+        if (!_outgoing_messages.empty()) {
             packet.reset(new Packet);
             packet->addr = _addr;
             packets.push_back(packet);
         }
 
         // lock the message queue at this point (if threaded)
-        while (!_message_queue.empty()) {
-            auto& msg = _message_queue.front();
+        while (!_outgoing_messages.empty()) {
+            auto& msg = _outgoing_messages.front();
             // if the message can't fit make a new packet
             if (packet->data.size() + msg.size() > Packet::MAX_SIZE) {
                 packet.reset(new Packet());
@@ -29,19 +29,19 @@ namespace Net {
             }
             // now append the message (and pop it off the queue)
             packet->Append(msg);
-            _message_queue.pop();
+            _outgoing_messages.pop();
         }
-        // we coudl unlock the message queue now if this were threaded
+        // we could unlock the message queue now if this were threaded
 
         for (auto& p : packets)
             _connection.SendTo(*p);
 
-
+        Recv();
     }
     void Client::Send(const message& msg) {
-        _message_queue.push(msg);
+        _outgoing_messages.push(msg);
     }
-    bool Client::Recv(std::vector<message>& messages) {
+    bool Client::Recv() {
         Packet packet;
         if (!_connection.RecvFrom(packet, false))
             return false;
@@ -57,8 +57,16 @@ namespace Net {
             msg.body.resize(msg.header.size - sizeof(msg.header));
             std::memcpy(msg.body.data(), byte, msg.body.size());  byte += msg.header.size;
 
-            messages.push_back(msg);
+            _incoming_messages.push(msg);
         }
         return true;
+    }
+    bool Client::messages_waiting() const {
+        return !_incoming_messages.empty();
+    }
+    message Client::pop_incoming_message() {
+        message msg = _incoming_messages.front();
+        _incoming_messages.pop();
+        return msg;
     }
 }
