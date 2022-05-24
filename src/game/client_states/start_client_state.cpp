@@ -9,7 +9,7 @@ using draw = OGL::Draw;
 using device = OGL::Device;
 using matrix_stack = OGL::MatrixStack;
 
-#define SERVER_ADDR 127,0,0,1
+#define SERVER_ADDR 192,168,0,2
 #define SERVER_PORT 60000
 #define MAX_WAIT_TIME 10.f
 #define MAX_RETRIES 3
@@ -22,7 +22,7 @@ bool StartClientState::Start() {
 #ifdef __linux__
     if (!ResourceManager<OGL::Font>::Load("DejaVuSans", g_font_directory + "DejaVuSans.ttf", 24)) {
 #elif WIN32
-    if (!ResourceManager<OGL::Font>::Load("DejaVuSans", g_font_directory + "arial.ttf", 24)) {
+    if (!ResourceManager<OGL::Font>::Load("DejaVuSans", g_font_directory + "Arial.ttf", 24)) {
 #endif
         LOG_CRITICAL("Failed to load font");
         return false;

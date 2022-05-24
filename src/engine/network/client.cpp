@@ -9,10 +9,14 @@ namespace Net {
         _connection.Close();
     }
     void Client::Update() {
-        Packet::Ptr_t packet(new Packet);
         std::vector<Packet::Ptr_t> packets;
-        packet->addr = _addr;
-        packets.push_back(packet);
+
+        Packet::Ptr_t packet;
+        if (!_message_queue.empty()) {
+            packet.reset(new Packet);
+            packet->addr = _addr;
+            packets.push_back(packet);
+        }
 
         // lock the message queue at this point (if threaded)
         while (!_message_queue.empty()) {

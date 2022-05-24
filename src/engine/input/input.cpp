@@ -1,6 +1,6 @@
 #include "engine/input/input.h"
 
-std::bitset<Input::KeyCodes::NUM> Input::s_keys;
+std::unordered_map<int, bool> Input::s_keys;
 Vec2 Input::s_mouse;
 std::map<Input::Binding, Input::Action> Input::s_down_bindings;
 std::map<Input::Binding, Input::Action> Input::s_up_bindings;
@@ -12,13 +12,13 @@ void Input::OnMouseButton(int button, int action, int mods) {
 void Input::OnKey(int key, int action, int mods) {
     if (action == GLFW_PRESS || action == GLFW_REPEAT) {             // down
         s_keys[key] = 1;
-        auto key_binding = s_down_bindings.find(Binding{key, mods});
+        auto key_binding = s_down_bindings.find(Binding{key, std::bitset<6>(mods)});
         if (key_binding != s_down_bindings.end())
             key_binding->second();
     }
     if (action == GLFW_RELEASE) {           // up
         s_keys[key] =  0;
-        auto key_binding = s_up_bindings.find(Binding{key, mods});
+        auto key_binding = s_up_bindings.find(Binding{key, std::bitset<6>(mods)});
         if (key_binding != s_up_bindings.end())
             key_binding->second();
     }

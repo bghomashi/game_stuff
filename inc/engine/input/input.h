@@ -3,6 +3,7 @@
 #include <bitset>
 #include <map>
 #include <functional>
+#include <unordered_map>
 #include "engine/graphics/graphics.h"
 #include "engine/utility/vector2.h"
 
@@ -180,7 +181,7 @@ public:
         NUM = __LINE__ - BEGIN - 1
     };
 private:
-    static std::bitset<KeyCodes::NUM> s_keys;
+    static std::unordered_map<int, bool> s_keys;
     static Vec2 s_mouse;
     static std::map<Binding, Action> s_down_bindings;
     static std::map<Binding, Action> s_up_bindings;

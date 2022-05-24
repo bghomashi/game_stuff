@@ -1,7 +1,7 @@
 #ifndef __MATRIX2_H__
 #define __MATRIX2_H__
 
-#include "utility/vector2.h"
+#include "engine/utility/vector2.h"
 
 
 class Mat2 {

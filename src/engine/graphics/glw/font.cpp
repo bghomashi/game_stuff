@@ -15,6 +15,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+using namespace std;
 
 namespace OGL {
 	bool Font::Load(const std::string& fontname, std::uint32_t height) {
@@ -81,7 +82,8 @@ namespace OGL {
 				(int)face->glyph->advance.x
 			};
 
-			_bearingY = std::max(glyph.bearing[1], (int)_bearingY);
+
+			_bearingY = max(glyph.bearing[1], (int)_bearingY);
 
 			_glyphs.emplace_back(glyph);
 		}

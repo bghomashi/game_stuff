@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <memory>
 #include <cstring>
+#include <cstdint>
 #include <vector>
 #include <chrono>
 #include <queue>
@@ -61,7 +62,7 @@ namespace Net {
 
     struct Packet {
         typedef std::shared_ptr<Packet> Ptr_t;
-        static const unsigned MAX_SIZE;
+        static constexpr unsigned MAX_SIZE = 1024;
 
         Address addr;
         std::vector<std::uint8_t> data;
@@ -84,7 +85,7 @@ namespace Net {
         void Update();
     };
 
-    Address MakeAddress(char a, char b, char c, char d, uint16_t port);
+    Address MakeAddress(std::uint8_t a, std::uint8_t b, std::uint8_t c, std::uint8_t d, uint16_t port);
     Address MakeAddress(uint32_t address, uint16_t port);
     bool operator==(const Address& a, const Address& b);
     bool operator!=(const Address& a, const Address& b);

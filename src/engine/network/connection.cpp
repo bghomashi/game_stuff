@@ -11,8 +11,12 @@
 #include <unistd.h> 
 #include <sys/time.h> //FD_SET, FD_ISSET, FD_ZERO macros  
 #else
+
 #include <WinSock2.h>
+#include <Ws2tcpip.h>
+#include <stdio.h>
 typedef int socklen_t;
+
 #endif
 
 namespace Net {
@@ -34,7 +38,7 @@ namespace Net {
         address.sin_port        = htons(port); 
 
         // create socket
-        if ((sock = socket(AF_INET, SOCK_DGRAM, 0)) < 0) { 
+        if ((sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) < 0) {
             LOG_CRITICAL("socket creation failed"); 
             return false;
         } 
@@ -92,7 +96,7 @@ namespace Net {
         address.sin_port        = packet.addr.port; 
 
         return sendto(sock, 
-                &packet.data[0], packet.data.size(), 
+                (const char*) &packet.data[0], packet.data.size(),
                 0, (sockaddr*)&address, sizeof(address)) >= 0;
     }
     bool Connection::RecvFrom(Packet& p, bool block) {
@@ -101,12 +105,10 @@ namespace Net {
         int flags = 0, len = sizeof(address);
 
     #ifdef WIN32
-        u_long iMode = 0;
-        if (!block) {
-            int iResults = ioctlsocket(sock, FIONBIO, &iMode);
-            if (iResults != NO_ERROR)
-                LOG_CRITICAL("ioctlsocket failed with error: " + std::to_string(iResults));
-        }
+        u_long iMode = (block ? 0 : 1);
+        int iResults = ioctlsocket(sock, FIONBIO, &iMode);
+        if (iResults != NO_ERROR)
+            LOG_CRITICAL("ioctlsocket failed with error: " + std::to_string(iResults));
     #else
         flags |= (block ? 0 : MSG_DONTWAIT);
     #endif
@@ -130,7 +132,6 @@ namespace Net {
     }
 
 
-    
-    const unsigned Packet::MAX_SIZE = 1024;
+
 }
 
