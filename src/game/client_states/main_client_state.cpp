@@ -173,11 +173,12 @@ void MainClientState::Update(float dt) {
         switch (msg.header.id) {
         case GameMessage::SERVER_ACCEPT_CONNECTION:
             break;
-        case GameMessage::CHARACTER_SPAWN:
+        case GameMessage::CHARACTER_SPAWN: {
             Net::ClientID uuid;
             msg >> uuid;
             SpawnPlayer(uuid);
             break;
+        }
         case GameMessage::CHARACTER_POSITIONS:
             // update character positions
             break;
