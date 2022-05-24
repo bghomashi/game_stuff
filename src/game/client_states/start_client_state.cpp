@@ -61,6 +61,7 @@ void StartClientState::Update(float dt) {
         status = "Connecting to server. " + std::to_string(retries_left) + " retries left...";
         Net::message request_msg = {GameMessage::CLIENT_REQUEST_CONNECTION};
         request_msg << "bejan" << "ghomashi"; 
+        request_msg.header.size = request_msg.size();
         Engine::client.Send(request_msg);
     } else {
         if (wait_timer <= 0 && retries_left <= 0)

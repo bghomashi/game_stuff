@@ -27,19 +27,23 @@ void ServerState::ClientRequestConnect(Net::message& msg, const Net::ClientID& u
 
     Net::message spawn_msg = {GameMessage::CHARACTER_SPAWN};
     spawn_msg << (unsigned)uuid; 
+    spawn_msg.header.size = spawn_msg.size();
     Engine::server.Send(spawn_msg, uuid);
-    // 
+
+    // notify previous network clients
     NetworkComponent::ForEach([&](const NetworkComponent& nc){
         // also send the same spawn message to each other client
         if (nc.client_id != uuid)
             Engine::server.Send(spawn_msg, nc.client_id);
     });
 
+    // notify new client of old entities
     NetworkComponent::ForEach([&](const NetworkComponent& nc){
         // also send the same spawn message to each other client
         if (nc.client_id != uuid) {
             Net::message spawn_msg = {GameMessage::CHARACTER_SPAWN};
             spawn_msg << (unsigned)nc.client_id; 
+            spawn_msg.header.size = spawn_msg.size();
             Engine::server.Send(spawn_msg, uuid);
         }
     });
