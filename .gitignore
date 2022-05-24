@@ -41,3 +41,7 @@ runeraider
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+*.idb
+*.pdb
+*.log
+*.tlog

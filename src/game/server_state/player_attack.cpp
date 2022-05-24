@@ -26,7 +26,8 @@ void ServerState::PlayerAttack(Net::message& attack_msg, const Net::ClientID& uu
 
     EntityAttackCommand* msg = new EntityAttackCommand();
     msg->entity = client_entity;
-    msg->attack = "sword_swing";
+    msg->direction = dir;
+    msg->attack = attack_name;
     MessageQueue::Push(msg);
 
 }

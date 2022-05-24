@@ -35,14 +35,14 @@ bool MainClientState::SetupHooks() {
         Net::message attack_msg = { GameMessage::PLAYER_ATTACK };
         attack_msg << Engine::client_id;
         attack_msg << dir.x << dir.y;
-        attack_msg << "sword_swing";
+        attack_msg << "sword_swipe";
         Engine::client.Send(attack_msg);
 
         // post message
         EntityAttackCommand* msg = new EntityAttackCommand();
         msg->entity = _client_entity;
         msg->direction = dir;
-        msg->attack = "sword_swing";
+        msg->attack = "sword_swipe";
         MessageQueue::Push(msg);
     });
 
