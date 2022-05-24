@@ -106,7 +106,7 @@ void ServerState::Update(float dt) {
 
         // not sure how to handle this part.
         auto path = EntityManager::Get<PathComponent>(entity);
-        if (path)
+        if (path && !path->points.empty())
             destination = path->points.front();
 
         snapshot_msg << (unsigned)client;
