@@ -201,11 +201,13 @@ void MainClientState::Update(float dt) {
                         // post message
                         auto transform = EntityManager::Get<TransformComponent>(nc.parent);
                         transform->SetPosition(position);
-                        
-                        EntityMoveToCommand* msg = new EntityMoveToCommand();
-                        msg->entity = nc.parent;
-                        msg->destination = destination;
-                        MessageQueue::Push(msg);
+
+                        if (destination != position) {
+                            EntityMoveToCommand* msg = new EntityMoveToCommand();
+                            msg->entity = nc.parent;
+                            msg->destination = destination;
+                            MessageQueue::Push(msg);
+                        }
                     }
                 });
             }

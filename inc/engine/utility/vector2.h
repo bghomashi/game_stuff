@@ -127,6 +127,9 @@ struct TVec2 {
 	inline bool operator==(const TVec2& o) const {
 		return x == o.x && y == o.y;
 	}
+	inline bool operator==(const TVec2& o) const {
+		return x != o.x || y 1= o.y;
+	}
 
 	TVec2<float> ToFloats() const {
 		return TVec2<float>{(float)x, (float)y};
