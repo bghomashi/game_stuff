@@ -99,13 +99,17 @@ namespace Net {
     class Client {
         Address _addr;
         Connection _connection;
-        std::queue<message> _message_queue;
+        std::queue<message> _outgoing_messages;
+        std::vector<message> _incoming_messages;
+
+        bool Recv();
     public:
         bool Start(Address addr);
         void Stop();
         void Update();
         void Send(const message& msg);
-        bool Recv(std::vector<message>& messages);
+
+
     };
 
     

@@ -20,9 +20,9 @@ bool StartClientState::Start() {
     
     // just load font
 #ifdef __linux__
-    if (!ResourceManager<OGL::Font>::Load("DejaVuSans", g_font_directory + "DejaVuSans.ttf", 24)) {
+    if (!ResourceManager<OGL::Font>::Load("Arial", g_font_directory + "Arial.ttf", 24)) {
 #elif WIN32
-    if (!ResourceManager<OGL::Font>::Load("DejaVuSans", g_font_directory + "Arial.ttf", 24)) {
+    if (!ResourceManager<OGL::Font>::Load("Arial", g_font_directory + "Arial.ttf", 24)) {
 #endif
         LOG_CRITICAL("Failed to load font");
         return false;
@@ -81,7 +81,7 @@ void StartClientState::Draw(float alpha) {
     // matrix_stack::PopModelView();
 
     Vec2 win_size = Engine::GetWindowSize();
-    auto font = ResourceManager<OGL::Font>::Get("DejaVuSans");
+    auto font = ResourceManager<OGL::Font>::Get("Arial");
 
     font.RenderText(status, 
                 10.f, win_size.y - 20.f, // position

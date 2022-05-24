@@ -104,9 +104,9 @@ bool MainClientState::LoadResources() {
     }
 
 #ifdef __linux__
-    if (!ResourceManager<OGL::Font>::Load("DejaVuSans", g_font_directory + "DejaVuSans.ttf", 24)) {
+    if (!ResourceManager<OGL::Font>::Load("Arial", g_font_directory + "Arial.ttf", 24)) {
 #elif WIN32
-    if (!ResourceManager<OGL::Font>::Load("DejaVuSans", g_font_directory + "arial.ttf", 24)) {
+    if (!ResourceManager<OGL::Font>::Load("Arial", g_font_directory + "Arial.ttf", 24)) {
 #endif
         LOG_CRITICAL("Failed to load font");
         return false;
@@ -218,7 +218,7 @@ void MainClientState::Draw(float alpha) {
 
 
     // // Draw UI
-    auto font = ResourceManager<OGL::Font>::Get("DejaVuSans");
+    auto font = ResourceManager<OGL::Font>::Get("Arial");
     // Vec2 mouse = Engine::GetMouseLocation();
     Vec2 win_size = Engine::GetWindowSize();
 

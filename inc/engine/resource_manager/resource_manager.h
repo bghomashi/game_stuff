@@ -5,7 +5,7 @@
 
 
 #ifdef __linux__
-const std::string g_font_directory = "/usr/share/fonts/TTF/";
+// const std::string g_font_directory = "/usr/share/fonts/TTF/";
 #elif WIN32
 // const std::string g_font_directory = "C:/Windows/Fonts/";
 #endif
