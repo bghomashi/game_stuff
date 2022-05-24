@@ -30,8 +30,8 @@ struct ActionFSMComponent : Component<ActionFSMComponent> {
 
     void Update(float dt);
 
-    template <typename State, typename ...Args>
-    void SetState(Args ...args) {
+    template <typename State, typename... Args>
+    void SetState(Args... args) {
         if (lock_state) return;
         auto it = availableState.find(State::name);
         if (it == availableState.end())

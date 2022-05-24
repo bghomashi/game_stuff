@@ -3,6 +3,7 @@
 #include "engine/ecs/entity.h"
 #include "engine/messages/message_queue.h"
 #include "engine/utility/vector2.h"
+#include <string>
 
 struct EntitySetPosition : public MessageType<EntitySetPosition> {
     EntityID entity;
