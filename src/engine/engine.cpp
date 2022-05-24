@@ -23,7 +23,7 @@ bool Engine::Go(ApplicationState* app) {
 
     while(!s_window.ShouldQuit()) {
         dt = fps_timer.Elapsed();
-        s_fps_tracker.push(1./dt);
+        s_fps_tracker.push(1.f/dt);
         s_accum += dt;
         
         while (s_accum >= s_time_step) {

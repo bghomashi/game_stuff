@@ -2,7 +2,7 @@
 #define __OGL_MATRIX_STACK__
 
 #include <stack>
-#include "utility/matrix4.h"
+#include "engine/utility/matrix4.h"
 
 namespace OGL {
 	class MatrixStack {

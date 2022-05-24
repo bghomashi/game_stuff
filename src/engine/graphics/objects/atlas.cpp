@@ -1,6 +1,6 @@
-#include "graphics/objects/atlas.h"
-#include "utility/image.h"
-#include "utility/logger.h"
+#include "engine/graphics/objects/atlas.h"
+#include "engine/utility/image.h"
+#include "engine/utility/logger.h"
 
 #include <iostream>
 

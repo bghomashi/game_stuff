@@ -1,9 +1,9 @@
 
 #include <iostream>
 #include <fstream>
-#include "graphics/objects/sprite.h"
-#include "utility/json.hpp"
-#include "utility/logger.h"
+#include "engine/graphics/objects/sprite.h"
+#include "engine/utility/json.hpp"
+#include "engine/utility/logger.h"
 
 static std::string ToLower(std::string data) {
     std::transform(data.begin(), data.end(), data.begin(),

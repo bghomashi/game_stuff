@@ -37,3 +37,7 @@ runeraider
 *.dat
 *.txt
 
+# Project files
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user

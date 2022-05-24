@@ -6,7 +6,7 @@
 #include "glw/texture2d.h"
 #include "glw/color.h"
 #include "glw/font.h"
-#include "utility/vector2.h"
+#include "engine/utility/vector2.h"
 #include <string>
 
 namespace OGL {

@@ -1,7 +1,7 @@
-#include "utility/image.h"
+#include "engine/utility/image.h"
 
 #define STB_IMAGE_IMPLEMENTATION
-#include "utility/stb_image.h"
+#include "engine/utility/stb_image.h"
 
 bool Image::Load(const std::string& filename, bool flip_y) {
 	stbi_set_flip_vertically_on_load(flip_y);

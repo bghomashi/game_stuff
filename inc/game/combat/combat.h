@@ -3,9 +3,9 @@
 #include <vector>
 #include <list>
 #include "engine/ecs/entity.h"
-#include "utility/rectangle.h"
-#include "utility/slot_map.h"
-#include "utility/ranged_value.h"
+#include "engine/utility/rectangle.h"
+#include "engine/utility/slot_map.h"
+#include "engine/utility/ranged_value.h"
 
 #include <iostream>
 

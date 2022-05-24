@@ -93,7 +93,7 @@ namespace Net {
 
 
 
-    typedef UUID ClientID;
+    typedef utl::UUID ClientID;
 
     class Client {
         Address _addr;

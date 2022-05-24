@@ -5,6 +5,9 @@
 #include <cassert>
 #include <iostream>
 
+#ifdef WIN32
+#include <Windows.h>
+#endif
 #include <GL/gl.h>
 
 #include "glw/draw_commands.h"
@@ -12,9 +15,9 @@
 #include "glw/shader.h"
 #include "glw/matrix_stack.h"
 #include "glw/texture2d.h"
-#include "utility/matrix4.h"
-#include "utility/vector2.h"
-#include "utility/logger.h"
+#include "engine/utility/matrix4.h"
+#include "engine/utility/vector2.h"
+#include "engine/utility/logger.h"
 
 namespace OGL {
 	Shader Draw::_col_shd, Draw::_tex_shd, Draw::_tex_col_shd, Draw::_fnt_shd, Draw::_part_tex_shd;

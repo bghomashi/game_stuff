@@ -1,5 +1,5 @@
-#include "graphics/objects/sprite.h"
-#include "utility/logger.h"
+#include "engine/graphics/objects/sprite.h"
+#include "engine/utility/logger.h"
 
 Sprite::Sprite() : _resource(NULL) {
     _animation.anim = NULL;

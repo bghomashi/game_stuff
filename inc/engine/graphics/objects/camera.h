@@ -1,7 +1,7 @@
 #pragma once
 
-#include "utility/vector2.h"
-#include "utility/rectangle.h"
+#include "engine/utility/vector2.h"
+#include "engine/utility/rectangle.h"
 
 struct Camera {
     Vec2 position;

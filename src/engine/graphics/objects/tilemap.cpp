@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
-#include "graphics/objects/tilemap.h"
-#include "utility/json.hpp"
-#include "utility/logger.h"
+#include "engine/graphics/objects/tilemap.h"
+#include "engine/utility/json.hpp"
+#include "engine/utility/logger.h"
 
 static std::string ToLower(std::string data) {
     std::transform(data.begin(), data.end(), data.begin(),

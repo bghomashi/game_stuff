@@ -1,8 +1,8 @@
 #ifndef __MATRIX4_H__
 #define __MATRIX4_H__
 
-#include "utility/vector3.h"
-#include "utility/vector2.h"
+#include "engine/utility/vector3.h"
+#include "engine/utility/vector2.h"
 
 class Mat4 {
     float mat[16];

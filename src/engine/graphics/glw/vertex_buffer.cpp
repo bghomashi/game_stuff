@@ -1,5 +1,9 @@
 #include "glw/vertex_buffer.h"
-#include "utility/logger.h"
+#include "engine/utility/logger.h"
+
+#ifdef WIN32
+#include <Windows.h>
+#endif
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 

@@ -1,13 +1,17 @@
 #include "glw/font.h"
 #include "glw/draw_commands.h"
 #include "glw/matrix_stack.h"
-#include "utility/matrix4.h"
-#include "utility/logger.h"
+#include "engine/utility/matrix4.h"
+#include "engine/utility/logger.h"
 
 #include <algorithm>
 #include <freetype2/ft2build.h>
 #include FT_FREETYPE_H
 
+
+#ifdef WIN32
+#include <Windows.h>
+#endif
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 

@@ -37,24 +37,24 @@ namespace Net {
             _connection.SendTo(*p);
     }
 
-    void Server::Send(const message& msg, const UUID& uuid) {
+    void Server::Send(const message& msg, const ClientID& uuid) {
         auto it = _clients.find(uuid);
         if (it == _clients.end()) return;
 
         it->second.message_queue.push(msg);
     }
-    bool Server::Recv(std::vector<message>& messages, UUID& uuid) {
+    bool Server::Recv(std::vector<message>& messages, ClientID& uuid) {
         Packet packet;
         if (!_connection.RecvFrom(packet, false))
             return false;
 
-        uuid = UUID::INVALID;
+        uuid = ClientID::INVALID;
         for (auto& ele : _clients)
             if (ele.second.addr == packet.addr)
                 uuid = ele.first;
 
-        if (uuid == UUID::INVALID) {             // add client
-            uuid = UUID::get();
+        if (uuid == ClientID::INVALID) {             // add client
+            uuid = ClientID::get();
             _clients.insert(std::make_pair(uuid,ClientConnection{packet.addr}));
         }
 
@@ -70,7 +70,7 @@ namespace Net {
         }
         return true;
     }
-    void Server::RemoveClientConnection(const UUID& uuid) {
+    void Server::RemoveClientConnection(const ClientID& uuid) {
         _clients.erase(uuid);
     }
 }

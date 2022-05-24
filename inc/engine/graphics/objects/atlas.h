@@ -2,7 +2,7 @@
 
 #include <string>
 #include "graphics.h"
-#include "utility/vector2.h"
+#include "engine/utility/vector2.h"
 
 class Atlas {
     OGL::Texture2D _texture;

@@ -1,4 +1,8 @@
 #include "glw/framebuffer.h"
+
+#ifdef WIN32
+#include <Windows.h>
+#endif
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <cassert>

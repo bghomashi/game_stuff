@@ -1,5 +1,9 @@
 
 #include <cassert>
+
+#ifdef WIN32
+#include <Windows.h>
+#endif
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "glw/texture2d.h"

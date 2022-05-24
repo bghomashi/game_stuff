@@ -1,7 +1,7 @@
 #pragma once
 
 #include "engine/ecs/entity.h"
-#include "utility/vector2.h"
+#include "engine/utility/vector2.h"
 #include <unordered_map>
 #include <stack>
 #include <memory>

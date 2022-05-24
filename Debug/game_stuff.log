@@ -1,0 +1,203 @@
+﻿  ability_component.cpp
+  font.cpp
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\engine\graphics\glw\font.cpp(8,10): fatal error C1083: Cannot open include file: 'freetype2/ft2build.h': No such file or directory
+  framebuffer.cpp
+  input.cpp
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\engine\input\input.cpp(15,62): error C2397: conversion from 'int' to 'std::bitset<6>' requires a narrowing conversion
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\engine\input\input.cpp(21,60): error C2397: conversion from 'int' to 'std::bitset<6>' requires a narrowing conversion
+  message_queue.cpp
+  connection.cpp
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\engine\network\connection.cpp(94,16): error C2664: 'int sendto(SOCKET,const char *,int,int,const sockaddr *,int)': cannot convert argument 2 from 'const _Ty *' to 'const char *'
+          with
+          [
+              _Ty=uint8_t
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\engine\network\connection.cpp(95,17): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\WinSock2.h(2100,1): message : see declaration of 'sendto'
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\engine\network\connection.cpp(100,29): error C2131: expression did not evaluate to a constant
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\engine\network\connection.cpp(100,29): message : failure was caused by non-constant arguments or reference to a non-constant symbol
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\engine\network\connection.cpp(100,29): message : see usage of 'MAX_SIZE'
+  network.cpp
+  matrix2.cpp
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\utility\matrix2.h(4,10): fatal error C1083: Cannot open include file: 'utility/vector2.h': No such file or directory
+  matrix4.cpp
+  character_attack_state.cpp
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\action_states\character_attack_state.cpp(25,49): error C2065: 'M_PI': undeclared identifier
+  character_damage_state.cpp
+  character_walk_state.cpp
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\action_states\character_walk_state.cpp(41,53): error C2065: 'M_PI': undeclared identifier
+  app_draw.cpp
+  app_start_up.cpp
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\application\app_start_up.cpp(66,17): warning C4101: 'ability_handle': unreferenced local variable
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=TransformComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\application\app_start_up.cpp(30): message : see reference to function template instantiation 'ComponentID EntityManager::Add<TransformComponent,Vec2,float,Vec2,float>(EntityID,Vec2,float,Vec2,float)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=SpriteComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\application\app_start_up.cpp(32): message : see reference to function template instantiation 'ComponentID EntityManager::Add<SpriteComponent,Sprite,ComponentID>(EntityID,Sprite,ComponentID)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=StatsComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\application\app_start_up.cpp(34): message : see reference to function template instantiation 'ComponentID EntityManager::Add<StatsComponent,float>(EntityID,float)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=PathComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\application\app_start_up.cpp(36): message : see reference to function template instantiation 'ComponentID EntityManager::Add<PathComponent,>(EntityID)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=ActionFSMComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\application\app_start_up.cpp(47): message : see reference to function template instantiation 'ComponentID EntityManager::Add<ActionFSMComponent,bool,int,std::unordered_map<std::string,ActionState::Ptr_t,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,ActionState::Ptr_t>>>,ActionState*>(EntityID,bool,int,std::unordered_map<std::string,ActionState::Ptr_t,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,ActionState::Ptr_t>>>,ActionState *)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=AbilityComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\application\app_start_up.cpp(51): message : see reference to function template instantiation 'ComponentID EntityManager::Add<AbilityComponent,>(EntityID)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=Combat::Combatant
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\application\app_start_up.cpp(56): message : see reference to function template instantiation 'ComponentID EntityManager::Add<Combat::Combatant,RangedValue<int>,RangedValue<int>>(EntityID,RangedValue<int>,RangedValue<int>)' being compiled
+  app_update.cpp
+  main_client_state.cpp
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(166,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(292,17): warning C4101: 'ability_handle': unreferenced local variable
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=TransformComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(252): message : see reference to function template instantiation 'ComponentID EntityManager::Add<TransformComponent,Vec2,float,Vec2,float>(EntityID,Vec2,float,Vec2,float)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=SpriteComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(254): message : see reference to function template instantiation 'ComponentID EntityManager::Add<SpriteComponent,Sprite,ComponentID>(EntityID,Sprite,ComponentID)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=StatsComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(256): message : see reference to function template instantiation 'ComponentID EntityManager::Add<StatsComponent,float>(EntityID,float)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=PathComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(258): message : see reference to function template instantiation 'ComponentID EntityManager::Add<PathComponent,>(EntityID)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=ActionFSMComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(269): message : see reference to function template instantiation 'ComponentID EntityManager::Add<ActionFSMComponent,bool,int,std::unordered_map<std::string,ActionState::Ptr_t,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,ActionState::Ptr_t>>>,ActionState*>(EntityID,bool,int,std::unordered_map<std::string,ActionState::Ptr_t,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,ActionState::Ptr_t>>>,ActionState *)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=AbilityComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(274): message : see reference to function template instantiation 'ComponentID EntityManager::Add<AbilityComponent,>(EntityID)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=Combat::Combatant
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(279): message : see reference to function template instantiation 'ComponentID EntityManager::Add<Combat::Combatant,RangedValue<int>,RangedValue<int>>(EntityID,RangedValue<int>,RangedValue<int>)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=NetworkComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(283): message : see reference to function template instantiation 'ComponentID EntityManager::Add<NetworkComponent,Net::ClientID>(EntityID,Net::ClientID)' being compiled
+  start_client_state.cpp
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\start_client_state.cpp(42,27): warning C4018: '<': signed/unsigned mismatch
+  server_state.cpp
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(44,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(53,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(85,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=TransformComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(113): message : see reference to function template instantiation 'ComponentID EntityManager::Add<TransformComponent,Vec2,float,Vec2,float>(EntityID,Vec2,float,Vec2,float)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=SpriteComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(115): message : see reference to function template instantiation 'ComponentID EntityManager::Add<SpriteComponent,Sprite,ComponentID>(EntityID,Sprite,ComponentID)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=StatsComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(117): message : see reference to function template instantiation 'ComponentID EntityManager::Add<StatsComponent,float>(EntityID,float)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=PathComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(119): message : see reference to function template instantiation 'ComponentID EntityManager::Add<PathComponent,>(EntityID)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=ActionFSMComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(130): message : see reference to function template instantiation 'ComponentID EntityManager::Add<ActionFSMComponent,bool,int,std::unordered_map<std::string,ActionState::Ptr_t,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,ActionState::Ptr_t>>>,ActionState*>(EntityID,bool,int,std::unordered_map<std::string,ActionState::Ptr_t,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,ActionState::Ptr_t>>>,ActionState *)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=AbilityComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(134): message : see reference to function template instantiation 'ComponentID EntityManager::Add<AbilityComponent,>(EntityID)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=Combat::Combatant
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(139): message : see reference to function template instantiation 'ComponentID EntityManager::Add<Combat::Combatant,RangedValue<int>,RangedValue<int>>(EntityID,RangedValue<int>,RangedValue<int>)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(85,15): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'T'
+          with
+          [
+              T=NetworkComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(77,5): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(143): message : see reference to function template instantiation 'ComponentID EntityManager::Add<NetworkComponent,Net::ClientID>(EntityID,Net::ClientID)' being compiled
+  Generating Code...
