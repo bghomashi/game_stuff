@@ -127,7 +127,7 @@ struct TVec2 {
 	inline bool operator==(const TVec2& o) const {
 		return x == o.x && y == o.y;
 	}
-	inline bool operator==(const TVec2& o) const {
+	inline bool operator!=(const TVec2& o) const {
 		return x != o.x || y != o.y;
 	}
 
