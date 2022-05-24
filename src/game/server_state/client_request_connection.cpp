@@ -1,5 +1,6 @@
 #include "game/server_state/server_state.h"
 #include "engine/engine.h"
+#include "engine/components/network_component.h"
 #include "game/network/game_messages.h"
 
 void ServerState::ClientRequestConnect(Net::message& msg, const Net::ClientID& uuid) {
@@ -7,7 +8,11 @@ void ServerState::ClientRequestConnect(Net::message& msg, const Net::ClientID& u
     msg >> password >> username;
 
     // check DB for username and password
+
     // check that user is not already online
+    if (NetworkComponent::ForEachTillTrue([=](const NetworkComponent& nc){
+        return uuid == nc.client_id;
+    })) return;
 
     // this is just to test
     status.push_back(std::string(username) + " " + std::string(password) + " " + std::to_string((unsigned)uuid));

@@ -5,13 +5,15 @@
 #include "game/messages/messages.h"
 
 
-void ServerState::PlayerMove(Net::message& move_msg, const Net::ClientID& uuid) {
-    Vec2 destination;
+void ServerState::PlayerAttack(Net::message& attack_msg, const Net::ClientID& uuid) {
+    Vec2 dir;
+    std::string attack_name;
     Net::ClientID client_id = Net::ClientID::INVALID;
     EntityID client_entity;
 
-    move_msg >> destination.y >> destination.x;
-    move_msg >> client_id;
+    attack_msg >> attack_name;
+    attack_msg >> dir.y >> dir.x;
+    attack_msg >> client_id;
 
     if (client_id != uuid)
         return;
@@ -22,9 +24,9 @@ void ServerState::PlayerMove(Net::message& move_msg, const Net::ClientID& uuid) 
     });
 
 
-    EntityMoveToCommand* msg = new EntityMoveToCommand();
+    EntityAttackCommand* msg = new EntityAttackCommand();
     msg->entity = client_entity;
-    msg->destination = destination;
+    msg->attack = "sword_swing";
     MessageQueue::Push(msg);
 
 }

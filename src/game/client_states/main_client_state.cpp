@@ -32,13 +32,16 @@ bool MainClientState::SetupHooks() {
         auto dir = (point - position).norm();
 
         // send message to server
-        Net::message move_msg = { GameMessage::PLAYER_MOVE };
-        move_msg << Engine::client_id;
-        move_msg << dir.x << dir.y;
-        Engine::client.Send(move_msg);
+        Net::message attack_msg = { GameMessage::PLAYER_ATTACK };
+        attack_msg << Engine::client_id;
+        attack_msg << dir.x << dir.y;
+        attack_msg << "sword_swing";
+        Engine::client.Send(attack_msg);
+
         // post message
         EntityAttackCommand* msg = new EntityAttackCommand();
         msg->entity = _client_entity;
+        msg->direction = dir;
         msg->attack = "sword_swing";
         MessageQueue::Push(msg);
     });
@@ -66,26 +69,26 @@ bool MainClientState::SetupHooks() {
             path->points.push(msg->destination);
         }
         if (fsm) {
-            fsm->SetState("walk");
+            fsm->SetState<WalkState>();
         }
     });
 
     EntityAttackCommand::RegisterListener([] (EntityAttackCommand* msg) {
         auto fsm = EntityManager::Get<ActionFSMComponent>(msg->entity);
         if (fsm) {
-            fsm->SetState("attack");// not ideal, maybe include option parameter
+            fsm->SetState<AttackState>(msg->attack, msg->direction);// not ideal, maybe include option parameter
         }
     });
     EntityDeath::RegisterListener([] (EntityDeath* msg) {
         auto fsm = EntityManager::Get<ActionFSMComponent>(msg->entity);
         if (fsm) {
-            fsm->SetState("die");
+            fsm->SetState<DieState>();
         }
     });
     EntityDamaged::RegisterListener([] (EntityDamaged* msg) {
         auto fsm = EntityManager::Get<ActionFSMComponent>(msg->entity);
         if (fsm) {
-            fsm->SetState("damaged");
+            fsm->SetState<DamagedState>();
         }
     });
 
@@ -278,7 +281,7 @@ void MainClientState::SpawnPlayer(const Net::ClientID& uuid) {
         }, (ActionState*)NULL);
 
     auto fsm = ActionFSMComponent::Get(fsm_handle);
-    fsm->SetState("idle");      // set starting state
+    fsm->SetState<IdleState>();      // set starting state
     // abilities
     ability_handle = EntityManager::Add<AbilityComponent>(entity);
     auto ability_component = AbilityComponent::Get(ability_handle);
@@ -320,7 +323,7 @@ void MainClientState::SpawnGoblin() {
             {"die", std::shared_ptr<DieState>(new DieState())}
         }, (ActionState*)NULL);
     auto fsm = ActionFSMComponent::Get(fsm_handle);
-    fsm->SetState("idle");      // set starting state
+    fsm->SetState<IdleState>();      // set starting state
 
     combat_handle = EntityManager::Add<Combat::Combatant>(entityTwo, RangedValue<int>{0,100,100}, RangedValue<int>{0,100,100});
     auto combatant = Combat::Combatant::Get(combat_handle);

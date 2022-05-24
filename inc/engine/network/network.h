@@ -28,6 +28,9 @@ namespace Net {
     };
 
     // we can try this as a serializer
+    message& operator<< (message& msg, const char* data);
+    message& operator<< (message& msg, std::string& data);
+    
     template <typename DT>
     message& operator<< (message& msg, const DT& data) {
         static_assert(std::is_standard_layout<DT>::value, "Data must be POD.");
@@ -51,6 +54,7 @@ namespace Net {
         return msg;
     }
     
+
     std::ostream& operator<< (std::ostream& os, const message& msg);
 
 

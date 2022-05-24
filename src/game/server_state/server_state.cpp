@@ -3,8 +3,12 @@
 #include "engine/graphics/graphics.h"
 #include "engine/engine.h"
 #include "engine/network/network.h"
-#include "game/network/game_messages.h"
 #include "engine/systems/sprite_renderer.h"
+#include "engine/components.h"
+
+#include "game/action_states/character_action_states.h"
+#include "game/network/game_messages.h"
+#include "game/messages/messages.h"
 
 using color = OGL::Color;
 using draw = OGL::Draw;
@@ -14,7 +18,7 @@ using matrix_stack = OGL::MatrixStack;
 #define SERVER_PORT 60000
 
 bool ServerState::Start() {
-    
+    // Load resources
     if (!ResourceManager<SpriteResource>::Load("goblin_mage", "res/sprites/goblin_mage.json") ||
         !ResourceManager<SpriteResource>::Load("knight", "res/sprites/knight.json")) {
         LOG_CRITICAL("failed to load sprite.");
@@ -29,10 +33,31 @@ bool ServerState::Start() {
         LOG_CRITICAL("Failed to load font");
         return false;
     }
+    
+    // setup hooks
+    EntityMoveToCommand::RegisterListener([] (EntityMoveToCommand* msg) {
+        auto fsm = EntityManager::Get<ActionFSMComponent>(msg->entity);
+        auto path = EntityManager::Get<PathComponent>(msg->entity);
+        if (path) {
+            while (!path->points.empty())
+                path->points.pop();
+            path->points.push(msg->destination);
+        }
+        if (fsm) {
+            fsm->SetState<WalkState>();
+        }
+    });
+
+    EntityAttackCommand::RegisterListener([] (EntityAttackCommand* msg) {
+        auto fsm = EntityManager::Get<ActionFSMComponent>(msg->entity);
+        if (fsm) {
+            fsm->SetState<AttackState>(msg->attack, msg->direction);// not ideal, maybe include option parameter
+        }
+    });
+
 
     if (!Engine::server.Start(SERVER_PORT))
         return false;
-
     status.push_back("successfully started server.");
 
     return true;
@@ -61,11 +86,23 @@ void ServerState::Update(float dt) {
                     PlayerMove(msg, client_id);
                     break;
                 }
+                case GameMessage::PLAYER_ATTACK: {
+                    PlayerAttack(msg, client_id);
+                    break;
+                }
             }
         }
     }
     Engine::server.Update();
     // update world stuff
+    ActionFSMComponent::ForEach([dt](ActionFSMComponent& fsm) {
+        fsm.Update(dt);
+    });
+    
+    AbilityComponent::ForEach([dt](AbilityComponent& ac) {
+        ac.Update(dt);
+    });
+
     SpriteRender::Update(dt);
 }
 void ServerState::Stop() {
@@ -80,6 +117,11 @@ void ServerState::Draw(float alpha) {
     Engine::camera.Draw();
 
     SpriteRender::Draw(alpha);
+
+    if (Engine::debug == Engine::DebugState::On) {
+        //  Combat::Combatant::DrawHurtBoxes();
+        //  Combat::HitBox::DrawHitBoxes();
+    }
     
     matrix_stack::PopModelView();
 
@@ -133,7 +175,8 @@ void ServerState::SpawnPlayer(const Net::ClientID& uuid) {
             {"die", ActionState::Ptr_t(new DieState())}
         }, (ActionState*)NULL);
     auto fsm = ActionFSMComponent::Get(fsm_handle);
-    fsm->SetState("idle");      // set starting state
+
+    fsm->SetState<IdleState>();      // set starting state
     // abilities
     ability_handle = EntityManager::Add<AbilityComponent>(entity);
     auto ability_component = AbilityComponent::Get(ability_handle);

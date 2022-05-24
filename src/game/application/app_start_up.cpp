@@ -46,7 +46,7 @@ void MyApplication::SpawnPlayer() {
             {"die", std::shared_ptr<DieState>(new DieState())}
         }, (ActionState*)NULL);
     auto fsm = ActionFSMComponent::Get(fsm_handle);
-    fsm->SetState("idle");      // set starting state
+    fsm->SetState<IdleState>();      // set starting state
     // abilities
     ability_handle = EntityManager::Add<AbilityComponent>(entityOne);
     auto ability_component = AbilityComponent::Get(ability_handle);
@@ -85,7 +85,7 @@ void MyApplication::SpawnGoblin() {
             {"die", std::shared_ptr<DieState>(new DieState())}
         }, (ActionState*)NULL);
     auto fsm = ActionFSMComponent::Get(fsm_handle);
-    fsm->SetState("idle");      // set starting state
+    fsm->SetState<IdleState>();      // set starting state
 
     combat_handle = EntityManager::Add<Combat::Combatant>(entityTwo, RangedValue<int>{0,100,100}, RangedValue<int>{0,100,100});
     auto combatant = Combat::Combatant::Get(combat_handle);

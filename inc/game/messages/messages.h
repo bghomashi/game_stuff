@@ -22,6 +22,7 @@ struct EntityMoveToCommand : public MessageType<EntityMoveToCommand> {
 };
 struct EntityAttackCommand : public MessageType<EntityAttackCommand> {
     EntityID entity;
+    Vec2 direction;
     std::string attack;
 };
 

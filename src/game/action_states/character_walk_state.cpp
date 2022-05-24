@@ -28,7 +28,7 @@ void WalkState::Update(ActionFSMComponent& fsm, float dt) {
         // not going anywhere
         if (path->points.empty()) {
             // done walking 
-            fsm.SetState("idle");
+            fsm.SetState<IdleState>();
             return;
         }
 
@@ -51,3 +51,5 @@ void WalkState::Update(ActionFSMComponent& fsm, float dt) {
         }
     }
 }
+
+const std::string WalkState::name = "walk";

@@ -45,26 +45,26 @@ bool MyApplication::SetupHooks() {
             path->points.push(msg->destination);
         }
         if (fsm) {
-            fsm->SetState("walk");
+            fsm->SetState<WalkState>();
         }
     });
 
     EntityAttackCommand::RegisterListener([] (EntityAttackCommand* msg) {
         auto fsm = EntityManager::Get<ActionFSMComponent>(msg->entity);
         if (fsm) {
-            fsm->SetState("attack");// not ideal, maybe include option parameter
+            fsm->SetState<AttackState>(msg->attack, msg->direction);// not ideal, maybe include option parameter
         }
     });
     EntityDeath::RegisterListener([] (EntityDeath* msg) {
         auto fsm = EntityManager::Get<ActionFSMComponent>(msg->entity);
         if (fsm) {
-            fsm->SetState("die");
+            fsm->SetState<DieState>();
         }
     });
     EntityDamaged::RegisterListener([] (EntityDamaged* msg) {
         auto fsm = EntityManager::Get<ActionFSMComponent>(msg->entity);
         if (fsm) {
-            fsm->SetState("damaged");
+            fsm->SetState<DamagedState>();
         }
     });
 

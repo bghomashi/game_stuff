@@ -48,6 +48,10 @@ public:
     static void ForEach(std::function<void(unsigned, T&)> func)  {
         s_components.ForEach(func);
     }
+    // quit when func() returns true
+	static bool ForEachTillTrue(std::function<bool(T&)> func) {
+		return s_components.ForEachTillTrue(func);
+	}
 };
 
 struct Entity {

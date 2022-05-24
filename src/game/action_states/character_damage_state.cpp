@@ -18,6 +18,8 @@ void DamagedState::Update(ActionFSMComponent& fsm, float dt) {
     timer -= dt;
     if (timer <= 0) {
         timer = 0;
-        fsm.SetState("idle");
+        fsm.SetState<IdleState>();
     }
 }
+
+const std::string DamagedState::name = "damaged";

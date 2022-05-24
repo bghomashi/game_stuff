@@ -11,6 +11,7 @@ class ServerState : public ApplicationState {
 
     void ClientRequestConnect(Net::message& msg, const Net::ClientID& uuid);
     void PlayerMove(Net::message& msg, const Net::ClientID& uuid);
+    void PlayerAttack(Net::message& msg, const Net::ClientID& uuid);
 
     void SpawnPlayer(const Net::ClientID& uuid);
 public:

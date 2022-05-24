@@ -22,3 +22,5 @@ void DieState::Update(ActionFSMComponent& fsm, float dt) {
         MessageQueue::Push(msg);
     }
 }
+
+const std::string DieState::name = "die";

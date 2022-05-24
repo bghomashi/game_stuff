@@ -8,7 +8,7 @@
 
 static const std::vector<std::string> suffix_array = { "w", "sw", "s", "se", "e", "ne", "n", "nw", "w" };
 
-void AttackState::Start(ActionFSMComponent& fsm) {
+void AttackState::Start(ActionFSMComponent& fsm, const std::string& attack, const Vec2& dir) {
     auto transform = EntityManager::Get<TransformComponent>(fsm.parent);
     auto sprite = EntityManager::Get<SpriteComponent>(fsm.parent);
     auto ability = EntityManager::Get<AbilityComponent>(fsm.parent);
@@ -18,9 +18,8 @@ void AttackState::Start(ActionFSMComponent& fsm) {
     while (!path->points.empty())
         path->points.pop();
         
-    Vec2 mouse_pos = Engine::GetMouseLocationWorldSpace();
-    Vec2 dir = mouse_pos - transform->position;
-    auto attack = "sword_swipe";
+    // Vec2 mouse_pos = Engine::GetMouseLocationWorldSpace();
+    // Vec2 dir = mouse_pos - transform->position;
 
     fsm.angle = int(0.5*(atan2(dir.y, dir.x)*8./M_PI + 9.));
 
@@ -36,6 +35,8 @@ void AttackState::Update(ActionFSMComponent& fsm, float dt) {
 
     if (ability->Finished()) {
         fsm.lock_state = false;
-        fsm.SetState("idle");
+        fsm.SetState<IdleState>();
     }
 }
+
+const std::string AttackState::name = "attack"; 

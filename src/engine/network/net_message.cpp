@@ -12,16 +12,36 @@ namespace Net {
         os << "ID:" << int(msg.header.id) << " Size:" << msg.header.size;
         return os;
     }
+
+
+    message& operator<< (message& msg, const char* data) {
+        size_t i = msg.body.size();
+        size_t len = strlen(data);
+        msg.body.resize(msg.body.size() + len + 1);
+        std::memcpy(msg.body.data()+i, data, len);
+        msg.body[i+len] = len;
+        msg.header.size = msg.size();
+        return msg;
+    }
+    message& operator<< (message& msg, const std::string& data) {
+        size_t i = msg.body.size();
+        msg.body.resize(msg.body.size() + data.length() + 1);
+        std::memcpy(msg.body.data()+i, data.c_str(), data.length());
+        msg.body[i+data.length()] = data.length();
+        msg.header.size = msg.size();
+        return msg;
+    }
     message& operator>> (message& msg, std::string& data) {
         int size = msg.body.size();
-        while (msg.body[size-1] == '\0') size--;            // eliminate any trailing '\0'
-        int start = size-1;
-        while (start > 0 && msg.body[start] != '\0') start--;            // go back until we hit another string or the end
+        std::uint8_t len = msg.body[size-1];
+        size--;
+
+        data.resize(len);
+        for (int i = 0; i < len; i++)
+            data[len-1-i] = msg.body[size-1-i];
+        size -= len;
         
-        for (int i = start + (msg.body[start] == '\0' ? 1 : 0); i < size; i++)
-            data += msg.body[i];
-        
-        msg.body.resize(start);
+        msg.body.resize(size);
         msg.header.size = msg.size();
         return msg;
     }
