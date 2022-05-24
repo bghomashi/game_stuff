@@ -36,7 +36,7 @@ bool MainClientState::SetupHooks() {
         attack_msg << Engine::client_id;
         attack_msg << dir.x << dir.y;
         attack_msg << "sword_swipe";
-        attack_msg.header.size = attack_msg.size();
+        attack_msg.header.size = attack_msg.body.size();
         Engine::client.Send(attack_msg);
 
         // post message
@@ -161,7 +161,7 @@ void MainClientState::Update(float dt) {
         Net::message move_msg = {GameMessage::PLAYER_MOVE};
         move_msg << Engine::client_id;
         move_msg << destination.x << destination.y;
-        move_msg.header.size = move_msg.size();
+        move_msg.header.size = move_msg.body.size();
         Engine::client.Send(move_msg);
 
         // post message

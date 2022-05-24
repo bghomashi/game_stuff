@@ -27,7 +27,7 @@ void ServerState::ClientRequestConnect(Net::message& msg, const Net::ClientID& u
 
     Net::message spawn_msg = {GameMessage::CHARACTER_SPAWN};
     spawn_msg << (unsigned)uuid; 
-    spawn_msg.header.size = spawn_msg.size();
+    spawn_msg.header.size = spawn_msg.body.size();
     Engine::server.Send(spawn_msg, uuid);
 
     // notify previous network clients
@@ -43,7 +43,7 @@ void ServerState::ClientRequestConnect(Net::message& msg, const Net::ClientID& u
         if (nc.client_id != uuid) {
             Net::message spawn_msg = {GameMessage::CHARACTER_SPAWN};
             spawn_msg << (unsigned)nc.client_id; 
-            spawn_msg.header.size = spawn_msg.size();
+            spawn_msg.header.size = spawn_msg.body.size();
             Engine::server.Send(spawn_msg, uuid);
         }
     });
