@@ -55,7 +55,7 @@ namespace Net {
         while (byte - packet.data.data() < packet.data.size()) {
             std::memcpy(&msg.header, byte, sizeof(msg.header)); byte += sizeof(msg.header);
             msg.body.resize(msg.header.size - sizeof(msg.header));
-            std::memcpy(msg.body.data(), byte, msg.body.size());  byte += msg.header.size;
+            std::memcpy(msg.body.data(), byte, msg.body.size());  byte += msg.body.size();
 
             _incoming_messages.push(msg);
         }
