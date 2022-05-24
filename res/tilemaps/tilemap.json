@@ -1,0 +1,37 @@
+{
+    "resource_type" : "tilemap",
+    "tile_size" : [186, 93],
+    "image_files" : [
+        {
+            "name" : "grass",
+            "image" : "res/images/tilemap/grass.png",
+            "sprite_size" : [ 372, 186 ],
+            "sprite_offset" : [ 10, 96 ],
+            "tile_size" : [ 500, 500 ]
+        },
+        {
+            "name" : "trees",
+            "image" : "res/images/tilemap/trees.png",
+            "sprite_size" : [ 372, 186 ],
+            "sprite_offset" : [ 10, 96 ],
+            "tile_size" : [ 500, 500 ]
+        }
+    ],
+    "grid_dim" : [10, 10],
+    "layers" : [
+        {
+            "name" : "layer1",
+            "image_file" : "grass",
+            "grid" : [  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                        0, 5, 0, 0, 0, 4, 0, 0, 3, 0,
+                        0, 5, 0, 0, 0, 0, 3, 0, 0, 0,
+                        0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
+                        0, 0, 0, 0, 0, 0, 0, 3, 0, 0,
+                        0, 0, 0, 2, 2, 0, 0, 4, 0, 0,
+                        0, 0, 2, 2, 2, 0, 0, 0, 0, 0,
+                        0, 0, 0, 2, 0, 0, 0, 0, 4, 3,
+                        3, 0, 0, 0, 0, 4, 0, 0, 0, 3,
+                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0    ]
+        }
+    ]
+}

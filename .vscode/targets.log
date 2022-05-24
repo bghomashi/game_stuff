@@ -1,0 +1,3083 @@
+make all -f /home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sun May 22 22:16:18 2022
+
+# Variables
+
+# makefile (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 8)
+OBJ = $(subst $(SDIR), $(ODIR), $(csrc:.c=.o)) $(subst $(SDIR), $(ODIR), $(ccsrc:.cpp=.o)) $(subst ../, $(ODIR),$(exsrc:.c=.o))
+# environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-08f62346-dfce-4bc8-a484-901e3c791a5a.sock
+# environment
+LC_NAME = en_US.UTF-8
+# environment
+LC_NUMERIC = en_US.UTF-8
+# environment
+VSCODE_CWD = /home/bghomashi
+# environment
+LC_ADDRESS = en_US.UTF-8
+# environment
+GDM_LANG = en_US.utf8
+# default
+MAKE_COMMAND := make
+# makefile (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 7)
+exsrc = $(wildcard GL/*.c)
+# environment
+GTK3_MODULES = xapp-gtk3-module:xapp-gtk3-module
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/bghomashi/Documents/projects/GAMES/RuneRaider0.2
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+MAIL = /var/spool/mail/bghomashi
+# environment
+XDG_DATA_DIRS = /home/bghomashi/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+VSCODE_LOG_STACK = false
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = /home/bghomashi/.config/Code - OSS/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
+# environment
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
+# environment
+LANG = C
+# environment
+XAUTHORITY = /home/bghomashi/.Xauthority
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# makefile (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 11)
+DEP = $(subst $(ODIR), $(DDIR), $(OBJ:.o=.d))
+# makefile
+CURDIR := /home/bghomashi/Documents/projects/GAMES/RuneRaider0.2
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXX96hJJp/agent.1294
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_CONFIG_DIRS = /etc/xdg
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 3)
+ODIR = obj/
+# environment
+XDG_SESSION_DESKTOP = xfce
+# makefile (from 'dep/main.d', line 1)
+MAKEFILE_LIST := /home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile dep/engine/utility/matrix2.d dep/engine/utility/logger.d dep/engine/utility/timer.d dep/engine/utility/UUID.d dep/engine/utility/matrix4.d dep/engine/components/ability_component.d dep/engine/components/action_fms_component.d dep/engine/engine.d dep/engine/network/client.d dep/engine/network/net_message.d dep/engine/network/network.d dep/engine/network/address.d dep/engine/network/packet.d dep/engine/network/connection.d dep/engine/network/server.d dep/engine/ecs/typeid.d dep/engine/ecs/entity_manager.d dep/engine/systems/sprite_renderer.d dep/engine/input/input.d dep/engine/graphics/objects/sprite.d dep/engine/graphics/objects/sprite_resource.d dep/engine/graphics/objects/atlas.d dep/engine/graphics/objects/tilemap.d dep/engine/graphics/objects/camera.d dep/engine/graphics/glw/shader.d dep/engine/graphics/glw/framebuffer.d dep/engine/graphics/glw/image.d dep/engine/graphics/glw/colors.d dep/engine/graphics/glw/vertex_buffer.d dep/engine/graphics/glw/convert_to_gl.d dep/engine/graphics/glw/device.d dep/engine/graphics/glw/matrix_stack.d dep/engine/graphics/glw/font.d dep/engine/graphics/glw/texture2d.d dep/engine/graphics/glw/draw_commands.d dep/engine/graphics/glw/window.d dep/engine/messages/message_queue.d dep/game/combat/combat.d dep/game/action_states/character_damage_state.d dep/game/action_states/character_walk_state.d dep/game/action_states/character_die_state.d dep/game/action_states/character_idle_state.d dep/game/action_states/character_attack_state.d dep/game/app_states/start_server_state.d dep/game/app_states/start_client_state.d dep/game/application/app_setup_hooks.d dep/game/application/app_shutdown.d dep/game/application/app_update.d dep/game/application/app_draw.d dep/game/application/app_load_resource.d dep/game/application/app_start_up.d dep/game/abilities/sword_swipe.d dep/main.d
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+VSCODE_PID = 13225
+# environment
+XDG_SESSION_TYPE = x11
+# environment
+CUDA_PATH = /opt/cuda
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 6)
+ccsrc = $(shell find $(SDIR) -name "*.cpp")
+# environment
+SESSION_MANAGER = local/TheMachine:@/tmp/.ICE-unix/1233,unix/TheMachine:/tmp/.ICE-unix/1233
+# automatic
+*F = $(notdir $*)
+# environment
+QT_QPA_PLATFORMTHEME = qt5ct
+# environment
+CHROME_DESKTOP = code-oss.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# makefile (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 1)
+IDIR = inc/
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 0
+# makefile (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 2)
+SDIR = src/
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /home/bghomashi/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/opt/cuda/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin
+# default
+MAKEFILES := 
+# environment
+LC_MONETARY = en_US.UTF-8
+# environment
+MOTD_SHOWN = pam
+# automatic
+^F = $(notdir $^)
+# makefile (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 18)
+LDLIBS = -lm -lGL -lGLU -lglfw -lX11 -lfreetype -pthread
+# environment
+LC_TIME = en_US.UTF-8
+# environment
+XDG_CONFIG_HOME = /home/bghomashi/.config
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+LC_TELEPHONE = en_US.UTF-8
+# automatic
+?F = $(notdir $?)
+# environment
+XDG_SEAT = seat0
+# environment
+XDG_CURRENT_DESKTOP = XFCE
+# automatic
++F = $(notdir $+)
+# environment
+XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
+# environment
+DESKTOP_SESSION = xfce
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = XFCE
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = bghomashi
+# makefile (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 14)
+CPPFLAGS = -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2
+# environment
+XDG_VTNR = 7
+# makefile
+.DEFAULT_GOAL := runeraider
+# environment
+EDITOR = /usr/bin/nano
+# environment
+DISPLAY = :0.0
+# environment
+GTK_MODULES = canberra-gtk-module:canberra-gtk-module
+# environment
+USER = bghomashi
+# default
+MAKE_VERSION := 4.3
+# 'override' directive
+.SHELLSTATUS := 0
+# makefile (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 5)
+csrc = $(shell find $(SDIR) -name "*.c")
+# environment
+LC_MEASUREMENT = en_US.UTF-8
+# environment
+SSH_AGENT_PID = 1295
+# environment
+_ = /usr/bin/make
+# environment
+LC_PAPER = en_US.UTF-8
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# makefile (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 4)
+DDIR = dep/
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+GTK2_RC_FILES = /home/bghomashi/.gtkrc-2.0
+# environment
+HOME = /home/bghomashi
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-167b5ada-1.67.0-main.sock
+# environment
+XDG_SESSION_ID = 1
+# environment
+PANEL_GDK_CORE_DEVICE_EVENTS = 0
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+QT_AUTO_SCREEN_SCALE_FACTOR = 0
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/bghomashi
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
+# environment
+XDG_MENU_PREFIX = xfce-
+# environment
+GDMSESSION = xfce
+# environment
+LC_IDENTIFICATION = en_US.UTF-8
+# variable set hash-table stats:
+ 
+# Load=119/1024=12%, Rehash=0, Collisions=7/302=2%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# src/engine/components (device 2066, inode 4718619): 4 files, no impossibilities.
+# src/engine/graphics/glw (device 2066, inode 4721727): 16 files, 1 impossibilities.
+# dep (device 2066, inode 4981770): No files, no impossibilities so far.
+# dep/engine/ecs (device 2066, inode 5506493): 4 files, no impossibilities.
+# dep/engine/network (device 2066, inode 5243270): 9 files, no impossibilities.
+# src/game/application (device 2066, inode 4718604): No files, no impossibilities so far.
+# dep/engine/graphics/objects (device 2066, inode 4981791): 7 files, no impossibilities.
+# src/engine/systems (device 2066, inode 5770169): 3 files, no impossibilities.
+# dep/engine/input (device 2066, inode 5506489): 3 files, no impossibilities.
+# dep/engine/components (device 2066, inode 5767902): 6 files, no impossibilities.
+# src/engine/network (device 2066, inode 4722244): 9 files, no impossibilities.
+# src/engine/ecs (device 2066, inode 4852229): 4 files, no impossibilities.
+# dep/game/abilities (device 2066, inode 5903230): No files, no impossibilities so far.
+# dep/engine/systems (device 2066, inode 5770321): 3 files, no impossibilities.
+# src (device 2066, inode 4721721): No files, no impossibilities so far.
+# src/game/app_states (device 2066, inode 4718659): No files, no impossibilities so far.
+# GL (device 2066, inode 4721714): 8 files, no impossibilities.
+# dep/engine/graphics/glw (device 2066, inode 4981776): 14 files, no impossibilities.
+# .. (device 2066, inode 4718666): No files, no impossibilities so far.
+# dep/game/combat (device 2066, inode 6301443): 3 files, no impossibilities.
+# src/game/action_states (device 2066, inode 4718620): 7 files, no impossibilities.
+# src/engine/input (device 2066, inode 4852231): 3 files, no impossibilities.
+# src/game/combat (device 2066, inode 4722147): 3 files, no impossibilities.
+# dep/engine/messages (device 2066, inode 5506491): 3 files, no impossibilities.
+# src/game/abilities (device 2066, inode 4981754): No files, no impossibilities so far.
+# dep/game/action_states (device 2066, inode 6569501): 8 files, no impossibilities.
+# src/engine/messages (device 2066, inode 4852230): 3 files, no impossibilities.
+# dep/game/app_states (device 2066, inode 7079984): No files, no impossibilities so far.
+# src/engine/utility (device 2066, inode 4721747): 7 files, no impossibilities.
+# dep/engine (device 2066, inode 4981773): 11 files, no impossibilities.
+# src/engine (device 2066, inode 4721723): 11 files, no impossibilities.
+# dep/game/application (device 2066, inode 5637698): No files, no impossibilities so far.
+# src/engine/graphics/objects (device 2066, inode 4721742): 7 files, no impossibilities.
+# dep/engine/utility (device 2066, inode 4981800): 7 files, no impossibilities.
+
+# 163 files, 1 impossibilities in 34 directories.
+
+# Implicit Rules
+
+%/:
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+dep/%.d: src/%.cpp | $(dir $@)
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/%.o: src/%.c | $(dir $@)
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 41):
+	$(CC) $(CPPFLAGS) -c $< -o $@
+
+obj/%.o: ../%.c | $(dir $@)
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 44):
+	$(CC) $(CPPFLAGS) -c $< -o $@
+
+obj/%.o: src/%.cpp | $(dir $@)
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 47):
+	$(CXX) $(CPPFLAGS) -c $< -o $@
+
+# 5 implicit rules, 0 (0.0%) terminal.
+# Files
+
+# Not a target:
+inc/engine/components/sprite_component.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/systems/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/engine/systems'
+#  Last modified 2022-05-21 22:44:26.658907234
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+# Not a target:
+inc/engine/graphics/glw/font.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/graphics/objects/camera.o: src/engine/graphics/objects/camera.cpp inc/engine/graphics/objects/camera.h inc/engine/utility/vector2.h inc/engine/utility/rectangle.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/utility/timer.d: src/engine/utility/timer.cpp | dep/engine/utility/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/utility/timer'
+#  Last modified 2022-05-22 22:16:18.215398526
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/utility/timer.d
+# automatic
+# * := engine/utility/timer
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/engine/components/ability_component.d: src/engine/components/ability_component.cpp | dep/engine/components/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/components/ability_component'
+#  Last modified 2022-05-22 22:16:18.175397633
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/components/ability_component.d
+# automatic
+# * := engine/components/ability_component
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+/usr/include/freetype2/freetype/config/ftstdlib.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/graphics/objects/sprite_resource.d: src/engine/graphics/objects/sprite_resource.cpp | dep/engine/graphics/objects/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/objects/sprite_resource'
+#  Last modified 2022-05-22 22:16:17.718720761
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/objects/sprite_resource.d
+# automatic
+# * := engine/graphics/objects/sprite_resource
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+src/engine/network/packet.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 21:37:32.855129965
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/engine/utility/timer.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/graphics/objects/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/engine/graphics/objects'
+#  Last modified 2022-05-21 22:44:26.58890657
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+# Not a target:
+obj/engine/graphics/glw/glad.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/game/combat/combat.o: src/game/combat/combat.cpp inc/game/combat/combat.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/utility/rectangle.h inc/engine/utility/ranged_value.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/components/transform_component.h inc/engine/utility/vector2.h inc/game/messages/messages.h inc/engine/messages/message_queue.h inc/game/components/stats_component.h inc/engine/components/ability_component.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/systems/sprite_renderer.d: src/engine/systems/sprite_renderer.cpp | dep/engine/systems/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/systems/sprite_renderer'
+#  Last modified 2022-05-22 22:16:17.828723221
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/systems/sprite_renderer.d
+# automatic
+# * := engine/systems/sprite_renderer
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+ 
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+/usr/include/freetype2/freetype/config/integer-types.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/graphics/objects/tilemap.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-19 23:35:54.02681158
+#  File has been updated.
+#  Successfully updated.
+
+obj/engine/network/server.o: src/engine/network/server.cpp inc/engine/network/network.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/game/action_states/character_damage_state.d: src/game/action_states/character_damage_state.cpp | dep/game/action_states/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/action_states/character_damage_state'
+#  Last modified 2022-05-22 22:16:17.115373947
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/action_states/character_damage_state.d
+# automatic
+# * := game/action_states/character_damage_state
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/engine/engine.d: src/engine/engine.cpp | dep/engine/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/engine'
+#  Last modified 2022-05-22 22:16:18.108729475
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/engine.d
+# automatic
+# * := engine/engine
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/game/application/app_draw.d: src/game/application/app_draw.cpp | dep/game/application/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/application/app_draw'
+#  Last modified 2022-05-22 22:16:16.748699088
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/application/app_draw.d
+# automatic
+# * := game/application/app_draw
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+src/game/application/app_update.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 19:42:37.570716408
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/game/components/stats_component.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/graphics/glw/framebuffer.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/game/app_states/start_client_state.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 22:11:51.342707976
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/engine/components/path_component.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/utility/UUID.o: src/engine/utility/UUID.cpp inc/engine/utility/UUID.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/usr/include/freetype2/freetype/ftmoderr.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+runeraider: obj/engine/graphics/glw/glad.o obj/engine/utility/matrix2.o obj/engine/utility/logger.o obj/engine/utility/timer.o obj/engine/utility/UUID.o obj/engine/utility/matrix4.o obj/engine/components/ability_component.o obj/engine/components/action_fms_component.o obj/engine/engine.o obj/engine/network/client.o obj/engine/network/net_message.o obj/engine/network/network.o obj/engine/network/address.o obj/engine/network/packet.o obj/engine/network/connection.o obj/engine/network/server.o obj/engine/ecs/typeid.o obj/engine/ecs/entity_manager.o obj/engine/systems/sprite_renderer.o obj/engine/input/input.o obj/engine/graphics/objects/sprite.o obj/engine/graphics/objects/sprite_resource.o obj/engine/graphics/objects/atlas.o obj/engine/graphics/objects/tilemap.o obj/engine/graphics/objects/camera.o obj/engine/graphics/glw/shader.o obj/engine/graphics/glw/framebuffer.o obj/engine/graphics/glw/image.o obj/engine/graphics/glw/colors.o obj/engine/graphics/glw/vertex_buffer.o obj/engine/graphics/glw/convert_to_gl.o obj/engine/graphics/glw/device.o obj/engine/graphics/glw/matrix_stack.o obj/engine/graphics/glw/font.o obj/engine/graphics/glw/texture2d.o obj/engine/graphics/glw/draw_commands.o obj/engine/graphics/glw/window.o obj/engine/messages/message_queue.o obj/game/combat/combat.o obj/game/action_states/character_damage_state.o obj/game/action_states/character_walk_state.o obj/game/action_states/character_die_state.o obj/game/action_states/character_idle_state.o obj/game/action_states/character_attack_state.o obj/game/app_states/start_server_state.o obj/game/app_states/start_client_state.o obj/game/application/app_setup_hooks.o obj/game/application/app_shutdown.o obj/game/application/app_update.o obj/game/application/app_draw.o obj/game/application/app_load_resource.o obj/game/application/app_start_up.o obj/game/abilities/sword_swipe.o obj/main.o GL/glew.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 22):
+	$(CXX) -o $@ $^ $(LDLIBS)
+
+# Not a target:
+src/engine/graphics/glw/convert_to_gl.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2021-05-31 19:52:32
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/engine/utility/ranged_value.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/game/application/app_shutdown.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-19 23:52:05.478058383
+#  File has been updated.
+#  Successfully updated.
+
+obj/main.o: src/main.cpp inc/game/app_states/app_states.h inc/game/app_states/start_client_state.h inc/engine/application.h inc/game/app_states/start_server_state.h inc/engine/engine.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/utility/vector2.h inc/engine/messages/message_queue.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/objects/camera.h inc/engine/utility/rectangle.h inc/engine/graphics/objects/tilemap.h inc/engine/resource_manager/resource_manager.h inc/engine/network/network.h inc/engine/utility/logger.h inc/engine/utility/timer.h inc/engine/utility/circular_buffer.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/usr/include/freetype2/ft2build.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/graphics/objects/sprite_resource.o: src/engine/graphics/objects/sprite_resource.cpp inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/utility/json.hpp inc/engine/utility/logger.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+GL/glew.d:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+dep/game/application/app_update.d: src/game/application/app_update.cpp | dep/game/application/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/application/app_update'
+#  Last modified 2022-05-22 22:16:16.792033389
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/application/app_update.d
+# automatic
+# * := game/application/app_update
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+src/game/combat/combat.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-21 23:34:48.659005713
+#  File has been updated.
+#  Successfully updated.
+
+dep/engine/messages/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/engine/messages'
+#  Last modified 2022-05-21 22:44:25.988900888
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+# Not a target:
+/usr/include/freetype2/freetype/config/public-macros.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/game/abilities/sword_swipe.o: src/game/abilities/sword_swipe.cpp inc/game/abilities/sword_swipe.h inc/engine/components/ability_component.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/game/combat/combat.h inc/engine/utility/rectangle.h inc/engine/utility/ranged_value.h inc/engine/components.h inc/engine/components/transform_component.h inc/engine/utility/vector2.h inc/engine/components/sprite_component.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/components/path_component.h inc/engine/components/action_fsm_component.h inc/game/messages/messages.h inc/engine/messages/message_queue.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/graphics/glw/device.d: src/engine/graphics/glw/device.cpp | dep/engine/graphics/glw/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/glw/device'
+#  Last modified 2022-05-22 22:16:17.395380204
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/glw/device.d
+# automatic
+# * := engine/graphics/glw/device
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/game/app_states/start_client_state.o: src/game/app_states/start_client_state.cpp inc/game/app_states/app_states.h inc/game/app_states/start_client_state.h inc/engine/application.h inc/game/app_states/start_server_state.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/graphics/objects/tilemap.o: src/engine/graphics/objects/tilemap.cpp inc/engine/graphics/objects/tilemap.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/utility/json.hpp inc/engine/utility/logger.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+dep/engine/graphics/glw/glad.d:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# automatic
+# @ := dep/engine/graphics/glw/glad.d
+# automatic
+# * := engine/graphics/glw/glad
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+
+# Not a target:
+src/engine/input/input.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-19 23:49:52.636562222
+#  File has been updated.
+ 
+#  Successfully updated.
+
+dep/engine/graphics/glw/image.d: src/engine/graphics/glw/image.cpp | dep/engine/graphics/glw/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/glw/image'
+#  Last modified 2022-05-22 22:16:17.485382214
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/glw/image.d
+# automatic
+# * := engine/graphics/glw/image
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/engine/graphics/glw/convert_to_gl.d: src/engine/graphics/glw/convert_to_gl.cpp | dep/engine/graphics/glw/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/glw/convert_to_gl'
+#  Last modified 2022-05-22 22:16:17.428714282
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/glw/convert_to_gl.d
+# automatic
+# * := engine/graphics/glw/convert_to_gl
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+/usr/include/freetype2/freetype/fterrors.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/graphics/objects/atlas.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/graphics/glw/convert_to_gl.o: src/engine/graphics/glw/convert_to_gl.cpp src/engine/graphics/glw/internal_graphics.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/game/action_states/character_attack_state.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-21 19:02:50.052070893
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/engine/utility/vector3.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/network/address.d: src/engine/network/address.cpp | dep/engine/network/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/network/address'
+#  Last modified 2022-05-22 22:16:17.982059978
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/network/address.d
+# automatic
+# * := engine/network/address
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+inc/engine/network/network.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/components/ability_component.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/game/action_states/character_attack_state.d: src/game/action_states/character_attack_state.cpp | dep/game/action_states/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/action_states/character_attack_state'
+#  Last modified 2022-05-22 22:16:16.948703557
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/action_states/character_attack_state.d
+# automatic
+# * := game/action_states/character_attack_state
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/engine/ecs/typeid.o: src/engine/ecs/typeid.cpp inc/engine/ecs/typeid.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/utility/matrix4.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/network/connection.o: src/engine/network/connection.cpp inc/engine/network/network.h inc/engine/utility/logger.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/network/server.d: src/engine/network/server.cpp | dep/engine/network/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/network/server'
+#  Last modified 2022-05-22 22:16:17.892057968
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/network/server.d
+# automatic
+# * := engine/network/server
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/engine/utility/matrix4.d: src/engine/utility/matrix4.cpp | dep/engine/utility/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/utility/matrix4'
+#  Last modified 2022-05-22 22:16:18.202064894
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/utility/matrix4.d
+# automatic
+# * := engine/utility/matrix4
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/engine/input/input.o: src/engine/input/input.cpp inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/utility/vector2.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/ecs/entity_manager.d: src/engine/ecs/entity_manager.cpp | dep/engine/ecs/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/ecs/entity_manager'
+#  Last modified 2022-05-22 22:16:17.858723889
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/ecs/entity_manager.d
+# automatic
+# * := engine/ecs/entity_manager
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/engine/graphics/objects/atlas.d: src/engine/graphics/objects/atlas.cpp | dep/engine/graphics/objects/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/objects/atlas'
+#  Last modified 2022-05-22 22:16:17.665386236
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/objects/atlas.d
+# automatic
+# * := engine/graphics/objects/atlas
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+src/engine/network/address.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 17:04:17.280246032
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/engine/components/ability_component.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-21 18:51:12.024101324
+#  File has been updated.
+#  Successfully updated.
+
+dep/engine/ecs/typeid.d: src/engine/ecs/typeid.cpp | dep/engine/ecs/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/ecs/typeid'
+#  Last modified 2022-05-22 22:16:17.862057297
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/ecs/typeid.d
+# automatic
+# * := engine/ecs/typeid
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+src/engine/ecs/typeid.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-20 00:00:00.896706567
+#  File has been updated.
+#  Successfully updated.
+
+dep/game/action_states/character_idle_state.d: src/game/action_states/character_idle_state.cpp | dep/game/action_states/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/action_states/character_idle_state'
+#  Last modified 2022-05-22 22:16:16.992037858
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/action_states/character_idle_state.d
+# automatic
+# * := game/action_states/character_idle_state
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/game/combat/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/game/combat'
+#  Last modified 2022-05-21 22:44:25.948900511
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+dep/game/application/app_shutdown.d: src/game/application/app_shutdown.cpp | dep/game/application/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/application/app_shutdown'
+#  Last modified 2022-05-22 22:16:16.825367468
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/application/app_shutdown.d
+# automatic
+# * := game/application/app_shutdown
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/engine/graphics/glw/vertex_buffer.o: src/engine/graphics/glw/vertex_buffer.cpp inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/utility/logger.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/components/action_fms_component.o: src/engine/components/action_fms_component.cpp inc/engine/components/action_fsm_component.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/utility/vector2.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/utility/logger.cpp:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2022-05-12 15:55:20.693784
+#  File has been updated.
+#  Successfully updated.
+
+dep/engine/utility/UUID.d: src/engine/utility/UUID.cpp | dep/engine/utility/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/utility/UUID'
+#  Last modified 2022-05-22 22:16:18.205398302
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/utility/UUID.d
+# automatic
+# * := engine/utility/UUID
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+inc/game/action_states/character_action_states.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/utility/logger.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/graphics/glw/device.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/network/net_message.o: src/engine/network/net_message.cpp inc/engine/network/network.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/network/network.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 17:14:47.34033108
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/main.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 21:08:52.313613881
+#  File has been updated.
+#  Successfully updated.
+
+obj/game/action_states/character_walk_state.o: src/game/action_states/character_walk_state.cpp inc/game/action_states/character_action_states.h inc/engine/components/action_fsm_component.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/utility/vector2.h inc/engine/components.h inc/engine/components/transform_component.h inc/engine/utility/vector2.h inc/engine/components/sprite_component.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/components/ability_component.h inc/engine/components/path_component.h inc/engine/engine.h inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/messages/message_queue.h inc/engine/graphics/objects/camera.h inc/engine/utility/rectangle.h inc/engine/graphics/objects/tilemap.h inc/engine/resource_manager/resource_manager.h inc/engine/network/network.h inc/engine/application.h inc/engine/utility/logger.h inc/engine/utility/timer.h inc/engine/utility/circular_buffer.h inc/game/components/stats_component.h inc/game/messages/messages.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/graphics/graphics.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/network/net_message.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 21:52:16.569121159
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/engine/ecs/typeid.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/graphics/objects/camera.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-20 00:40:23.40524355
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 28):
+	rm -f $(OBJ) runeraider
+	rm -f $(DEP)
+
+obj/engine/graphics/glw/framebuffer.o: src/engine/graphics/glw/framebuffer.cpp inc/engine/graphics/glw/framebuffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h src/engine/graphics/glw/internal_graphics.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/utility/timer.o: src/engine/utility/timer.cpp inc/engine/utility/timer.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/game/action_states/character_die_state.d: src/game/action_states/character_die_state.cpp | dep/game/action_states/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/action_states/character_die_state'
+#  Last modified 2022-05-22 22:16:17.032038753
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/action_states/character_die_state.d
+# automatic
+# * := game/action_states/character_die_state
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/engine/network/network.o: src/engine/network/network.cpp inc/engine/network/network.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/graphics/glw/framebuffer.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-13 23:01:03.336146
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/engine/graphics/glw/draw_commands.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/game/app_states/start_server_state.o: src/game/app_states/start_server_state.cpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/graphics/glw/draw_commands.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-14 21:46:02.835287
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/engine/components/action_fms_component.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-21 19:01:59.621504363
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/game/app_states/start_client_state.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/usr/include/freetype2/freetype/fterrdef.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/ecs/entity.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/graphics/objects/sprite.d: src/engine/graphics/objects/sprite.cpp | dep/engine/graphics/objects/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/objects/sprite'
+#  Last modified 2022-05-22 22:16:17.755388249
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/objects/sprite.d
+# automatic
+# * := engine/graphics/objects/sprite
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+src/engine/graphics/objects/sprite_resource.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-19 23:35:29.426541213
+#  File has been updated.
+#  Successfully updated.
+
+dep/engine/network/network.d: src/engine/network/network.cpp | dep/engine/network/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/network/network'
+#  Last modified 2022-05-22 22:16:18.012060649
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/network/network.d
+# automatic
+# * := engine/network/network
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/engine/graphics/glw/device.o: src/engine/graphics/glw/device.cpp inc/engine/graphics/glw/device.h inc/engine/graphics/glw/color.h src/engine/graphics/glw/internal_graphics.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/utility/UUID.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/game/action_states/character_damage_state.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-21 19:02:18.168379488
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/engine/engine.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/game/abilities/sword_swipe.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-21 23:42:36.501578617
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/engine/systems/sprite_renderer.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-20 14:03:44.029802952
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/engine/graphics/glw/texture2d.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/graphics/glw/shader.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-13 23:01:20.51964
+#  File has been updated.
+#  Successfully updated.
+
+dep/game/application/app_setup_hooks.d: src/game/application/app_setup_hooks.cpp | dep/game/application/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/application/app_setup_hooks'
+#  Last modified 2022-05-22 22:16:16.865368361
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/application/app_setup_hooks.d
+# automatic
+# * := game/application/app_setup_hooks
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+inc/engine/utility/circular_buffer.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/graphics/glw/shader.d: src/engine/graphics/glw/shader.cpp | dep/engine/graphics/glw/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/glw/shader'
+#  Last modified 2022-05-22 22:16:17.542050147
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/glw/shader.d
+# automatic
+# * := engine/graphics/glw/shader
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+ 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/engine/graphics/glw/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/engine/graphics/glw'
+#  Last modified 2022-05-21 22:44:26.372237852
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+obj/game/application/app_update.o: src/game/application/app_update.cpp inc/game/my_application.h inc/engine/application.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/network/network.h inc/game/network/game_messages.h inc/engine/engine.h inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/utility/vector2.h inc/engine/messages/message_queue.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/objects/camera.h inc/engine/utility/rectangle.h inc/engine/graphics/objects/tilemap.h inc/engine/resource_manager/resource_manager.h inc/engine/utility/logger.h inc/engine/utility/timer.h inc/engine/utility/circular_buffer.h inc/engine/systems/sprite_renderer.h inc/engine/components/sprite_component.h inc/engine/components/transform_component.h inc/engine/components.h inc/engine/components/ability_component.h inc/engine/components/path_component.h inc/engine/components/action_fsm_component.h inc/game/messages/messages.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/graphics/glw/window.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/game/application/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/game/application'
+#  Last modified 2022-05-21 23:42:14.394645239
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+obj/engine/graphics/glw/texture2d.o: src/engine/graphics/glw/texture2d.cpp inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h src/engine/graphics/glw/internal_graphics.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/network/client.d: src/engine/network/client.cpp | dep/engine/network/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/network/client'
+#  Last modified 2022-05-22 22:16:18.068728582
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/network/client.d
+# automatic
+# * := engine/network/client
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+src/engine/graphics/glw/colors.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-13 23:00:28.215818
+#  File has been updated.
+#  Successfully updated.
+
+dep/engine/ecs/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/engine/ecs'
+#  Last modified 2022-05-21 22:44:26.732241262
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+dep/engine/network/packet.d: src/engine/network/packet.cpp | dep/engine/network/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/network/packet'
+#  Last modified 2022-05-22 22:16:17.952059309
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/network/packet.d
+# automatic
+# * := engine/network/packet
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/main.d: src/main.cpp | dep/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'main'
+#  Last modified 2022-05-22 22:16:16.568695065
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/main.d
+# automatic
+# * := main
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/engine/engine.o: src/engine/engine.cpp inc/engine/engine.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/utility/vector2.h inc/engine/messages/message_queue.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/objects/camera.h inc/engine/utility/rectangle.h inc/engine/graphics/objects/tilemap.h inc/engine/resource_manager/resource_manager.h inc/engine/network/network.h inc/engine/application.h inc/engine/utility/logger.h inc/engine/utility/timer.h inc/engine/utility/circular_buffer.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/usr/include/freetype2/freetype/ftsystem.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/game/action_states/character_die_state.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-21 18:19:26.679697801
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/engine/graphics/glw/font.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-14 12:31:37.53805
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+/usr/include/freetype2/freetype/freetype.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/messages/message_queue.o: src/engine/messages/message_queue.cpp inc/engine/messages/message_queue.h inc/engine/utility/slot_map.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/graphics/glw/font.o: src/engine/graphics/glw/font.cpp inc/engine/graphics/glw/font.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/texture2d.h inc/engine/utility/vector2.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/utility/logger.h /usr/include/freetype2/freetype/freetype.h /usr/include/freetype2/ft2build.h /usr/include/freetype2/freetype/config/ftconfig.h /usr/include/freetype2/freetype/config/ftoption.h /usr/include/freetype2/freetype/config/ftstdlib.h /usr/include/freetype2/freetype/config/integer-types.h /usr/include/freetype2/freetype/config/public-macros.h /usr/include/freetype2/freetype/config/mac-support.h /usr/include/freetype2/freetype/fttypes.h /usr/include/freetype2/freetype/ftsystem.h /usr/include/freetype2/freetype/ftimage.h /usr/include/freetype2/freetype/fterrors.h /usr/include/freetype2/freetype/ftmoderr.h /usr/include/freetype2/freetype/fterrdef.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/usr/include/freetype2/freetype/config/ftoption.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/graphics/glw/vertex_buffer.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-13 23:01:31.103073
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/game/combat/combat.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/usr/include/freetype2/freetype/fttypes.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/game/application/app_setup_hooks.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-21 23:41:22.947354282
+#  File has been updated.
+#  Successfully updated.
+
+obj/engine/utility/matrix2.o: src/engine/utility/matrix2.cpp inc/engine/utility/matrix2.h inc/engine/utility/vector2.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/components/transform_component.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/game/abilities/sword_swipe.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/graphics/glad/glad.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/network/packet.o: src/engine/network/packet.cpp inc/engine/network/network.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/game/app_states/start_server_state.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/game/combat/combat.d: src/game/combat/combat.cpp | dep/game/combat/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/combat/combat'
+#  Last modified 2022-05-22 22:16:17.168708472
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/combat/combat.d
+# automatic
+# * := game/combat/combat
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/engine/graphics/glw/draw_commands.d: src/engine/graphics/glw/draw_commands.cpp | dep/engine/graphics/glw/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/glw/draw_commands'
+#  Last modified 2022-05-22 22:16:17.272044115
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/glw/draw_commands.d
+# automatic
+# * := engine/graphics/glw/draw_commands
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+src/engine/utility/UUID.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-15 15:47:21.361001
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/graphics/glw/color.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/graphics/glw/texture2d.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-14 12:08:07.055977
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/engine/utility/image.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/game/action_states/character_walk_state.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-21 20:42:05.190483851
+#  File has been updated.
+#  Successfully updated.
+
+dep/engine/utility/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/engine/utility'
+#  Last modified 2022-05-21 22:44:26.915576331
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+dep/engine/graphics/glw/texture2d.d: src/engine/graphics/glw/texture2d.cpp | dep/engine/graphics/glw/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/glw/texture2d'
+#  Last modified 2022-05-22 22:16:17.3087116
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/glw/texture2d.d
+# automatic
+# * := engine/graphics/glw/texture2d
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+inc/engine/components.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+ 
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+src/engine/network/connection.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 16:12:02.695502828
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/engine/graphics/KHR/khrplatform.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/graphics/glw/matrix_stack.d: src/engine/graphics/glw/matrix_stack.cpp | dep/engine/graphics/glw/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/glw/matrix_stack'
+#  Last modified 2022-05-22 22:16:17.358712717
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/glw/matrix_stack.d
+# automatic
+# * := engine/graphics/glw/matrix_stack
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+GL/glew.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/graphics/objects/camera.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/network/client.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 21:45:11.514007562
+#  File has been updated.
+#  Successfully updated.
+
+dep/engine/graphics/glw/colors.d: src/engine/graphics/glw/colors.cpp | dep/engine/graphics/glw/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/glw/colors'
+#  Last modified 2022-05-22 22:16:17.458714951
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/glw/colors.d
+# automatic
+# * := engine/graphics/glw/colors
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+inc/engine/utility/matrix2.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/graphics/glw/internal_graphics.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/game/app_states/start_client_state.d: src/game/app_states/start_client_state.cpp | dep/game/app_states/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/app_states/start_client_state'
+#  Last modified 2022-05-22 22:16:16.902035847
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/app_states/start_client_state.d
+# automatic
+# * := game/app_states/start_client_state
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/engine/graphics/glw/shader.o: src/engine/graphics/glw/shader.cpp inc/engine/graphics/glw/shader.h inc/engine/utility/logger.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/utility/matrix2.d: src/engine/utility/matrix2.cpp | dep/engine/utility/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/utility/matrix2'
+#  Last modified 2022-05-22 22:16:18.252066011
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/utility/matrix2.d
+# automatic
+# * := engine/utility/matrix2
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+inc/game/messages/messages.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/graphics/glw/matrix_stack.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/game/network/game_messages.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/network/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/engine/network'
+#  Last modified 2022-05-22 21:39:25.23393606
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+# Not a target:
+inc/engine/input/input.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/network/server.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 21:54:44.939792793
+#  File has been updated.
+#  Successfully updated.
+
+obj/game/application/app_draw.o: src/game/application/app_draw.cpp inc/game/my_application.h inc/engine/application.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/network/network.h inc/game/network/game_messages.h inc/engine/engine.h inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/utility/vector2.h inc/engine/messages/message_queue.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/objects/camera.h inc/engine/utility/rectangle.h inc/engine/graphics/objects/tilemap.h inc/engine/resource_manager/resource_manager.h inc/engine/utility/logger.h inc/engine/utility/timer.h inc/engine/utility/circular_buffer.h inc/engine/systems/sprite_renderer.h inc/engine/components/sprite_component.h inc/engine/components/transform_component.h inc/game/combat/combat.h inc/engine/utility/ranged_value.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/graphics/glw/font.d: src/engine/graphics/glw/font.cpp | dep/engine/graphics/glw/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/glw/font'
+#  Last modified 2022-05-22 22:16:17.342045678
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/glw/font.d
+# automatic
+# * := engine/graphics/glw/font
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/game/app_states/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/game/app_states'
+#  Last modified 2022-05-22 21:28:30.565450643
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+# Not a target:
+/usr/include/freetype2/freetype/config/ftconfig.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/graphics/glw/shader.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ 
+obj/engine/graphics/objects/atlas.o: src/engine/graphics/objects/atlas.cpp inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/utility/image.h inc/engine/utility/logger.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/graphics/glw/image.o: src/engine/graphics/glw/image.cpp inc/engine/utility/image.h inc/engine/utility/stb_image.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/graphics/glw/matrix_stack.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-13 23:00:31.109178
+#  File has been updated.
+#  Successfully updated.
+
+dep/engine/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/engine'
+#  Last modified 2022-05-22 13:09:56.647941935
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+obj/game/action_states/character_damage_state.o: src/game/action_states/character_damage_state.cpp inc/game/action_states/character_action_states.h inc/engine/components/action_fsm_component.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/utility/vector2.h inc/engine/components.h inc/engine/components/transform_component.h inc/engine/utility/vector2.h inc/engine/components/sprite_component.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/components/ability_component.h inc/engine/components/path_component.h inc/engine/engine.h inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/messages/message_queue.h inc/engine/graphics/objects/camera.h inc/engine/utility/rectangle.h inc/engine/graphics/objects/tilemap.h inc/engine/resource_manager/resource_manager.h inc/engine/network/network.h inc/engine/application.h inc/engine/utility/logger.h inc/engine/utility/timer.h inc/engine/utility/circular_buffer.h inc/game/components/stats_component.h inc/game/messages/messages.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/utility/matrix2.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2021-06-02 14:46:16
+#  File has been updated.
+#  Successfully updated.
+
+dep/engine/network/net_message.d: src/engine/network/net_message.cpp | dep/engine/network/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/network/net_message'
+#  Last modified 2022-05-22 22:16:18.038727911
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/network/net_message.d
+# automatic
+# * := engine/network/net_message
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/engine/input/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/engine/input'
+#  Last modified 2022-05-21 22:44:26.625573583
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+dep/engine/components/action_fms_component.d: src/engine/components/action_fms_component.cpp | dep/engine/components/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/components/action_fms_component'
+#  Last modified 2022-05-22 22:16:18.145396962
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/components/action_fms_component.d
+# automatic
+# * := engine/components/action_fms_component
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+ 
+
+dep/game/action_states/character_walk_state.d: src/game/action_states/character_walk_state.cpp | dep/game/action_states/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/action_states/character_walk_state'
+#  Last modified 2022-05-22 22:16:17.075373054
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/action_states/character_walk_state.d
+# automatic
+# * := game/action_states/character_walk_state
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+/usr/include/freetype2/freetype/config/mac-support.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/network/client.o: src/engine/network/client.cpp inc/engine/network/network.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/utility/matrix4.o: src/engine/utility/matrix4.cpp inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/utility/vector2.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/game/application/app_start_up.o: src/game/application/app_start_up.cpp inc/game/my_application.h inc/engine/application.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/network/network.h inc/game/network/game_messages.h inc/engine/engine.h inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/utility/vector2.h inc/engine/messages/message_queue.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/objects/camera.h inc/engine/utility/rectangle.h inc/engine/graphics/objects/tilemap.h inc/engine/resource_manager/resource_manager.h inc/engine/utility/logger.h inc/engine/utility/timer.h inc/engine/utility/circular_buffer.h inc/game/messages/messages.h inc/engine/components.h inc/engine/components/transform_component.h inc/engine/components/sprite_component.h inc/engine/components/ability_component.h inc/engine/components/path_component.h inc/engine/components/action_fsm_component.h inc/game/combat/combat.h inc/engine/utility/ranged_value.h inc/game/action_states/character_action_states.h inc/game/components/stats_component.h inc/game/abilities/sword_swipe.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/utility/vector2.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/graphics/glw/matrix_stack.o: src/engine/graphics/glw/matrix_stack.cpp inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/utility/vector2.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/graphics/objects/tilemap.d: src/engine/graphics/objects/tilemap.cpp | dep/engine/graphics/objects/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/objects/tilemap'
+#  Last modified 2022-05-22 22:16:17.628718751
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/objects/tilemap.d
+# automatic
+# * := engine/graphics/objects/tilemap
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/engine/graphics/glw/draw_commands.o: src/engine/graphics/glw/draw_commands.cpp inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/utility/vector2.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/utility/logger.h
+ 
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/components/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/engine/components'
+#  Last modified 2022-05-21 22:44:26.815575384
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+# Not a target:
+src/engine/graphics/objects/atlas.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-19 23:35:46.563395296
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/engine/graphics/glw/image.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2021-05-31 19:28:29
+#  File has been updated.
+#  Successfully updated.
+
+dep/engine/graphics/glw/window.d: src/engine/graphics/glw/window.cpp | dep/engine/graphics/glw/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/glw/window'
+#  Last modified 2022-05-22 22:16:17.235376628
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/glw/window.d
+# automatic
+# * := engine/graphics/glw/window
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/engine/utility/logger.o: src/engine/utility/logger.cpp inc/engine/utility/logger.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/components/ability_component.o: src/engine/components/ability_component.cpp inc/engine/components/ability_component.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/graphics/glw/window.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-15 23:10:18.028657
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-19 23:34:49.899442235
+#  File has been updated.
+#  Successfully updated.
+
+obj/engine/network/address.o: src/engine/network/address.cpp inc/engine/network/network.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/graphics/glw/vertex_buffer.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/utility/timer.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-12 15:55:26.923844
+#  File has been updated.
+#  Successfully updated.
+
+dep/engine/network/connection.d: src/engine/network/connection.cpp | dep/engine/network/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/network/connection'
+#  Last modified 2022-05-22 22:16:17.925392046
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/network/connection.d
+# automatic
+# * := engine/network/connection
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+inc/engine/utility/json.hpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/engine/messages/message_queue.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-20 21:17:48.215224828
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game/action_states/character_idle_state.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-21 19:00:32.32385475
+#  File has been updated.
+#  Successfully updated.
+
+obj/game/application/app_setup_hooks.o: src/game/application/app_setup_hooks.cpp inc/game/my_application.h inc/engine/application.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/network/network.h inc/game/network/game_messages.h inc/engine/engine.h inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/utility/vector2.h inc/engine/messages/message_queue.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/objects/camera.h inc/engine/utility/rectangle.h inc/engine/graphics/objects/tilemap.h inc/engine/resource_manager/resource_manager.h inc/engine/utility/logger.h inc/engine/utility/timer.h inc/engine/utility/circular_buffer.h inc/game/messages/messages.h inc/engine/components.h inc/engine/components/transform_component.h inc/engine/components/sprite_component.h inc/engine/components/ability_component.h inc/engine/components/path_component.h inc/engine/components/action_fsm_component.h inc/game/combat/combat.h inc/engine/utility/ranged_value.h inc/game/action_states/character_action_states.h inc/game/components/stats_component.h inc/game/abilities/sword_swipe.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.SECONDEXPANSION:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/messages/message_queue.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/graphics/glw/window.o: src/engine/graphics/glw/window.cpp inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/graphics/glw/framebuffer.d: src/engine/graphics/glw/framebuffer.cpp | dep/engine/graphics/glw/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/glw/framebuffer'
+#  Last modified 2022-05-22 22:16:17.515382885
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/glw/framebuffer.d
+# automatic
+# * := engine/graphics/glw/framebuffer
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/engine/ecs/entity_manager.o: src/engine/ecs/entity_manager.cpp inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/game/application/app_load_resource.d: src/game/application/app_load_resource.cpp | dep/game/application/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/application/app_load_resource'
+#  Last modified 2022-05-22 22:16:16.70203138
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/application/app_load_resource.d
+# automatic
+# * := game/application/app_load_resource
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/engine/graphics/objects/sprite.o: src/engine/graphics/objects/sprite.cpp inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/utility/logger.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/game/application/app_start_up.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 19:48:56.072435194
+#  File has been updated.
+#  Successfully updated.
+
+dep/game/app_states/start_server_state.d: src/game/app_states/start_server_state.cpp | dep/game/app_states/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/app_states/start_server_state'
+#  Last modified 2022-05-22 22:16:16.908702662
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/app_states/start_server_state.d
+# automatic
+# * := game/app_states/start_server_state
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+inc/engine/utility/rectangle.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/graphics/objects/camera.d: src/engine/graphics/objects/camera.cpp | dep/engine/graphics/objects/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/objects/camera'
+#  Last modified 2022-05-22 22:16:17.575384226
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/objects/camera.d
+# automatic
+ 
+# * := engine/graphics/objects/camera
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+src/engine/graphics/objects/sprite.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-20 23:02:01.705094777
+#  File has been updated.
+#  Successfully updated.
+
+dep/game/action_states/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/game/action_states'
+#  Last modified 2022-05-21 22:44:25.902233402
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+# Not a target:
+src/engine/graphics/glw/device.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-14 12:11:57.65183
+#  File has been updated.
+#  Successfully updated.
+
+dep/game/application/app_start_up.d: src/game/application/app_start_up.cpp | dep/game/application/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/application/app_start_up'
+#  Last modified 2022-05-22 22:16:16.655363668
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/application/app_start_up.d
+# automatic
+# * := game/application/app_start_up
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep'
+#  Last modified 2022-05-21 22:44:25.475562695
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+obj/game/action_states/character_die_state.o: src/game/action_states/character_die_state.cpp inc/game/action_states/character_action_states.h inc/engine/components/action_fsm_component.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/utility/vector2.h inc/engine/components.h inc/engine/components/transform_component.h inc/engine/utility/vector2.h inc/engine/components/sprite_component.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/components/ability_component.h inc/engine/components/path_component.h inc/engine/engine.h inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/messages/message_queue.h inc/engine/graphics/objects/camera.h inc/engine/utility/rectangle.h inc/engine/graphics/objects/tilemap.h inc/engine/resource_manager/resource_manager.h inc/engine/network/network.h inc/engine/application.h inc/engine/utility/logger.h inc/engine/utility/timer.h inc/engine/utility/circular_buffer.h inc/game/components/stats_component.h inc/game/messages/messages.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/game/action_states/character_idle_state.o: src/game/action_states/character_idle_state.cpp inc/game/action_states/character_action_states.h inc/engine/components/action_fsm_component.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/utility/vector2.h inc/engine/components.h inc/engine/components/transform_component.h inc/engine/utility/vector2.h inc/engine/components/sprite_component.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/components/ability_component.h inc/engine/components/path_component.h inc/engine/engine.h inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/messages/message_queue.h inc/engine/graphics/objects/camera.h inc/engine/utility/rectangle.h inc/engine/graphics/objects/tilemap.h inc/engine/resource_manager/resource_manager.h inc/engine/network/network.h inc/engine/application.h inc/engine/utility/logger.h inc/engine/utility/timer.h inc/engine/utility/circular_buffer.h inc/game/components/stats_component.h inc/game/messages/messages.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/game/my_application.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/messages/message_queue.d: src/engine/messages/message_queue.cpp | dep/engine/messages/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/messages/message_queue'
+#  Last modified 2022-05-22 22:16:17.198709143
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/messages/message_queue.d
+# automatic
+# * := engine/messages/message_queue
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+ 
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+dep/game/abilities/:
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'dep/game/abilities'
+#  Last modified 2022-05-21 22:44:25.535563263
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 33):
+	@mkdir -p $@
+
+# Not a target:
+inc/engine/graphics/objects/tilemap.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/game/abilities/sword_swipe.d: src/game/abilities/sword_swipe.cpp | dep/game/abilities/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'game/abilities/sword_swipe'
+#  Last modified 2022-05-22 22:16:16.612029367
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/game/abilities/sword_swipe.d
+# automatic
+# * := game/abilities/sword_swipe
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+obj/game/action_states/character_attack_state.o: src/game/action_states/character_attack_state.cpp inc/game/action_states/character_action_states.h inc/engine/components/action_fsm_component.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/utility/vector2.h inc/engine/components.h inc/engine/components/transform_component.h inc/engine/utility/vector2.h inc/engine/components/sprite_component.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/components/ability_component.h inc/engine/components/path_component.h inc/engine/engine.h inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/messages/message_queue.h inc/engine/graphics/objects/camera.h inc/engine/utility/rectangle.h inc/engine/graphics/objects/tilemap.h inc/engine/resource_manager/resource_manager.h inc/engine/network/network.h inc/engine/application.h inc/engine/utility/logger.h inc/engine/utility/timer.h inc/engine/utility/circular_buffer.h inc/game/components/stats_component.h inc/game/messages/messages.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/game/application/app_load_resource.o: src/game/application/app_load_resource.cpp inc/game/my_application.h inc/engine/application.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/network/network.h inc/game/network/game_messages.h inc/engine/engine.h inc/engine/input/input.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/utility/vector2.h inc/engine/messages/message_queue.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/objects/camera.h inc/engine/utility/rectangle.h inc/engine/graphics/objects/tilemap.h inc/engine/resource_manager/resource_manager.h inc/engine/utility/logger.h inc/engine/utility/timer.h inc/engine/utility/circular_buffer.h inc/game/messages/messages.h inc/engine/components.h inc/engine/components/transform_component.h inc/engine/components/sprite_component.h inc/engine/components/ability_component.h inc/engine/components/path_component.h inc/engine/components/action_fsm_component.h inc/game/combat/combat.h inc/engine/utility/ranged_value.h inc/game/action_states/character_action_states.h inc/game/components/stats_component.h inc/game/abilities/sword_swipe.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/engine/systems/sprite_renderer.o: src/engine/systems/sprite_renderer.cpp inc/engine/systems/sprite_renderer.h inc/engine/components/sprite_component.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/graphics/objects/sprite.h inc/engine/graphics/objects/atlas.h inc/engine/graphics/graphics.h inc/engine/graphics/glw/window.h inc/engine/graphics/glad/glad.h inc/engine/graphics/KHR/khrplatform.h inc/engine/utility/vector2.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/shader.h inc/engine/graphics/glw/matrix_stack.h inc/engine/utility/matrix4.h inc/engine/utility/vector3.h inc/engine/graphics/glw/draw_commands.h inc/engine/graphics/glw/vertex_buffer.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/font.h inc/engine/graphics/glw/texture2d.h inc/engine/graphics/glw/color.h inc/engine/graphics/glw/device.h inc/engine/graphics/glw/framebuffer.h inc/engine/components/transform_component.h inc/engine/utility/vector2.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/game/app_states/app_states.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/game/application/app_load_resource.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-21 23:40:47.386919619
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/engine/utility/stb_image.h:
+#  Implicit rule search has not been done.
+ 
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/graphics/objects/sprite.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/graphics/glw/vertex_buffer.d: src/engine/graphics/glw/vertex_buffer.cpp | dep/engine/graphics/glw/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/graphics/glw/vertex_buffer'
+#  Last modified 2022-05-22 22:16:17.452048137
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/graphics/glw/vertex_buffer.d
+# automatic
+# * := engine/graphics/glw/vertex_buffer
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+inc/engine/application.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/usr/include/freetype2/freetype/ftimage.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/game/application/app_draw.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-20 20:54:33.606861581
+#  File has been updated.
+#  Successfully updated.
+
+obj/game/application/app_shutdown.o: src/game/application/app_shutdown.cpp inc/game/my_application.h inc/engine/application.h inc/engine/ecs/entity.h inc/engine/utility/slot_map.h inc/engine/ecs/typeid.h inc/engine/network/network.h inc/game/network/game_messages.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/utility/slot_map.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/utility/logger.d: src/engine/utility/logger.cpp | dep/engine/utility/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/utility/logger'
+#  Last modified 2022-05-22 22:16:18.23873238
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/utility/logger.d
+# automatic
+# * := engine/utility/logger
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+src/engine/ecs/entity_manager.cpp:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2022-05-20 15:54:43.37224778
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/engine/engine.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 22:15:24.204189637
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/engine/utility/matrix4.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2021-05-31 19:06:09
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game/app_states/start_server_state.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 20:57:26.339052715
+#  File has been updated.
+#  Successfully updated.
+
+obj/engine/graphics/glw/colors.o: src/engine/graphics/glw/colors.cpp inc/engine/graphics/glw/color.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/resource_manager/resource_manager.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+inc/engine/components/action_fsm_component.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dep/engine/input/input.d: src/engine/input/input.cpp | dep/engine/input/
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'engine/input/input'
+#  Last modified 2022-05-22 22:16:17.788722325
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := dep/engine/input/input.d
+# automatic
+# * := engine/input/input
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile', line 37):
+	@$(CPP) $(CPPFLAGS) $< -MM -MT $(subst $(DDIR), $(ODIR), $(@:.d=.o)) >$@
+
+# Not a target:
+inc/engine/systems/sprite_renderer.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+ 
+# Load=258/1024=25%, Rehash=0, Collisions=303/1788=17%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 2 (1) / strings = 458 / storage = 12299 B / avg = 26 B
+# current buf: size = 8162 B / used = 4146 B / count = 216 / avg = 19 B
+# other used: total = 8153 B / count = 242 / avg = 33 B
+# other free: total = 9 B / max = 9 B / min = 9 B / avg = 9 B
+
+# strcache performance: lookups = 1846 / hit rate = 75%
+# hash-table stats:
+# Load=458/8192=6%, Rehash=0, Collisions=33/1846=2%
+# Finished Make data base on Sun May 22 22:16:18 2022
+
+ 

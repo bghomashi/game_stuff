@@ -1,0 +1,16 @@
+{
+    "Move" : {
+        "disc" : "Move player",
+        "action" : "Press",
+        "key" : "MouseLeft",
+        "mods" : [
+        ]
+    },
+    "Attack1": {
+        "disc" : "Attack",
+        "action" : "Release",
+        "key" : "Space",
+        "mods" : [
+        ]
+    }
+}

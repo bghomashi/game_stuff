@@ -1,0 +1,104 @@
+make -f /home/bghomashi/Documents/projects/GAMES/RuneRaider0.2/Makefile --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2'
+ 
+mkdir -p obj/engine/graphics/glw/
+cc -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/glad.c -o obj/engine/graphics/glw/glad.o
+ 
+mkdir -p obj/engine/utility/
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/utility/matrix2.cpp -o obj/engine/utility/matrix2.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/utility/logger.cpp -o obj/engine/utility/logger.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/utility/timer.cpp -o obj/engine/utility/timer.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/utility/UUID.cpp -o obj/engine/utility/UUID.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/utility/matrix4.cpp -o obj/engine/utility/matrix4.o
+mkdir -p obj/engine/components/
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/components/ability_component.cpp -o obj/engine/components/ability_component.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/components/action_fms_component.cpp -o obj/engine/components/action_fms_component.o
+mkdir -p obj/engine/
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/engine.cpp -o obj/engine/engine.o
+ 
+mkdir -p obj/engine/network/
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/network/client.cpp -o obj/engine/network/client.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/network/net_message.cpp -o obj/engine/network/net_message.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/network/network.cpp -o obj/engine/network/network.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/network/address.cpp -o obj/engine/network/address.o
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/network/packet.cpp -o obj/engine/network/packet.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/network/connection.cpp -o obj/engine/network/connection.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/network/server.cpp -o obj/engine/network/server.o
+mkdir -p obj/engine/ecs/
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/ecs/typeid.cpp -o obj/engine/ecs/typeid.o
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/ecs/entity_manager.cpp -o obj/engine/ecs/entity_manager.o
+mkdir -p obj/engine/systems/
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/systems/sprite_renderer.cpp -o obj/engine/systems/sprite_renderer.o
+mkdir -p obj/engine/input/
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/input/input.cpp -o obj/engine/input/input.o
+ 
+mkdir -p obj/engine/graphics/objects/
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/objects/sprite.cpp -o obj/engine/graphics/objects/sprite.o
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/objects/sprite_resource.cpp -o obj/engine/graphics/objects/sprite_resource.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/objects/atlas.cpp -o obj/engine/graphics/objects/atlas.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/objects/tilemap.cpp -o obj/engine/graphics/objects/tilemap.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/objects/camera.cpp -o obj/engine/graphics/objects/camera.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/shader.cpp -o obj/engine/graphics/glw/shader.o
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/framebuffer.cpp -o obj/engine/graphics/glw/framebuffer.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/image.cpp -o obj/engine/graphics/glw/image.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/colors.cpp -o obj/engine/graphics/glw/colors.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/vertex_buffer.cpp -o obj/engine/graphics/glw/vertex_buffer.o
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/convert_to_gl.cpp -o obj/engine/graphics/glw/convert_to_gl.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/device.cpp -o obj/engine/graphics/glw/device.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/matrix_stack.cpp -o obj/engine/graphics/glw/matrix_stack.o
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/font.cpp -o obj/engine/graphics/glw/font.o
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/texture2d.cpp -o obj/engine/graphics/glw/texture2d.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/draw_commands.cpp -o obj/engine/graphics/glw/draw_commands.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/graphics/glw/window.cpp -o obj/engine/graphics/glw/window.o
+ 
+mkdir -p obj/engine/messages/
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/engine/messages/message_queue.cpp -o obj/engine/messages/message_queue.o
+mkdir -p obj/game/combat/
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/combat/combat.cpp -o obj/game/combat/combat.o
+ 
+mkdir -p obj/game/action_states/
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/action_states/character_damage_state.cpp -o obj/game/action_states/character_damage_state.o
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/action_states/character_walk_state.cpp -o obj/game/action_states/character_walk_state.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/action_states/character_die_state.cpp -o obj/game/action_states/character_die_state.o
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/action_states/character_idle_state.cpp -o obj/game/action_states/character_idle_state.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/action_states/character_attack_state.cpp -o obj/game/action_states/character_attack_state.o
+ 
+mkdir -p obj/game/app_states/
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/app_states/start_server_state.cpp -o obj/game/app_states/start_server_state.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/app_states/start_client_state.cpp -o obj/game/app_states/start_client_state.o
+ 
+mkdir -p obj/game/application/
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/application/app_setup_hooks.cpp -o obj/game/application/app_setup_hooks.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/application/app_shutdown.cpp -o obj/game/application/app_shutdown.o
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/application/app_update.cpp -o obj/game/application/app_update.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/application/app_draw.cpp -o obj/game/application/app_draw.o
+ 
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/application/app_load_resource.cpp -o obj/game/application/app_load_resource.o
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/application/app_start_up.cpp -o obj/game/application/app_start_up.o
+ 
+mkdir -p obj/game/abilities/
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/game/abilities/sword_swipe.cpp -o obj/game/abilities/sword_swipe.o
+ 
+mkdir -p obj/
+g++ -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2 -c src/main.cpp -o obj/main.o
+ 
+cc  -g -DGLEW_STATIC -Iinc  -IGL -Iinc/engine -Iinc/engine/graphics -I/usr/include/freetype2  -c -o GL/glew.o GL/glew.c
+ 
+g++ -o runeraider obj/engine/graphics/glw/glad.o obj/engine/utility/matrix2.o obj/engine/utility/logger.o obj/engine/utility/timer.o obj/engine/utility/UUID.o obj/engine/utility/matrix4.o obj/engine/components/ability_component.o obj/engine/components/action_fms_component.o obj/engine/engine.o obj/engine/network/client.o obj/engine/network/net_message.o obj/engine/network/network.o obj/engine/network/address.o obj/engine/network/packet.o obj/engine/network/connection.o obj/engine/network/server.o obj/engine/ecs/typeid.o obj/engine/ecs/entity_manager.o obj/engine/systems/sprite_renderer.o obj/engine/input/input.o obj/engine/graphics/objects/sprite.o obj/engine/graphics/objects/sprite_resource.o obj/engine/graphics/objects/atlas.o obj/engine/graphics/objects/tilemap.o obj/engine/graphics/objects/camera.o obj/engine/graphics/glw/shader.o obj/engine/graphics/glw/framebuffer.o obj/engine/graphics/glw/image.o obj/engine/graphics/glw/colors.o obj/engine/graphics/glw/vertex_buffer.o obj/engine/graphics/glw/convert_to_gl.o obj/engine/graphics/glw/device.o obj/engine/graphics/glw/matrix_stack.o obj/engine/graphics/glw/font.o obj/engine/graphics/glw/texture2d.o obj/engine/graphics/glw/draw_commands.o obj/engine/graphics/glw/window.o obj/engine/messages/message_queue.o obj/game/combat/combat.o obj/game/action_states/character_damage_state.o obj/game/action_states/character_walk_state.o obj/game/action_states/character_die_state.o obj/game/action_states/character_idle_state.o obj/game/action_states/character_attack_state.o obj/game/app_states/start_server_state.o obj/game/app_states/start_client_state.o obj/game/application/app_setup_hooks.o obj/game/application/app_shutdown.o obj/game/application/app_update.o obj/game/application/app_draw.o obj/game/application/app_load_resource.o obj/game/application/app_start_up.o obj/game/abilities/sword_swipe.o obj/main.o GL/glew.o -lm -lGL -lGLU -lglfw -lX11 -lfreetype -pthread
+make: Leaving directory '/home/bghomashi/Documents/projects/GAMES/RuneRaider0.2'
+ 

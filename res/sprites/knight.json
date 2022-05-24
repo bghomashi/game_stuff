@@ -1,0 +1,224 @@
+{
+    "resource_type" : "sprite",
+    "default_animation" : "walk_s",
+    "scale" : 0.5,
+    "image_files" : [
+        {
+            "name" : "walk",
+            "image" : "res/images/knight/walk.png",
+            "tile_size" : [ 299, 240 ]
+        },
+        {
+            "name" : "idle",
+            "image" : "res/images/knight/idle.png",
+            "tile_size" : [ 299, 240 ]
+        },
+        {
+            "name" : "attack",
+            "image" : "res/images/knight/attack.png",
+            "tile_size" : [ 299, 240 ]
+        }
+    ],
+    "animations" : [
+        {
+            "name" : "walk_s",
+            "image_name" : "walk",
+            "start_frame" : [0, 0],
+            "num_frames" : 15,
+            "frame_time" : 0.033,
+            "fallback" : "idle_s",
+            "pixels_per_frame" : 90
+        },
+        {
+            "name" : "walk_se",
+            "image_name" : "walk",
+            "start_frame" : [1, 0],
+            "num_frames" : 15,
+            "frame_time" : 0.033,
+            "fallback" : "idle_se",
+            "pixels_per_frame" : 90
+        },
+        {
+            "name" : "walk_e",
+            "image_name" : "walk",
+            "start_frame" : [2, 0],
+            "num_frames" : 15,
+            "frame_time" : 0.033,
+            "fallback" : "idle_e",
+            "pixels_per_frame" : 90
+        },
+        {
+            "name" : "walk_ne",
+            "image_name" : "walk",
+            "start_frame" : [3, 0],
+            "num_frames" : 15,
+            "frame_time" : 0.033,
+            "fallback" : "idle_ne",
+            "pixels_per_frame" : 90
+        },
+        {
+            "name" : "walk_n",
+            "image_name" : "walk",
+            "start_frame" : [4, 0],
+            "num_frames" : 15,
+            "frame_time" : 0.033,
+            "fallback" : "idle_n",
+            "pixels_per_frame" : 90
+        },
+        {
+            "name" : "walk_nw",
+            "image_name" : "walk",
+            "start_frame" : [5, 0],
+            "num_frames" : 15,
+            "frame_time" : 0.033,
+            "fallback" : "idle_nw",
+            "pixels_per_frame" : 90
+        },
+        {
+            "name" : "walk_w",
+            "image_name" : "walk",
+            "start_frame" : [6, 0],
+            "num_frames" : 15,
+            "frame_time" : 0.033,
+            "fallback" : "idle_w",
+            "pixels_per_frame" : 90
+        },
+        {
+            "name" : "walk_sw",
+            "image_name" : "walk",
+            "start_frame" : [7, 0],
+            "num_frames" : 15,
+            "frame_time" : 0.033,
+            "fallback" : "idle_sw",
+            "pixels_per_frame" : 90
+        },
+        {
+            "name" : "idle_s",
+            "image_name" : "idle",
+            "start_frame" : [0, 0],
+            "num_frames" : 16,
+            "frame_time" : 0.033,
+            "loop" : true
+        },
+        {
+            "name" : "idle_se",
+            "image_name" : "idle",
+            "start_frame" : [1, 0],
+            "num_frames" : 16,
+            "frame_time" : 0.033,
+            "loop" : true
+        },
+        {
+            "name" : "idle_e",
+            "image_name" : "idle",
+            "start_frame" : [2, 0],
+            "num_frames" : 16,
+            "frame_time" : 0.033,
+            "loop" : true
+        },
+        {
+            "name" : "idle_ne",
+            "image_name" : "idle",
+            "start_frame" : [3, 0],
+            "num_frames" : 16,
+            "frame_time" : 0.033,
+            "loop" : true
+        },
+        {
+            "name" : "idle_n",
+            "image_name" : "idle",
+            "start_frame" : [4, 0],
+            "num_frames" : 16,
+            "frame_time" : 0.033,
+            "loop" : true
+        },
+        {
+            "name" : "idle_nw",
+            "image_name" : "idle",
+            "start_frame" : [5, 0],
+            "num_frames" : 16,
+            "frame_time" : 0.033,
+            "loop" : true
+        },
+        {
+            "name" : "idle_w",
+            "image_name" : "idle",
+            "start_frame" : [6, 0],
+            "num_frames" : 16,
+            "frame_time" : 0.033,
+            "loop" : true
+        },
+        {
+            "name" : "idle_sw",
+            "image_name" : "idle",
+            "start_frame" : [7, 0],
+            "num_frames" : 16,
+            "frame_time" : 0.033,
+            "loop" : true
+        },
+        {
+            "name" : "attack_s",
+            "image_name" : "attack",
+            "start_frame" : [0, 0],
+            "num_frames" : 18,
+            "frame_time" : 0.033,
+            "fallback" : "idle_s"
+        },
+        {
+            "name" : "attack_se",
+            "image_name" : "attack",
+            "start_frame" : [1, 0],
+            "num_frames" : 18,
+            "frame_time" : 0.033,
+            "fallback" : "idle_se"
+        },
+        {
+            "name" : "attack_e",
+            "image_name" : "attack",
+            "start_frame" : [2, 0],
+            "num_frames" : 18,
+            "frame_time" : 0.033,
+            "fallback" : "idle_e"
+        },
+        {
+            "name" : "attack_ne",
+            "image_name" : "attack",
+            "start_frame" : [3, 0],
+            "num_frames" : 18,
+            "frame_time" : 0.033,
+            "fallback" : "idle_ne"
+        },
+        {
+            "name" : "attack_n",
+            "image_name" : "attack",
+            "start_frame" : [4, 0],
+            "num_frames" : 18,
+            "frame_time" : 0.033,
+            "fallback" : "idle_n"
+        },
+        {
+            "name" : "attack_nw",
+            "image_name" : "attack",
+            "start_frame" : [5, 0],
+            "num_frames" : 18,
+            "frame_time" : 0.033,
+            "fallback" : "idle_nw"
+        },
+        {
+            "name" : "attack_w",
+            "image_name" : "attack",
+            "start_frame" : [6, 0],
+            "num_frames" : 18,
+            "frame_time" : 0.033,
+            "fallback" : "idle_w"
+        },
+        {
+            "name" : "attack_sw",
+            "image_name" : "attack",
+            "start_frame" : [7, 0],
+            "num_frames" : 18,
+            "frame_time" : 0.033,
+            "fallback" : "idle_sw"
+        }
+    ]
+}
