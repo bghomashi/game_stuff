@@ -19,6 +19,7 @@ void ServerState::ClientRequestConnect(Net::message& msg, const Net::ClientID& u
 
     Net::message accept_msg = {GameMessage::SERVER_ACCEPT_CONNECTION};
     accept_msg << "bejan" << "ghomashi" << (unsigned)uuid; 
+    accept_msg.header.size = accept_msg.body.size();
     Engine::server.Send(accept_msg, uuid);
     Engine::server.Update();
 
