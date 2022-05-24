@@ -182,8 +182,33 @@ void MainClientState::Update(float dt) {
             SpawnPlayer(uuid);
             break;
         }
-        case GameMessage::CHARACTER_POSITIONS:
+        case GameMessage::CHARACTER_SNAPSHOT:
             // update character positions
+            while (!msg.body.empty()) {
+                Net::ClientID client;
+                Vec2 position;
+                Vec2 destination;
+
+                msg >> destination.y >> destination.x;
+                msg >> position.y >> position.x;
+                msg >> client;
+
+                // skip ourselves
+                if (client == Engine::client_id) continue;
+
+                NetworkComponent::ForEach([&](const NetworkComponent& nc) {
+                    if (client == nc.client_id) {
+                        // post message
+                        auto transform = EntityManager::Get<TransformComponent>(nc.parent);
+                        transform->SetPosition(position);
+                        
+                        EntityMoveToCommand* msg = new EntityMoveToCommand();
+                        msg->entity = nc.parent;
+                        msg->destination = destination;
+                        MessageQueue::Push(msg);
+                    }
+                });
+            }
             break;
         }
     }

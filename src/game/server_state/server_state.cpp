@@ -93,6 +93,32 @@ void ServerState::Update(float dt) {
             }
         }
     }
+
+    // for each component that has a client
+    Net::message snapshot_msg;
+    snapshot_msg.header.id = GameMessage::CHARACTER_SNAPSHOT;
+    NetworkComponent::ForEach([&snapshot_msg](const NetworkComponent& nc){
+        EntityID entity = nc.parent;
+        Net::ClientID client = nc.client_id;
+
+        Vec2 position = EntityManager::Get<TransformComponent>(entity)->position;
+        Vec2 destination = position;
+
+        // not sure how to handle this part.
+        auto path = EntityManager::Get<PathComponent>(entity);
+        if (path)
+            destination = path->points.front();
+
+        snapshot_msg << (unsigned)client;
+        snapshot_msg << position.x << position.y;
+        snapshot_msg << destination.x << destination.y;
+        
+    });
+    NetworkComponent::ForEach([&snapshot_msg](const NetworkComponent& nc){
+        Engine::server.Send(snapshot_msg, nc.client_id);
+    });
+
+
     Engine::server.Update();
     // update world stuff
     ActionFSMComponent::ForEach([dt](ActionFSMComponent& fsm) {

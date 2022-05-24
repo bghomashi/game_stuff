@@ -10,7 +10,7 @@ enum GameMessage {
 
     // 
     CHARACTER_SPAWN,
-    CHARACTER_POSITIONS,
+    CHARACTER_SNAPSHOT,
     PLAYER_MOVE,
     PLAYER_ATTACK
 };
