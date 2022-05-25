@@ -9,7 +9,8 @@ using draw = OGL::Draw;
 using device = OGL::Device;
 using matrix_stack = OGL::MatrixStack;
 
-#define SERVER_ADDR 192,168,0,2
+// #define SERVER_ADDR 192,168,0,2
+#define SERVER_ADDR "bghomashi.asuscomm.com"
 #define SERVER_PORT 60000
 #define MAX_WAIT_TIME 10.f
 #define MAX_RETRIES 3
@@ -28,8 +29,10 @@ bool StartClientState::Start() {
         return false;
     }
 
-    if (!Engine::client.Start(Net::MakeAddress(SERVER_ADDR, SERVER_PORT)))
+    if (!Engine::client.Start(Net::MakeAddress(SERVER_ADDR, SERVER_PORT))) {
+        LOG_CRITICAL("Failed start client");
         return false;
+    }
 
     return true;
 }

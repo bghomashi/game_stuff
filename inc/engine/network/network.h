@@ -91,6 +91,7 @@ namespace Net {
 
     Address MakeAddress(std::uint8_t a, std::uint8_t b, std::uint8_t c, std::uint8_t d, uint16_t port);
     Address MakeAddress(uint32_t address, uint16_t port);
+    Address MakeAddress(const std::string& url, uint16_t port);
     bool operator==(const Address& a, const Address& b);
     bool operator!=(const Address& a, const Address& b);
 
