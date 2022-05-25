@@ -15,26 +15,24 @@ typedef int socklen_t;
 #endif
 
 namespace Net {
-    static std::uint32_t hostname_to_ip(const char* hostname)
-    {
-        struct hostent *he;
-        struct in_addr **addr_list;
-        int i;
+    static std::uint32_t hostname_to_ip(const char* hostname) {
+        struct addrinfo *ai;
+        struct addrinfo hints;
+ 
+        memset(&hints, 0, sizeof(hints));
+        hints.ai_family   = AF_INET;
+        hints.ai_socktype = SOCK_DGRAM;
+        hints.ai_protocol = 0;
+ 
+        if (getaddrinfo(hostname, NULL, &hints, &ai) != 0)
+            return 0;       // error
 
-        if ( (he = gethostbyname( hostname ) ) == NULL) {
-            // get the host info
-            LOG_CRITICAL("Failed to identity host.");
-            return 1;
-        }
+        auto result = ((sockaddr_in*)(ai->ai_addr))->sin_addr.s_addr;               // save address
+        // LOG_CRITICAL(inet_ntoa(((sockaddr_in*)(ai->ai_addr))->sin_addr));
 
-        addr_list = (struct in_addr **) he->h_addr_list;
+        freeaddrinfo(ai);       // free whatever was alloced
 
-        for(i = 0; addr_list[i] != NULL; i++) {
-            // LOG_CRITICAL(inet_ntoa(*addr_list[i]));
-            return (std::uint32_t)(addr_list[i]->s_addr);
-        }
-
-        return 0;
+        return result;
     }
     Address MakeAddress(std::uint8_t a, std::uint8_t b, std::uint8_t c, std::uint8_t d, uint16_t port) {
         Address address;
