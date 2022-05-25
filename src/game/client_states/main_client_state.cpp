@@ -318,9 +318,9 @@ void MainClientState::SpawnPlayer(Net::message& spawn_msg) {
     Net::ClientID uuid;
 
     // animation....
-    spawn_msg << destination.y << destination.x;
-    spawn_msg << position.y << position.x;
-    spawn_msg << uuid;
+    spawn_msg >> destination.y >> destination.x;
+    spawn_msg >> position.y >> position.x;
+    spawn_msg >> uuid;
 
     EntityID entity = EntityManager::Create();
     if (Engine::client_id == uuid)
