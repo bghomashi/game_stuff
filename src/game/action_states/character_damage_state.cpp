@@ -15,6 +15,8 @@ void DamagedState::Start(ActionFSMComponent& fsm) {
     sprite->sprite.Play("damaged_" + suffix_array[fsm.angle]);
 }
 void DamagedState::Update(ActionFSMComponent& fsm, float dt) {
+    auto transform = EntityManager::Get<TransformComponent>(fsm.parent);
+    transform->SetPosition(transform->position);
     timer -= dt;
     if (timer <= 0) {
         timer = 0;
