@@ -1,22 +1,48 @@
-﻿  server_state.cpp
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(94,19): warning C4018: '<': signed/unsigned mismatch
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(105,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(129,37): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(130,37): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(199,23): warning C4018: '<': signed/unsigned mismatch
+﻿  character_attack_state.cpp
+  character_damage_state.cpp
+  character_die_state.cpp
+  character_idle_state.cpp
+  character_walk_state.cpp
+  app_load_resource.cpp
+  app_setup_hooks.cpp
+  app_start_up.cpp
 C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(101,27): warning C4018: '<': signed/unsigned mismatch
 C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(81): message : see reference to function template instantiation 'void EntityManager::Remove<T>(EntityID)' being compiled
           with
           [
               T=TransformComponent
           ]
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(227): message : see reference to function template instantiation 'ComponentID EntityManager::Add<TransformComponent,Vec2,float,Vec2,float>(EntityID,Vec2,float,Vec2,float)' being compiled
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\application\app_start_up.cpp(30): message : see reference to function template instantiation 'ComponentID EntityManager::Add<TransformComponent,Vec2,float,Vec2,float>(EntityID,Vec2,float,Vec2,float)' being compiled
+  main_client_state.cpp
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(101,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(81): message : see reference to function template instantiation 'void EntityManager::Remove<T>(EntityID)' being compiled
+          with
+          [
+              T=TransformComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\client_states\main_client_state.cpp(339): message : see reference to function template instantiation 'ComponentID EntityManager::Add<TransformComponent,Vec2,float,Vec2,float>(EntityID,Vec2,float,Vec2,float)' being compiled
+  player_attack.cpp
+  server_state.cpp
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(103,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(114,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(138,37): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(139,37): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(208,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(101,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bghom\source\repos\bghomashi\game_stuff\inc\engine\ecs\entity.h(81): message : see reference to function template instantiation 'void EntityManager::Remove<T>(EntityID)' being compiled
+          with
+          [
+              T=TransformComponent
+          ]
+C:\Users\bghom\source\repos\bghomashi\game_stuff\src\game\server_state\server_state.cpp(236): message : see reference to function template instantiation 'ComponentID EntityManager::Add<TransformComponent,Vec2,float,Vec2,float>(EntityID,Vec2,float,Vec2,float)' being compiled
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   game_stuff.vcxproj -> C:\Users\bghom\source\repos\bghomashi\Debug\game_stuff.exe
