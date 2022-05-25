@@ -31,7 +31,7 @@ namespace Net {
             return 0;       // error
 
         auto result = ((sockaddr_in*)(ai->ai_addr))->sin_addr.s_addr;               // save address
-        LOG_CRITICAL(inet_ntoa(((sockaddr_in*)(ai->ai_addr))->sin_addr));
+        // LOG_CRITICAL(inet_ntoa(((sockaddr_in*)(ai->ai_addr))->sin_addr));
 
         freeaddrinfo(ai);       // free whatever was alloced
 
