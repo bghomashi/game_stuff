@@ -11,6 +11,7 @@
 #include <sys/time.h> //FD_SET, FD_ISSET, FD_ZERO macros  
 #else
 #include <WinSock2.h>
+#include <WS2tcpip.h>
 typedef int socklen_t;
 #endif
 

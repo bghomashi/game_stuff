@@ -1,3 +1,4 @@
-﻿  client.cpp
-C:\Users\bghom\source\repos\bghomashi\game_stuff\src\engine\network\client.cpp(55,42): warning C4018: '<': signed/unsigned mismatch
+﻿  address.cpp
+  main.cpp
+  Generating Code...
   game_stuff.vcxproj -> C:\Users\bghom\source\repos\bghomashi\Debug\game_stuff.exe
