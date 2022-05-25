@@ -18,8 +18,13 @@ using matrix_stack = OGL::MatrixStack;
 bool StartClientState::Start() {
     retries_left = MAX_RETRIES;
     wait_timer = 0;
-    
-    // just load font
+
+    if (!ResourceManager<SpriteResource>::Load("goblin_mage", "res/sprites/goblin_mage.json") ||
+        !ResourceManager<SpriteResource>::Load("knight", "res/sprites/knight.json")) {
+        LOG_CRITICAL("failed to load sprite.");
+        return false;
+    }
+
 #ifdef __linux__
     if (!ResourceManager<OGL::Font>::Load("Arial", g_font_directory + "Arial.ttf", 24)) {
 #elif WIN32

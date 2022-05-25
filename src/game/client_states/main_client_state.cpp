@@ -99,16 +99,11 @@ bool MainClientState::SetupHooks() {
 
 bool MainClientState::LoadResources() {
     // Load resources
-    if (!ResourceManager<SpriteResource>::Load("goblin_mage", "res/sprites/goblin_mage.json") ||
-        !ResourceManager<SpriteResource>::Load("knight", "res/sprites/knight.json")) {
-        LOG_CRITICAL("failed to load sprite.");
-        return false;
-    }
 
-    if (!ResourceManager<TileMapResource>::Load("tilemap", "res/tilemaps/tilemap.json")) {
-        LOG_CRITICAL("failed to load tilemap.");
-        return false;
-    }
+    //if (!ResourceManager<TileMapResource>::Load("tilemap", "res/tilemaps/tilemap.json")) {
+    //    LOG_CRITICAL("failed to load tilemap.");
+    //    return false;
+    //}
 
 #ifdef __linux__
     if (!ResourceManager<OGL::Font>::Load("Arial", g_font_directory + "Arial.ttf", 24)) {
