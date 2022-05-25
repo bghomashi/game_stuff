@@ -25,6 +25,8 @@ namespace Net {
     void Client::Update(float dt) {
         _keep_alive_timer += dt;
         if (_keep_alive_timer >= 1.f/KEEP_ALIVE_PER_SECOND) {
+            _keep_alive_timer -= 1.f/KEEP_ALIVE_PER_SECOND;
+            
             message keep_alive_msg = {0};
             keep_alive_msg.header.size = sizeof(message_header);
             _outgoing_messages.push(keep_alive_msg);
