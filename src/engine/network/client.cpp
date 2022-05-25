@@ -1,6 +1,6 @@
 #include "engine/network/network.h"
 
-#define KEEP_ALIVE_PER_SECOND 10.f
+#define KEEP_ALIVE_PER_SECOND 1.f
 
 namespace Net {
     bool Client::Start(const std::string& hostname, uint16_t port) {
