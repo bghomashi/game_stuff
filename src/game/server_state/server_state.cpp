@@ -1,12 +1,14 @@
 #include <sstream>
 #include <iomanip>
 #include "game/server_state/server_state.h"
+
 #include "engine/graphics/graphics.h"
 #include "engine/engine.h"
 #include "engine/network/network.h"
 #include "engine/systems/sprite_renderer.h"
 #include "engine/components.h"
 
+#include "game/combat/combat.h"
 #include "game/action_states/character_action_states.h"
 #include "game/network/game_messages.h"
 #include "game/messages/messages.h"
@@ -71,6 +73,13 @@ bool ServerState::Start() {
             fsm->SetState<DamagedState>();
         }
     });
+    CombatHit::RegisterListener([](CombatHit* msg) {
+        auto offender = EntityManager::Get<Combat::Combatant>(msg->offender);
+        auto defender = EntityManager::Get<Combat::Combatant>(msg->defender);
+
+        Combat::ResolveHit(offender, defender);
+    });
+
 
     snapshot_accum = 0;
     bps_recv = CircularBuffer<float>(10);
