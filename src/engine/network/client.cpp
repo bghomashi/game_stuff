@@ -1,6 +1,12 @@
 #include "engine/network/network.h"
 
 namespace Net {
+    bool Client::Start(const std::string& hostname, uint16_t port) {
+        if (!_connection.Open())
+            return false;
+        _addr = MakeAddress(hostname, port);
+        return true;
+    }
     bool Client::Start(Address addr) {
         _addr = addr;
         return _connection.Open();

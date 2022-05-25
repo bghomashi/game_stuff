@@ -15,6 +15,7 @@
 typedef int socklen_t;
 #endif
 
+
 namespace Net {
     static std::uint32_t hostname_to_ip(const char* hostname) {
         struct addrinfo *ai;
@@ -25,11 +26,12 @@ namespace Net {
         hints.ai_socktype = SOCK_DGRAM;
         hints.ai_protocol = 0;
  
-        if (getaddrinfo(hostname, NULL, &hints, &ai) != 0)
+        int ret = getaddrinfo(hostname, NULL, &hints, &ai);
+        if (ret != 0)
             return 0;       // error
 
         auto result = ((sockaddr_in*)(ai->ai_addr))->sin_addr.s_addr;               // save address
-        // LOG_CRITICAL(inet_ntoa(((sockaddr_in*)(ai->ai_addr))->sin_addr));
+        LOG_CRITICAL(inet_ntoa(((sockaddr_in*)(ai->ai_addr))->sin_addr));
 
         freeaddrinfo(ai);       // free whatever was alloced
 

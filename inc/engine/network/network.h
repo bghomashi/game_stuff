@@ -109,6 +109,7 @@ namespace Net {
 
         bool Recv();
     public:
+        bool Start(const std::string& hostname, uint16_t port);
         bool Start(Address addr);
         void Stop();
         void Update();

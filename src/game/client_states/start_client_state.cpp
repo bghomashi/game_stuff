@@ -29,7 +29,7 @@ bool StartClientState::Start() {
         return false;
     }
 
-    if (!Engine::client.Start(Net::MakeAddress(SERVER_ADDR, SERVER_PORT))) {
+    if (!Engine::client.Start(SERVER_ADDR, SERVER_PORT)) {
         LOG_CRITICAL("Failed start client");
         return false;
     }
