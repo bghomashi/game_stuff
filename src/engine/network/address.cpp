@@ -40,9 +40,9 @@ namespace Net {
     Address MakeAddress(std::uint8_t a, std::uint8_t b, std::uint8_t c, std::uint8_t d, uint16_t port) {
         Address address;
         address.addr = htonl(( a << 24 ) | 
-                        ( b << 16 ) | 
-                        ( c << 8  ) | 
-                        d);
+                             ( b << 16 ) | 
+                             ( c << 8  ) | 
+                               d);
         address.port = htons(port);
         return address;
     }

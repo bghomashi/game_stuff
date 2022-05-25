@@ -19,6 +19,10 @@ class Handle {
 
     std::uint16_t index, key;
 public:
+    static const Handle INVALID;
+
+    Handle() : index(0), key(0) {}
+    
     bool operator==(const Handle& o) const {
 		return index == o.index && key == o.key;
     }

@@ -3,6 +3,7 @@
 
 #define WINDOW_WIDTH    800
 #define WINDOW_HEIGHT   600
+#define UPDATE_TIME_STEP  1.f/30.f               // 30/second (I cant tell the diff 60/s)
 
 using color = OGL::Color;
 using draw = OGL::Draw;
@@ -17,10 +18,12 @@ bool Engine::Go(ApplicationState* app) {
     if (!Initialize())
         return false;
 
+
     SetState(std::shared_ptr<ApplicationState>(app));
 
     fps_timer.Reset();
 
+    // s_time_step = 1.f/30.f;
     while(!s_window.ShouldQuit()) {
         dt = fps_timer.Elapsed();
         s_fps_tracker.push(1.f/dt);
@@ -35,8 +38,8 @@ bool Engine::Go(ApplicationState* app) {
             s_app_state->Update(s_time_step);
         }
 
-        s_window.SwapBuffers();
         s_app_state->Draw(s_accum / s_time_step);
+        s_window.SwapBuffers();
     }
 
     s_app_state->Stop();
@@ -79,7 +82,11 @@ bool Engine::Initialize() {
 
     camera = {{0,0}, {0,0,WINDOW_WIDTH, WINDOW_HEIGHT}};
     s_accum = 0;
-    s_time_step = 0.001f;
+    s_time_step = UPDATE_TIME_STEP;
+
+
+    // enable VSYNC ---------- move this later
+    glfwSwapInterval(1);
 
     return true;
 }

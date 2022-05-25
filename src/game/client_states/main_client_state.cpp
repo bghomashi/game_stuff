@@ -54,10 +54,6 @@ bool MainClientState::SetupHooks() {
 
         Combat::ResolveHit(offender, defender);
     });
-    EntityDestroy::RegisterListener([](EntityDestroy* msg) {
-        EntityManager::Destroy(msg->entity);
-    });
-
 
 
     EntityMoveToCommand::RegisterListener([] (EntityMoveToCommand* msg) {
@@ -79,6 +75,11 @@ bool MainClientState::SetupHooks() {
             fsm->SetState<AttackState>(msg->attack, msg->direction);// not ideal, maybe include option parameter
         }
     });
+
+    EntityDestroy::RegisterListener([](EntityDestroy* msg) {
+        EntityManager::Destroy(msg->entity);
+    });
+
     EntityDeath::RegisterListener([] (EntityDeath* msg) {
         auto fsm = EntityManager::Get<ActionFSMComponent>(msg->entity);
         if (fsm) {
@@ -169,7 +170,7 @@ void MainClientState::Update(float dt) {
         MessageQueue::Push(msg);
     }
 
-    Engine::client.Update();
+    Engine::client.Update(dt);
     while (Engine::client.messages_waiting()) {
         auto msg = Engine::client.pop_incoming_message();
 
@@ -177,44 +178,74 @@ void MainClientState::Update(float dt) {
         case GameMessage::SERVER_ACCEPT_CONNECTION:
             break;
         case GameMessage::CHARACTER_SPAWN: {
-            Net::ClientID uuid;
-            msg >> uuid;
-            SpawnPlayer(uuid);
+            SpawnPlayer(msg);
             break;
         }
-        case GameMessage::CHARACTER_SNAPSHOT:
-            // update character positions
-            while (!msg.body.empty()) {
-                Net::ClientID client;
-                Vec2 position;
-                Vec2 destination;
+        case GameMessage::CHARACTER_SNAPSHOT: {
+        //     // update character positions
+        //     while (!msg.body.empty()) {
+        //         Net::ClientID client;
+        //         Vec2 position;
+        //         Vec2 destination;
 
-                msg >> destination.y >> destination.x;
-                msg >> position.y >> position.x;
-                msg >> client;
+        //         msg >> destination.y >> destination.x;
+        //         msg >> position.y >> position.x;
+        //         msg >> client;
 
-                // skip ourselves
-                if (client == Engine::client_id) continue;
+        //         // skip ourselves
+        //         if (client == Engine::client_id) continue;
 
-                NetworkComponent::ForEach([&](const NetworkComponent& nc) {
-                    if (client == nc.client_id) {
-                        // post message
-                        auto transform = EntityManager::Get<TransformComponent>(nc.parent);
-                        transform->SetPosition(position);
+        //         if (!NetworkComponent::ForEachTillTrue([&](const NetworkComponent& nc) {
+        //             if (client == nc.client_id) {
+        //                 // post message
+        //                 auto transform = EntityManager::Get<TransformComponent>(nc.parent);
+        //                 transform->SetPosition(position);
 
-                        if (destination != position) {
-                            EntityMoveToCommand* msg = new EntityMoveToCommand();
-                            msg->entity = nc.parent;
-                            msg->destination = destination;
-                            MessageQueue::Push(msg);
-                        }
-                    }
-                });
-            }
+        //                 if (destination != position) {
+        //                     EntityMoveToCommand* msg = new EntityMoveToCommand();
+        //                     msg->entity = nc.parent;
+        //                     msg->destination = destination;
+        //                     MessageQueue::Push(msg);
+        //                 }
+        //                 return true; // found
+        //             }
+        //             return false;   // not yet
+        //         })) {               // we didnt find this entity
+        //             Net::message query_msg;
+        //             query_msg.header.id = GameMessage::PLAYER_QUERY;
+        //             query_msg << (unsigned)client;
+        //             Engine::client.Send(query_msg);
+        //         }
+        //     }
+            break;
+        }
+        case GameMessage::CHARACTER_DESTROY: {
+        //     Net::ClientID client_id;
+        //     EntityID entity = EntityID::INVALID;
+
+        //     msg >> client_id;
+        //     // who is being disconnected
+        //     NetworkComponent::ForEachTillTrue([=,&entity](const NetworkComponent& nc) {
+        //         if (nc.client_id == client_id) {
+        //             entity = nc.parent;
+        //             return true;
+        //         }
+        //         return false;
+        //     });
+
+
+        //     if (entity != EntityID::INVALID) {
+        //         EntityDestroy* destroy_msg = new EntityDestroy();
+        //         destroy_msg->entity = entity;
+        //         MessageQueue::Push(destroy_msg);
+        //     }
+            break;
+        }
+        default:
+            LOG_CRITICAL("Unrecognized network message.");
             break;
         }
     }
-
 
     ActionFSMComponent::ForEach([dt](ActionFSMComponent& fsm) {
         fsm.Update(dt);
@@ -275,7 +306,7 @@ void MainClientState::Draw(float alpha) {
 
 
 
-void MainClientState::SpawnPlayer(const Net::ClientID& uuid) {
+void MainClientState::SpawnPlayer(Net::message& spawn_msg) {
     SpriteResource& knight_sr = ResourceManager<SpriteResource>::Get("knight");
 
     ComponentID transform_handle;
@@ -283,18 +314,32 @@ void MainClientState::SpawnPlayer(const Net::ClientID& uuid) {
     ComponentID combat_handle;
     ComponentID fsm_handle;
     ComponentID network_handle;
+    Vec2 position, destination;
+    Net::ClientID uuid;
+
+    // animation....
+    spawn_msg << destination.y << destination.x;
+    spawn_msg << position.y << position.x;
+    spawn_msg << uuid;
 
     EntityID entity = EntityManager::Create();
     if (Engine::client_id == uuid)
         _client_entity = entity;
+
     // add transform component
-    transform_handle = EntityManager::Add<TransformComponent>(entity, Vec2{0.f,0.f}, 0.f, Vec2{0.f,0.f}, 0.f);
+    transform_handle = EntityManager::Add<TransformComponent>(entity, position, 0.f, Vec2{0.f,0.f}, 0.f);
     // sprite
     EntityManager::Add<SpriteComponent>(entity, Sprite(&knight_sr), transform_handle);
     // stats
     EntityManager::Add<StatsComponent>(entity, 90.f);
     // pathing
     EntityManager::Add<PathComponent>(entity);
+    if (destination != position) {
+        EntityMoveToCommand* msg = new EntityMoveToCommand();
+        msg->entity = entity;
+        msg->destination = destination;
+        MessageQueue::Push(msg);
+    }
     // state machine
     fsm_handle = EntityManager::Add<ActionFSMComponent>(entity, false, 2, 
         // actions

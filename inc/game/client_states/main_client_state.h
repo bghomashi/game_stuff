@@ -11,7 +11,7 @@ class MainClientState : public ApplicationState {
     bool LoadResources();
     bool SetupHooks();
 
-    void SpawnPlayer(const Net::ClientID& uuid);
+    void SpawnPlayer(Net::message& uuid);
     void SpawnGoblin();
 public:
     bool Start(); 

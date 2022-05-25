@@ -8,6 +8,7 @@
 #include <vector>
 #include <chrono>
 #include <queue>
+#include <functional>
 #include <unordered_map>
 #include "engine/utility/UUID.h"
 
@@ -109,10 +110,13 @@ namespace Net {
 
         bool Recv();
     public:
+        unsigned bytes_sent;
+        unsigned bytes_recv;
+
         bool Start(const std::string& hostname, uint16_t port);
         bool Start(Address addr);
         void Stop();
-        void Update();
+        void Update(float dt);
         void Send(const message& msg);
 
         bool messages_waiting() const;
@@ -124,19 +128,23 @@ namespace Net {
         struct ClientConnection {
             Address addr;
             std::queue<message> message_queue;
+            float timeout;
         };
 
         Connection _connection;
 
         std::unordered_map<ClientID, ClientConnection, ClientID::hash_fn> _clients;
-        
-
     public:
+        std::function<void(const Net::ClientID&)> client_timeout_callback;
+        unsigned bytes_sent;
+        unsigned bytes_recv;
+
         void RemoveClientConnection(const ClientID& uuid);
 
         bool Start(int port);
         void Stop();
-        void Update();
+        void Flush(ClientID client_id);
+        void Update(float dt);
 
         void Send(const message& message, const ClientID& addr);
         bool Recv(std::vector<message>& messages, ClientID& addr);

@@ -2,19 +2,23 @@
 
 namespace Net {
     bool Client::Start(const std::string& hostname, uint16_t port) {
+        bytes_sent = 0;
+        bytes_recv = 0;
         if (!_connection.Open())
             return false;
         _addr = MakeAddress(hostname, port);
         return true;
     }
     bool Client::Start(Address addr) {
+        bytes_sent = 0;
+        bytes_recv = 0;
         _addr = addr;
         return _connection.Open();
     }
     void Client::Stop() {
         _connection.Close();
     }
-    void Client::Update() {
+    void Client::Update(float dt) {
         std::vector<Packet::Ptr_t> packets;
 
         Packet::Ptr_t packet;
@@ -39,8 +43,10 @@ namespace Net {
         }
         // we could unlock the message queue now if this were threaded
 
-        for (auto& p : packets)
+        for (auto& p : packets) {
             _connection.SendTo(*p);
+            bytes_sent += p->data.size();
+        }
 
         Recv();
     }
@@ -51,6 +57,7 @@ namespace Net {
         Packet packet;
         if (!_connection.RecvFrom(packet, false))
             return false;
+        bytes_recv = packet.data.size();
 
         if (_addr != packet.addr)        
             return false;

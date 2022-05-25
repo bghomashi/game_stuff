@@ -33,9 +33,9 @@ void MyApplication::Update(float dt) {
 
 
     if (mode == AppMode::CLIENT || mode == AppMode::BOTH)
-        Engine::client.Update();
+        Engine::client.Update(dt);
     if (mode == AppMode::SERVER || mode == AppMode::BOTH)
-        Engine::server.Update();
+        Engine::server.Update(dt);
 
 
     ActionFSMComponent::ForEach([dt](ActionFSMComponent& fsm) {

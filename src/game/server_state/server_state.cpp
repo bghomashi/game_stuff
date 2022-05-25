@@ -1,4 +1,5 @@
-
+#include <sstream>
+#include <iomanip>
 #include "game/server_state/server_state.h"
 #include "engine/graphics/graphics.h"
 #include "engine/engine.h"
@@ -16,6 +17,7 @@ using device = OGL::Device;
 using matrix_stack = OGL::MatrixStack;
 
 #define SERVER_PORT 60000
+#define SNAPSHOTS_PER_SECOND 10
 
 bool ServerState::Start() {
     // Load resources
@@ -54,11 +56,34 @@ bool ServerState::Start() {
             fsm->SetState<AttackState>(msg->attack, msg->direction);// not ideal, maybe include option parameter
         }
     });
+    EntityDestroy::RegisterListener([](EntityDestroy* msg) {
+        EntityManager::Destroy(msg->entity);
+    });
+    EntityDeath::RegisterListener([] (EntityDeath* msg) {
+        auto fsm = EntityManager::Get<ActionFSMComponent>(msg->entity);
+        if (fsm) {
+            fsm->SetState<DieState>();
+        }
+    });
+    EntityDamaged::RegisterListener([] (EntityDamaged* msg) {
+        auto fsm = EntityManager::Get<ActionFSMComponent>(msg->entity);
+        if (fsm) {
+            fsm->SetState<DamagedState>();
+        }
+    });
 
+    snapshot_accum = 0;
+    bps_recv = CircularBuffer<float>(10);
+    bps_sent = CircularBuffer<float>(10);
 
     if (!Engine::server.Start(SERVER_PORT))
         return false;
+    Engine::server.client_timeout_callback = [=](const Net::ClientID& uuid) {
+        ClientTimeoutCallback(uuid);
+    };
+
     status.push_back("successfully started server.");
+    status.push_back("");
 
     return true;
 }
@@ -72,6 +97,8 @@ std::string convertToString(const std::vector<std::uint8_t> a)
     return s;
 }
 void ServerState::Update(float dt) {
+    snapshot_accum += dt;
+
     Net::ClientID client_id;
     std::vector<Net::message> messages;
     if (Engine::server.Recv(messages, client_id)) {
@@ -90,36 +117,51 @@ void ServerState::Update(float dt) {
                     PlayerAttack(msg, client_id);
                     break;
                 }
+                case GameMessage::PLAYER_QUERY: {
+                    PlayerQuery(msg, client_id);
+                }
             }
         }
     }
 
-    // for each component that has a client
-    Net::message snapshot_msg;
-    snapshot_msg.header.id = GameMessage::CHARACTER_SNAPSHOT;
-    NetworkComponent::ForEach([&snapshot_msg](const NetworkComponent& nc){
-        EntityID entity = nc.parent;
-        Net::ClientID client = nc.client_id;
+    if (snapshot_accum >= 1.f/SNAPSHOTS_PER_SECOND) {
+        snapshot_accum -= 1.f/SNAPSHOTS_PER_SECOND;
+        bps_sent.push(Engine::server.bytes_sent);
+        bps_recv.push(Engine::server.bytes_recv);
+        Engine::server.bytes_sent = 0;
+        Engine::server.bytes_recv = 0;
+        std::stringstream ss;
+        ss << std::setprecision(2) << std::fixed
+           << "bps_recv = " << bps_recv.Avg()
+           << " bps_sent = " << bps_sent.Avg();
+        status[1] = ss.str();
 
-        Vec2 position = EntityManager::Get<TransformComponent>(entity)->position;
-        Vec2 destination = position;
+        // for each component that has a client
+        Net::message snapshot_msg;
+        snapshot_msg.header.id = GameMessage::CHARACTER_SNAPSHOT;
+        NetworkComponent::ForEach([&snapshot_msg](const NetworkComponent& nc){
+            EntityID entity = nc.parent;
+            Net::ClientID client = nc.client_id;
 
-        // not sure how to handle this part.
-        auto path = EntityManager::Get<PathComponent>(entity);
-        if (path && !path->points.empty())
-            destination = path->points.front();
+            Vec2 position = EntityManager::Get<TransformComponent>(entity)->position;
+            Vec2 destination = position;
 
-        snapshot_msg << (unsigned)client;
-        snapshot_msg << position.x << position.y;
-        snapshot_msg << destination.x << destination.y;
-        
-    });
-    NetworkComponent::ForEach([&snapshot_msg](const NetworkComponent& nc){
-        Engine::server.Send(snapshot_msg, nc.client_id);
-    });
+            // not sure how to handle this part.
+            auto path = EntityManager::Get<PathComponent>(entity);
+            if (path && !path->points.empty())
+                destination = path->points.front();
 
+            snapshot_msg << (unsigned)client;
+            snapshot_msg << position.x << position.y;
+            snapshot_msg << destination.x << destination.y;
+            
+        });
+        NetworkComponent::ForEach([&snapshot_msg](const NetworkComponent& nc){
+            Engine::server.Send(snapshot_msg, nc.client_id);
+        });
+    }
 
-    Engine::server.Update();
+    Engine::server.Update(dt);
     // update world stuff
     ActionFSMComponent::ForEach([dt](ActionFSMComponent& fsm) {
         fsm.Update(dt);

@@ -37,7 +37,7 @@ bool StartClientState::Start() {
     return true;
 }
 void StartClientState::Update(float dt) {
-    Engine::client.Update();                    // send all waiting messages
+    Engine::client.Update(dt);                    // send all waiting messages
 
     while (Engine::client.messages_waiting()) {
         auto msg = Engine::client.pop_incoming_message();
