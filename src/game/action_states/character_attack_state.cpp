@@ -32,6 +32,8 @@ void AttackState::Start(ActionFSMComponent& fsm, const std::string& attack, cons
 
 void AttackState::Update(ActionFSMComponent& fsm, float dt) {
     auto ability = EntityManager::Get<AbilityComponent>(fsm.parent);
+    auto transform = EntityManager::Get<TransformComponent>(fsm.parent);
+    transform->SetPosition(transform->position);
 
     if (ability->Finished()) {
         fsm.lock_state = false;

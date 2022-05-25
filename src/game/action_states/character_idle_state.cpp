@@ -13,5 +13,9 @@ void IdleState::Start(ActionFSMComponent& fsm) {
     sprite->sprite.Play("idle_" + suffix_array[fsm.angle]);
 }
 
+void IdleState::Update(ActionFSMComponent& fsm, float dt) {
+    auto transform = EntityManager::Get<TransformComponent>(fsm.parent);
+    transform->SetPosition(transform->position);
+}
 
 const std::string IdleState::name = "idle";

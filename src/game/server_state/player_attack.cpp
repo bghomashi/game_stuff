@@ -18,6 +18,7 @@ void ServerState::PlayerAttack(Net::message& attack_msg, const Net::ClientID& uu
     if (client_id != uuid)
         return;
 
+    // which entity
     NetworkComponent::ForEach([=,&client_entity](const NetworkComponent& nc) {
         if (nc.client_id == uuid)
             client_entity = nc.parent;

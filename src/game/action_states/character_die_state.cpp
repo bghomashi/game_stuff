@@ -14,6 +14,8 @@ void DieState::Start(ActionFSMComponent& fsm) {
     sprite->sprite.Play("die_" + suffix_array[fsm.angle]);
 }
 void DieState::Update(ActionFSMComponent& fsm, float dt) {
+    auto transform = EntityManager::Get<TransformComponent>(fsm.parent);
+    transform->SetPosition(transform->position);
     timer -= dt;
     if (timer <= 0) {
         timer = 0;

@@ -93,7 +93,21 @@ bool MainClientState::SetupHooks() {
         }
     });
 
+    // Net::message msg;
+    // msg.header.id = GameMessage::CHARACTER_SPAWN;
+    
+    // msg << (unsigned)1;
+    // msg << 0.f << 0.f;
+    // msg << 0.f << 0.f;
 
+
+    // if (!ResourceManager<SpriteResource>::Load("goblin_mage", "res/sprites/goblin_mage.json") ||
+    //     !ResourceManager<SpriteResource>::Load("knight", "res/sprites/knight.json")) {
+    //     LOG_CRITICAL("failed to load sprite.");
+    //     return false;
+    // }
+    // SpawnPlayer(msg);
+    
     return true;
 }
 
@@ -322,7 +336,7 @@ void MainClientState::SpawnPlayer(Net::message& spawn_msg) {
         _client_entity = entity;
 
     // add transform component
-    transform_handle = EntityManager::Add<TransformComponent>(entity, position, 0.f, Vec2{0.f,0.f}, 0.f);
+    transform_handle = EntityManager::Add<TransformComponent>(entity, position, 0.f, position, 0.f);
     // sprite
     EntityManager::Add<SpriteComponent>(entity, Sprite(&knight_sr), transform_handle);
     // stats

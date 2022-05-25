@@ -35,4 +35,5 @@ struct IdleState : ActionState {
     const static std::string name;
 
     void Start(ActionFSMComponent& fsm);
+    void Update(ActionFSMComponent& fsm, float dt);
 };
