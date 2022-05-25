@@ -105,6 +105,7 @@ namespace Net {
     class Client {
         Address _addr;
         Connection _connection;
+        float _keep_alive_timer;
         std::queue<message> _outgoing_messages;
         std::queue<message> _incoming_messages;
 

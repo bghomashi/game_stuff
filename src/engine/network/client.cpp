@@ -1,9 +1,12 @@
 #include "engine/network/network.h"
 
+#define KEEP_ALIVE_PER_SECOND 10.f
+
 namespace Net {
     bool Client::Start(const std::string& hostname, uint16_t port) {
         bytes_sent = 0;
         bytes_recv = 0;
+        _keep_alive_timer = 0;
         if (!_connection.Open())
             return false;
         _addr = MakeAddress(hostname, port);
@@ -12,6 +15,7 @@ namespace Net {
     bool Client::Start(Address addr) {
         bytes_sent = 0;
         bytes_recv = 0;
+        _keep_alive_timer = 0;
         _addr = addr;
         return _connection.Open();
     }
@@ -19,6 +23,13 @@ namespace Net {
         _connection.Close();
     }
     void Client::Update(float dt) {
+        _keep_alive_timer += dt;
+        if (_keep_alive_timer >= 1.f/KEEP_ALIVE_PER_SECOND) {
+            message keep_alive_msg = {0};
+            keep_alive_msg.header.size = sizeof(message_header);
+            _outgoing_messages.push(keep_alive_msg);
+        }
+
         std::vector<Packet::Ptr_t> packets;
 
         Packet::Ptr_t packet;

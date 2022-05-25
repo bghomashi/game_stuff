@@ -3,6 +3,7 @@
 
 enum GameMessage {
     // handshake
+    CLIENT_KEEP_ALIVE,
     CLIENT_REQUEST_CONNECTION,
     CLIENT_DISCONNECT,
     SERVER_ACCEPT_CONNECTION,

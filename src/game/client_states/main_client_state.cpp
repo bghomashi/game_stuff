@@ -177,63 +177,63 @@ void MainClientState::Update(float dt) {
             break;
         }
         case GameMessage::CHARACTER_SNAPSHOT: {
-        //     // update character positions
-        //     while (!msg.body.empty()) {
-        //         Net::ClientID client;
-        //         Vec2 position;
-        //         Vec2 destination;
+            // update character positions
+            while (!msg.body.empty()) {
+                Net::ClientID client;
+                Vec2 position;
+                Vec2 destination;
 
-        //         msg >> destination.y >> destination.x;
-        //         msg >> position.y >> position.x;
-        //         msg >> client;
+                msg >> destination.y >> destination.x;
+                msg >> position.y >> position.x;
+                msg >> client;
 
-        //         // skip ourselves
-        //         if (client == Engine::client_id) continue;
+                // skip ourselves
+                if (client == Engine::client_id) continue;
 
-        //         if (!NetworkComponent::ForEachTillTrue([&](const NetworkComponent& nc) {
-        //             if (client == nc.client_id) {
-        //                 // post message
-        //                 auto transform = EntityManager::Get<TransformComponent>(nc.parent);
-        //                 transform->SetPosition(position);
+                if (!NetworkComponent::ForEachTillTrue([&](const NetworkComponent& nc) {
+                    if (client == nc.client_id) {
+                        // post message
+                        auto transform = EntityManager::Get<TransformComponent>(nc.parent);
+                        transform->SetPosition(position);
 
-        //                 if (destination != position) {
-        //                     EntityMoveToCommand* msg = new EntityMoveToCommand();
-        //                     msg->entity = nc.parent;
-        //                     msg->destination = destination;
-        //                     MessageQueue::Push(msg);
-        //                 }
-        //                 return true; // found
-        //             }
-        //             return false;   // not yet
-        //         })) {               // we didnt find this entity
-        //             Net::message query_msg;
-        //             query_msg.header.id = GameMessage::PLAYER_QUERY;
-        //             query_msg << (unsigned)client;
-        //             Engine::client.Send(query_msg);
-        //         }
-        //     }
+                        if (destination != position) {
+                            EntityMoveToCommand* msg = new EntityMoveToCommand();
+                            msg->entity = nc.parent;
+                            msg->destination = destination;
+                            MessageQueue::Push(msg);
+                        }
+                        return true; // found
+                    }
+                    return false;   // not yet
+                })) {               // we didnt find this entity
+                    Net::message query_msg;
+                    query_msg.header.id = GameMessage::PLAYER_QUERY;
+                    query_msg << (unsigned)client;
+                    Engine::client.Send(query_msg);
+                }
+            }
             break;
         }
         case GameMessage::CHARACTER_DESTROY: {
-        //     Net::ClientID client_id;
-        //     EntityID entity = EntityID::INVALID;
+            Net::ClientID client_id;
+            EntityID entity = EntityID::INVALID;
 
-        //     msg >> client_id;
-        //     // who is being disconnected
-        //     NetworkComponent::ForEachTillTrue([=,&entity](const NetworkComponent& nc) {
-        //         if (nc.client_id == client_id) {
-        //             entity = nc.parent;
-        //             return true;
-        //         }
-        //         return false;
-        //     });
+            msg >> client_id;
+            // who is being disconnected
+            NetworkComponent::ForEachTillTrue([=,&entity](const NetworkComponent& nc) {
+                if (nc.client_id == client_id) {
+                    entity = nc.parent;
+                    return true;
+                }
+                return false;
+            });
 
 
-        //     if (entity != EntityID::INVALID) {
-        //         EntityDestroy* destroy_msg = new EntityDestroy();
-        //         destroy_msg->entity = entity;
-        //         MessageQueue::Push(destroy_msg);
-        //     }
+            if (entity != EntityID::INVALID) {
+                EntityDestroy* destroy_msg = new EntityDestroy();
+                destroy_msg->entity = entity;
+                MessageQueue::Push(destroy_msg);
+            }
             break;
         }
         default:
