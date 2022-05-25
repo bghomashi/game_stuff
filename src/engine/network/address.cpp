@@ -23,7 +23,7 @@ namespace Net {
 
         if ( (he = gethostbyname( hostname ) ) == NULL) {
             // get the host info
-            herror("gethostbyname");
+            LOG_CRITICAL("Failed to identity host.");
             return 1;
         }
 
