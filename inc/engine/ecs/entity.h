@@ -114,13 +114,15 @@ public:
     template<typename T>
     static T* Get(EntityID id) {
         ComponentID handle;
-        if (!Find(*s_entities.Get(id), Component<T>::GetID(), handle))
+        if (s_entities.Get(id) == NULL || !Find(*s_entities.Get(id), Component<T>::GetID(), handle))
             return NULL;
         return Component<T>::Get(handle);
     }
     template<typename T>
     static bool Has(EntityID id) {
         auto entity = s_entities.Get(id);
+        if (entity == NULL)
+            return false;
         return Find(*entity, Component<T>::GetID());
     }
 

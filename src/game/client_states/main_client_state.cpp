@@ -157,13 +157,13 @@ bool MainClientState::Start() {
 void MainClientState::Update(float dt) {
     // user input -- this info stays on client
     if (Engine::GetKeyPressed(Input::W))
-        Engine::camera.position += Vec2{ 0.f, 1.f};
+        Engine::camera.position += Vec2{ 0.f, 10.f}*dt;
     if (Engine::GetKeyPressed(Input::A))
-        Engine::camera.position += Vec2{-1.f, 0.f};
+        Engine::camera.position += Vec2{-10.f, 0.f}*dt;
     if (Engine::GetKeyPressed(Input::S))
-        Engine::camera.position += Vec2{ 0.f,-1.f};
+        Engine::camera.position += Vec2{ 0.f,-10.f}*dt;
     if (Engine::GetKeyPressed(Input::D))
-        Engine::camera.position += Vec2{ 1.f, 0.f};
+        Engine::camera.position += Vec2{ 10.f, 0.f}*dt;
     // -----------------------------------------
 
     if (Input::MousePressed(Input::MouseLeft)) {
@@ -235,7 +235,6 @@ void MainClientState::Update(float dt) {
                             fsm->SetState<AttackState>(ability_name, dir);
                         else if (state == DamagedState::name) {
                             fsm->SetState<DamagedState>();
-                            std::cout << state << std::endl;
                         }
                         else if (state == DieState::name)
                             fsm->SetState<DieState>();
@@ -323,6 +322,49 @@ void MainClientState::Draw(float alpha) {
          Combat::Combatant::DrawHurtBoxes();
          Combat::HitBox::DrawHitBoxes();
     }
+
+    Combat::Combatant::ForEach([](const Combat::Combatant& c){
+        float width = 50;       // width of hp bar
+        auto transform = EntityManager::Get<TransformComponent>(c.parent);
+        Vec2 hp_pos = transform->position;
+        Vec2 hp_size = {width,4};
+        Vec2 ma_pos = transform->position;
+        Vec2 ma_size = {width,4};
+        ma_pos.y += 50.;           // just an arbitrary vertical shift
+        hp_pos.y += 57.;           // just an arbitrary vertical shift
+
+        float hp_per = float(c.health.cur - c.health.min)/float(c.health.max-c.health.min);
+        float ma_per = float(c.mana.cur - c.mana.min)/float(c.mana.max-c.mana.min);
+
+        draw::SquareFilled(
+            hp_pos - Vec2{1,0}, 
+            hp_size + Vec2{2,2},
+            color::Black
+        );
+        draw::SquareFilled(
+            ma_pos - Vec2{1,0}, 
+            ma_size + Vec2{2,2},
+            color::Black
+        );
+
+
+        hp_size.x *= hp_per;
+        hp_pos.x -= 0.5f*(width-hp_size.x);
+        ma_size.x *= ma_per;
+        ma_pos.x -= 0.5f*(width-ma_size.x);
+        draw::SquareFilled(
+            hp_pos, 
+            hp_size,
+            color::Red
+        );
+        draw::SquareFilled(
+            ma_pos - Vec2{1,0}, 
+            ma_size,
+            color::Blue
+        );
+    });
+
+
     matrix_stack::PopModelView();
 
 

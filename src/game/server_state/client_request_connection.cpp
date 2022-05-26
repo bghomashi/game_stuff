@@ -72,11 +72,14 @@ void ServerState::ClientRequestConnect(Net::message& msg, const Net::ClientID& u
             if (state == AttackState::name)
                 ability_name = EntityManager::Get<AbilityComponent>(new_entity)->active_ability->Name();
 
+            combatant = EntityManager::Get<Combat::Combatant>(new_entity);
 
             Net::message spawn_msg = {GameMessage::CHARACTER_SPAWN};
             spawn_msg << (unsigned)nc.client_id; 
             spawn_msg << position.x << position.y;
             spawn_msg << destination.x << destination.y;
+            spawn_msg << combatant->health;
+            spawn_msg << combatant->mana;
             if (state == AttackState::name)
                 spawn_msg << ability_name;
             spawn_msg << angle << state;

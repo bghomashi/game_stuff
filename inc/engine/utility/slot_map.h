@@ -132,10 +132,14 @@ public:
     }
     T* Get(Handle id) {
         unsigned slot_index = _slots[id.index].index;
+        if (_slots[id.index].key == 0 || id.key != _slots[id.index].key)
+            return NULL;
         return &_items[slot_index].object;
     }
     const T* Get(Handle id) const {
 		unsigned slot_index = _slots[id.index].index;
+        if (_slots[id.index].key == 0 || id.key != _slots[id.index].key)
+            return NULL;
         return &_items[slot_index].object;
     }
     Handle Get(const T& o) const {
@@ -145,7 +149,7 @@ public:
 		id.key = item->key;
         return id;
     }
-    T* TryGet(Handle id) {
+    T* TryGet(Handle id) {  //?
         unsigned slot_index = _slots[id.index].index;
 
         if (_slots[id.index].key == 0 || id.key != _slots[id.index].key)
