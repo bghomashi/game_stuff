@@ -6,17 +6,21 @@
 
 
 void ServerState::ClientTimeoutCallback(const Net::ClientID& client_id) {
-    EntityDestroy* msg = new EntityDestroy();
+    EntityID entity = EntityID::INVALID;
     
     // who is being disconnected
-    NetworkComponent::ForEachTillTrue([=,&msg](const NetworkComponent& nc) {
+    NetworkComponent::ForEachTillTrue([&](const NetworkComponent& nc) {
         if (nc.client_id == client_id) {
-            msg->entity = nc.parent;
+            entity = nc.parent;
             return true;
         }
         return false;
     });
+    if (entity == EntityID::INVALID)            // no entity associated with this client
+        return;
 
+    EntityDestroy* msg = new EntityDestroy();
+    msg->entity = entity;
     MessageQueue::Push(msg);
 
 
