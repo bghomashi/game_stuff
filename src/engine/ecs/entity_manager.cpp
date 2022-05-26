@@ -9,7 +9,7 @@ void EntityManager::Destroy(EntityID id) {
     // remove each component 
     for (auto& cid : entity->component_ids)
         s_remove_components[cid.first](cid.second);
-
+    entity->component_ids.clear();
     s_entities.Remove(id);
 }
 bool EntityManager::Exists(EntityID id) {
