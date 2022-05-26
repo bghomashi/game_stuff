@@ -212,7 +212,7 @@ void MainClientState::Update(float dt) {
                 msg >> client;
 
                 // skip ourselves
-                // if (client == Engine::client_id) continue;
+                if (client == Engine::client_id) continue;
 
                 if (!NetworkComponent::ForEachTillTrue([&](const NetworkComponent& nc) {
                     if (client == nc.client_id) {
