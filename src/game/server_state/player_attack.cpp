@@ -24,12 +24,20 @@ void ServerState::PlayerAttack(Net::message& attack_msg, const Net::ClientID& uu
             client_entity = nc.parent;
     });
 
-
+    // process in game
     EntityAttackCommand* msg = new EntityAttackCommand();
     msg->entity = client_entity;
     msg->direction = dir;
     msg->attack = attack_name;
     MessageQueue::Push(msg);
 
+    // send to everyone else
+    attack_msg << client_id;
+    attack_msg << dir.x << dir.y;
+    attack_msg << attack_name;
+
+    NetworkComponent::ForEach([&](NetworkComponent& nc){
+        Engine::server.Send(attack_msg, nc.client_id);
+    });
 }
 

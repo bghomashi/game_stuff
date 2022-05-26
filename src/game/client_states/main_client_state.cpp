@@ -282,6 +282,39 @@ void MainClientState::Update(float dt) {
             }
             break;
         }
+        
+        case GameMessage::PLAYER_ATTACK: {
+            Vec2 dir;
+            std::string attack_name;
+            Net::ClientID client_id = Net::ClientID::INVALID;
+            EntityID client_entity = EntityID::INVALID;
+
+            msg >> attack_name;
+            msg >> dir.y >> dir.x;
+            msg >> client_id;
+
+            // if its me I already know
+            if (client_id != Engine::client_id)
+                break;
+
+            // which entity
+            NetworkComponent::ForEach([=,&client_entity](const NetworkComponent& nc) {
+                if (nc.client_id == client_id)
+                    client_entity = nc.parent;
+            });
+
+            if (client_entity == EntityID::INVALID)
+                break;
+
+            // process in game
+            EntityAttackCommand* msg = new EntityAttackCommand();
+            msg->entity = client_entity;
+            msg->direction = dir;
+            msg->attack = attack_name;
+            MessageQueue::Push(msg);
+
+            break;
+        }
         default:
             LOG_CRITICAL("Unrecognized network message.");
             break;
