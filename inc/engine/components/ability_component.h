@@ -3,6 +3,7 @@
 #include "engine/ecs/entity.h"
 #include <memory>
 #include <unordered_map>
+#include <string>
 
 struct Ability {
     typedef std::shared_ptr<Ability> Ptr_t;
@@ -13,6 +14,8 @@ struct Ability {
     virtual void Start();
     virtual void Stop();
     virtual bool Update(float dt);
+
+    virtual const std::string& Name() const = 0;
 };
 
 struct AbilityComponent : Component<AbilityComponent> {

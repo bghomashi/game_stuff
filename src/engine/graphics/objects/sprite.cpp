@@ -60,6 +60,11 @@ int Sprite::GetNumFrames(const std::string& animation) const {
     if (anim == NULL) return 0;
     return anim->num_frames;
 }
+float Sprite::GetTotalAnimationLength(const std::string& animation) const {
+    auto anim = _resource->GetAnimation(animation);
+    if (anim == NULL) return 0;
+    return anim->num_frames*anim->frame_time;
+}
 
 void Sprite::Draw(const Vec2& pos) const {
     if (_animation.anim == NULL) return;

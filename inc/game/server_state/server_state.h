@@ -2,6 +2,7 @@
 
 
 #include "engine/application.h"
+#include "engine/ecs/entity.h"
 #include "engine/network/network.h"
 #include "engine/utility/circular_buffer.h"
 #include <vector>
@@ -19,7 +20,7 @@ class ServerState : public ApplicationState {
     
     void ClientTimeoutCallback(const Net::ClientID& uuid);
 
-    void SpawnPlayer(const Net::ClientID& uuid);
+    EntityID SpawnPlayer(const Net::ClientID& uuid);
 public:
     bool Start(); 
     void Stop(); 

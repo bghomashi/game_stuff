@@ -160,9 +160,22 @@ void ServerState::Update(float dt) {
             if (path && !path->points.empty())
                 destination = path->points.front();
 
+            std::string ability_name;
+            int angle = EntityManager::Get<ActionFSMComponent>(entity)->angle;
+            std::string state = EntityManager::Get<ActionFSMComponent>(entity)->NameOfCurrentState();
+            if (state == AttackState::name) {
+                auto ac = EntityManager::Get<AbilityComponent>(entity);
+                auto ability = ac->active_ability;
+                if (ability)            // we may have finished an attack
+                    ability_name = ability->Name();
+            }
+            
             snapshot_msg << (unsigned)client;
             snapshot_msg << position.x << position.y;
             snapshot_msg << destination.x << destination.y;
+            if (state == AttackState::name)
+                snapshot_msg << ability_name;
+            snapshot_msg << angle << state;
             
         });
         NetworkComponent::ForEach([&snapshot_msg](const NetworkComponent& nc){
@@ -222,7 +235,7 @@ void ServerState::Draw(float alpha) {
 #include "game/action_states/character_action_states.h"
 #include "game/abilities/sword_swipe.h"
 
-void ServerState::SpawnPlayer(const Net::ClientID& uuid) {
+EntityID ServerState::SpawnPlayer(const Net::ClientID& uuid) {
     SpriteResource& knight_sr = ResourceManager<SpriteResource>::Get("knight");
 
     ComponentID transform_handle;
@@ -240,29 +253,32 @@ void ServerState::SpawnPlayer(const Net::ClientID& uuid) {
     EntityManager::Add<StatsComponent>(entity, 90.f);
     // pathing
     EntityManager::Add<PathComponent>(entity);
+    // abilities
+    ability_handle = EntityManager::Add<AbilityComponent>(entity);
+    auto ability_component = AbilityComponent::Get(ability_handle);
+    ability_component->abilities[SwordSwipe::name] = std::shared_ptr<Ability>(new SwordSwipe());
+    ability_component->abilities[SwordSwipe::name]->parent = entity;
+
     // state machine
     fsm_handle = EntityManager::Add<ActionFSMComponent>(entity, false, 2, 
         // actions
         std::unordered_map<std::string, ActionState::Ptr_t>
         {
-            {"walk", ActionState::Ptr_t(new WalkState())},
-            {"idle", ActionState::Ptr_t(new IdleState())},
-            {"attack", ActionState::Ptr_t(new AttackState())},
-            {"damaged", ActionState::Ptr_t(new DamagedState())},
-            {"die", ActionState::Ptr_t(new DieState())}
+            {WalkState::name, ActionState::Ptr_t(new WalkState())},
+            {IdleState::name, ActionState::Ptr_t(new IdleState())},
+            {AttackState::name, ActionState::Ptr_t(new AttackState())},
+            {DamagedState::name, ActionState::Ptr_t(new DamagedState())},
+            {DieState::name, ActionState::Ptr_t(new DieState())}
         }, (ActionState*)NULL);
     auto fsm = ActionFSMComponent::Get(fsm_handle);
 
     fsm->SetState<IdleState>();      // set starting state
-    // abilities
-    ability_handle = EntityManager::Add<AbilityComponent>(entity);
-    auto ability_component = AbilityComponent::Get(ability_handle);
-    ability_component->abilities["sword_swipe"] = std::shared_ptr<Ability>(new SwordSwipe());
-    ability_component->abilities["sword_swipe"]->parent = entity;
     // combatant
     combat_handle = EntityManager::Add<Combat::Combatant>(entity, RangedValue<int>{0,100,100}, RangedValue<int>{0,100,100});
     auto combatant = Combat::Combatant::Get(combat_handle);
     combatant->hurt_boxes.push_back({0,10,20,60});
     // networked
     network_handle = EntityManager::Add<NetworkComponent>(entity, uuid);
+
+    return entity;
 }

@@ -5,6 +5,10 @@
 struct WalkState : ActionState {
     const static std::string name;
     void Update(ActionFSMComponent& fsm, float dt);
+
+    inline const std::string& Name() const {
+        return name;
+    }
 };
 
 struct AttackState : ActionState {
@@ -13,6 +17,10 @@ struct AttackState : ActionState {
     Vec2 dir;
     void Start(ActionFSMComponent& fsm, const std::string& attack, const Vec2& dir);
     void Update(ActionFSMComponent& fsm, float dt);
+
+    inline const std::string& Name() const {
+        return name;
+    }
 };
 
 struct DamagedState : ActionState {
@@ -21,6 +29,10 @@ struct DamagedState : ActionState {
     float timer;
     void Start(ActionFSMComponent& fsm);
     void Update(ActionFSMComponent& fsm, float dt);
+
+    inline const std::string& Name() const {
+        return name;
+    }
 };
 
 struct DieState : ActionState {
@@ -29,6 +41,10 @@ struct DieState : ActionState {
     float timer; 
     void Start(ActionFSMComponent& fsm);
     void Update(ActionFSMComponent& fsm, float dt);
+
+    inline const std::string& Name() const {
+        return name;
+    }
 };
 
 struct IdleState : ActionState {
@@ -36,4 +52,8 @@ struct IdleState : ActionState {
 
     void Start(ActionFSMComponent& fsm);
     void Update(ActionFSMComponent& fsm, float dt);
+
+    inline const std::string& Name() const {
+        return name;
+    }
 };

@@ -10,9 +10,9 @@ static const std::vector<std::string> suffix_array = { "w", "sw", "s", "se", "e"
 
 
 void DamagedState::Start(ActionFSMComponent& fsm) {
-    timer = 2;
     auto sprite = EntityManager::Get<SpriteComponent>(fsm.parent);
     sprite->sprite.Play("damaged_" + suffix_array[fsm.angle]);
+    timer = sprite->sprite.GetTotalAnimationLength("damaged_" + suffix_array[fsm.angle]);
 }
 void DamagedState::Update(ActionFSMComponent& fsm, float dt) {
     auto transform = EntityManager::Get<TransformComponent>(fsm.parent);

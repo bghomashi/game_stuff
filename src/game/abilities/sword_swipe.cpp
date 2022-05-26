@@ -8,8 +8,6 @@
 
  const std::vector<std::string> SwordSwipe::suffix_array = { "w", "sw", "s", "se", "e", "ne", "n", "nw", "w" };
 
-Combat::HitBox* hb;
-std::vector<EntityID> already_hit;
 
 SwordSwipe::SwordSwipe() {
 }
@@ -25,7 +23,7 @@ void SwordSwipe::Start() {
     float spf = sprite->sprite.GetFrameTime("attack_" + suffix_array[angle]);
     int len = sprite->sprite.GetNumFrames("attack_" + suffix_array[angle]);
     sprite->sprite.Play("attack_" + suffix_array[angle]);
-    cooldown = spf*len;
+    cooldown = sprite->sprite.GetTotalAnimationLength("attack_" + suffix_array[angle]);
     already_hit.clear();
 
     // hitbox
@@ -107,3 +105,5 @@ bool SwordSwipe::Update(float dt) {
 
     return result;
 }
+
+const std::string SwordSwipe::name = "sword_swipe";

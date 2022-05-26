@@ -16,6 +16,7 @@ struct ActionState {
     virtual void Update(ActionFSMComponent& ac, float dt) {}
     virtual void HandleKeyDown(ActionFSMComponent& fsm, int key, int mods) {}
     virtual void HandleKeyUp(ActionFSMComponent& fsm, int key, int mods) {}
+    virtual const std::string& Name() const = 0;
 };
 
 struct ActionFSMComponent : Component<ActionFSMComponent> { 
@@ -30,6 +31,7 @@ struct ActionFSMComponent : Component<ActionFSMComponent> {
 
     void Update(float dt);
 
+    const std::string& NameOfCurrentState() const;
     template <typename State, typename... Args>
     void SetState(Args... args) {
         if (lock_state) return;

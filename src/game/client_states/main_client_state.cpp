@@ -31,18 +31,22 @@ bool MainClientState::SetupHooks() {
         auto point = Engine::GetMouseLocationWorldSpace();
         auto dir = (point - position).norm();
 
+        auto fsm = EntityManager::Get<ActionFSMComponent>(_client_entity);
+        if (fsm->NameOfCurrentState() == AttackState::name) // (fsm->lock_state)
+            return;     // only do this if we are not already attacking (or locked?)
+
         // send message to server
         Net::message attack_msg = { GameMessage::PLAYER_ATTACK };
         attack_msg << Engine::client_id;
         attack_msg << dir.x << dir.y;
-        attack_msg << "sword_swipe";
+        attack_msg << SwordSwipe::name;
         Engine::client.Send(attack_msg);
 
         // post message
         EntityAttackCommand* msg = new EntityAttackCommand();
         msg->entity = _client_entity;
         msg->direction = dir;
-        msg->attack = "sword_swipe";
+        msg->attack = SwordSwipe::name;
         MessageQueue::Push(msg);
     });
 
@@ -194,9 +198,13 @@ void MainClientState::Update(float dt) {
             // update character positions
             while (!msg.body.empty()) {
                 Net::ClientID client;
-                Vec2 position;
-                Vec2 destination;
+                Vec2 position, destination, dir;
+                std::string state, ability_name;
+                int angle;
 
+                msg >> state >> angle;
+                if (state == AttackState::name)
+                    msg >> ability_name;
                 msg >> destination.y >> destination.x;
                 msg >> position.y >> position.x;
                 msg >> client;
@@ -208,8 +216,23 @@ void MainClientState::Update(float dt) {
                     if (client == nc.client_id) {
                         // post message
                         auto transform = EntityManager::Get<TransformComponent>(nc.parent);
-                        transform->SetPosition(position);
+                        auto fsm = EntityManager::Get<ActionFSMComponent>(nc.parent);
 
+                        transform->SetPosition(position);
+                        float radians = M_PI*(2.*angle - 9.)/8.;
+                        dir.x = cos(radians);
+                        dir.y = sin(radians);
+                        fsm->angle = angle;
+                        
+                        if (state == AttackState::name)
+                            fsm->SetState<AttackState>(ability_name, dir);
+                        else if (state == DamagedState::name) {
+                            fsm->SetState<DamagedState>();
+                            std::cout << state << std::endl;
+                        }
+                        else if (state == DieState::name)
+                            fsm->SetState<DieState>();
+                        
                         if (destination != position) {
                             EntityMoveToCommand* msg = new EntityMoveToCommand();
                             msg->entity = nc.parent;
@@ -323,10 +346,15 @@ void MainClientState::SpawnPlayer(Net::message& spawn_msg) {
     ComponentID combat_handle;
     ComponentID fsm_handle;
     ComponentID network_handle;
-    Vec2 position, destination;
+    Vec2 position, destination, dir;
+    std::string state, ability_name;
+    int angle;
     Net::ClientID uuid;
 
     // animation....
+    spawn_msg >> state >> angle;
+    if (state == AttackState::name)
+        spawn_msg >> ability_name;
     spawn_msg >> destination.y >> destination.x;
     spawn_msg >> position.y >> position.x;
     spawn_msg >> uuid;
@@ -349,25 +377,34 @@ void MainClientState::SpawnPlayer(Net::message& spawn_msg) {
         msg->destination = destination;
         MessageQueue::Push(msg);
     }
+    // abilities
+    ability_handle = EntityManager::Add<AbilityComponent>(entity);
+    auto ability_component = AbilityComponent::Get(ability_handle);
+    ability_component->abilities[SwordSwipe::name] = std::shared_ptr<Ability>(new SwordSwipe());
+    ability_component->abilities[SwordSwipe::name]->parent = entity;
     // state machine
     fsm_handle = EntityManager::Add<ActionFSMComponent>(entity, false, 2, 
         // actions
         std::unordered_map<std::string, ActionState::Ptr_t>
         {
-            {"walk", ActionState::Ptr_t(new WalkState())},
-            {"idle", ActionState::Ptr_t(new IdleState())},
-            {"attack", ActionState::Ptr_t(new AttackState())},
-            {"damaged", ActionState::Ptr_t(new DamagedState())},
-            {"die", ActionState::Ptr_t(new DieState())}
+            {WalkState::name, ActionState::Ptr_t(new WalkState())},
+            {IdleState::name, ActionState::Ptr_t(new IdleState())},
+            {AttackState::name, ActionState::Ptr_t(new AttackState())},
+            {DamagedState::name, ActionState::Ptr_t(new DamagedState())},
+            {DieState::name, ActionState::Ptr_t(new DieState())}
         }, (ActionState*)NULL);
 
+    float radians = M_PI*(2.*angle - 9.)/8.;
+    dir.x = cos(radians);
+    dir.y = sin(radians);
+
     auto fsm = ActionFSMComponent::Get(fsm_handle);
-    fsm->SetState<IdleState>();      // set starting state
-    // abilities
-    ability_handle = EntityManager::Add<AbilityComponent>(entity);
-    auto ability_component = AbilityComponent::Get(ability_handle);
-    ability_component->abilities["sword_swipe"] = std::shared_ptr<Ability>(new SwordSwipe());
-    ability_component->abilities["sword_swipe"]->parent = entity;
+    fsm->angle = angle;
+    if (state == AttackState::name)
+        fsm->SetState<AttackState>(ability_name, dir);
+    else
+        fsm->SetState<IdleState>();      // set starting state
+
     // combatant
     combat_handle = EntityManager::Add<Combat::Combatant>(entity, RangedValue<int>{0,100,100}, RangedValue<int>{0,100,100});
     auto combatant = Combat::Combatant::Get(combat_handle);

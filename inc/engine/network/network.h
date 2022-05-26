@@ -30,7 +30,7 @@ namespace Net {
 
     // we can try this as a serializer
     message& operator<< (message& msg, const char* data);
-    message& operator<< (message& msg, std::string& data);
+    message& operator<< (message& msg, const std::string& data);
     
     template <typename DT>
     message& operator<< (message& msg, const DT& data) {

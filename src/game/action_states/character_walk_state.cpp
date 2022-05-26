@@ -24,16 +24,14 @@ void WalkState::Update(ActionFSMComponent& fsm, float dt) {
     float distance = ms*dt;                     // max distance we can move
 
 
-    while (distance > 0) {
-        // not going anywhere
-        if (path->points.empty()) {
-            // done walking 
-            fsm.SetState<IdleState>();
+    while (distance > 0 && !path->points.empty()) {
+        destination = path->points.front();
+        rel_motion = destination - transform->position;
+
+        if (rel_motion == Vec2{0,0}) {
             return;
         }
 
-        destination = path->points.front();
-        rel_motion = destination - transform->position;
         dir = rel_motion.norm();
         ms = stats->move_speed;
 
@@ -49,6 +47,10 @@ void WalkState::Update(ActionFSMComponent& fsm, float dt) {
             float ppf = sprite->sprite.GetPixelsPerFrame("walk_" + suffix_array[fsm.angle]);
             sprite->sprite.Play("walk_" + suffix_array[fsm.angle], ppf/ms); 
         }
+    }
+    // not going anywhere
+    if (path->points.empty()) {         // done walking 
+        fsm.SetState<IdleState>();
     }
 }
 

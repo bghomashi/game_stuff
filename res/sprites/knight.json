@@ -17,6 +17,16 @@
             "name" : "attack",
             "image" : "res/images/knight/attack.png",
             "tile_size" : [ 299, 240 ]
+        },
+        {
+            "name" : "damaged",
+            "image" : "res/images/knight/damaged.png",
+            "tile_size" : [ 299, 240 ]
+        },
+        {
+            "name" : "die",
+            "image" : "res/images/knight/die.png",
+            "tile_size" : [ 299, 240 ]
         }
     ],
     "animations" : [
@@ -217,6 +227,126 @@
             "image_name" : "attack",
             "start_frame" : [7, 0],
             "num_frames" : 18,
+            "frame_time" : 0.033,
+            "fallback" : "idle_sw"
+        },
+        {
+            "name" : "die_s",
+            "image_name" : "die",
+            "start_frame" : [0, 0],
+            "num_frames" : 9,
+            "frame_time" : 0.033
+        },
+        {
+            "name" : "die_se",
+            "image_name" : "die",
+            "start_frame" : [1, 0],
+            "num_frames" : 9,
+            "frame_time" : 0.033
+        },
+        {
+            "name" : "die_e",
+            "image_name" : "die",
+            "start_frame" : [2, 0],
+            "num_frames" : 9,
+            "frame_time" : 0.033
+        },
+        {
+            "name" : "die_ne",
+            "image_name" : "die",
+            "start_frame" : [3, 0],
+            "num_frames" : 9,
+            "frame_time" : 0.033
+        },
+        {
+            "name" : "die_n",
+            "image_name" : "die",
+            "start_frame" : [4, 0],
+            "num_frames" : 9,
+            "frame_time" : 0.033
+        },
+        {
+            "name" : "die_nw",
+            "image_name" : "die",
+            "start_frame" : [5, 0],
+            "num_frames" : 9,
+            "frame_time" : 0.033
+        },
+        {
+            "name" : "die_w",
+            "image_name" : "die",
+            "start_frame" : [6, 0],
+            "num_frames" : 9,
+            "frame_time" : 0.033
+        },
+        {
+            "name" : "die_sw",
+            "image_name" : "die",
+            "start_frame" : [7, 0],
+            "num_frames" : 9,
+            "frame_time" : 0.033
+        },
+        {
+            "name" : "damaged_s",
+            "image_name" : "damaged",
+            "start_frame" : [0, 0],
+            "num_frames" : 13,
+            "frame_time" : 0.033,
+            "fallback" : "idle_s"
+        },
+        {
+            "name" : "damaged_se",
+            "image_name" : "damaged",
+            "start_frame" : [1, 0],
+            "num_frames" : 13,
+            "frame_time" : 0.033,
+            "fallback" : "idle_se"
+        },
+        {
+            "name" : "damaged_e",
+            "image_name" : "damaged",
+            "start_frame" : [2, 0],
+            "num_frames" : 13,
+            "frame_time" : 0.033,
+            "fallback" : "idle_e"
+        },
+        {
+            "name" : "damaged_ne",
+            "image_name" : "damaged",
+            "start_frame" : [3, 0],
+            "num_frames" : 13,
+            "frame_time" : 0.033,
+            "fallback" : "idle_ne"
+        },
+        {
+            "name" : "damaged_n",
+            "image_name" : "damaged",
+            "start_frame" : [4, 0],
+            "num_frames" : 13,
+            "frame_time" : 0.033,
+            "fallback" : "idle_n"
+        },
+        {
+            "name" : "damaged_nw",
+            "image_name" : "damaged",
+            "start_frame" : [5, 0],
+            "num_frames" : 13,
+            "frame_time" : 0.033,
+            "fallback" : "idle_nw"
+        },
+        {
+            "name" : "damaged_w",
+            "image_name" : "damaged",
+            "start_frame" : [6, 0],
+            "num_frames" : 13,
+            "frame_time" : 0.033,
+            "fallback" : "idle_w"
+        },
+        {
+            "name" : "damaged_sw",
+            "image_name" : "damaged",
+            "start_frame" : [7, 0],
+            "num_frames" : 13,
             "frame_time" : 0.033,
             "fallback" : "idle_sw"
         }

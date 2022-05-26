@@ -67,4 +67,5 @@ public:
     float GetPixelsPerFrame(const std::string& animation) const;
     float GetFrameTime(const std::string& animation) const;
     int GetNumFrames(const std::string& animation) const;
+    float GetTotalAnimationLength(const std::string& animation) const;
 };
