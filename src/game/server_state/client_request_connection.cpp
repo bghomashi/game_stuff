@@ -3,6 +3,7 @@
 #include "engine/components.h"
 #include "game/network/game_messages.h"
 #include "game/action_states/character_action_states.h"
+#include "game/combat/combat.h"
 
 void ServerState::ClientRequestConnect(Net::message& msg, const Net::ClientID& uuid) {
     std::string username, password;
@@ -35,12 +36,14 @@ void ServerState::ClientRequestConnect(Net::message& msg, const Net::ClientID& u
             ability_name = ac->active_ability->Name();
     }
 
-
+    auto combatant = EntityManager::Get<Combat::Combatant>(new_entity);
 
     Net::message spawn_msg = {GameMessage::CHARACTER_SPAWN};
     spawn_msg << (unsigned)uuid; 
     spawn_msg << position.x << position.y;
     spawn_msg << destination.x << destination.y;
+    spawn_msg << combatant->health;
+    spawn_msg << combatant->mana;
     if (state == AttackState::name)
         spawn_msg << ability_name;
     spawn_msg << angle << state;

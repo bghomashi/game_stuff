@@ -201,28 +201,35 @@ void MainClientState::Update(float dt) {
                 Vec2 position, destination, dir;
                 std::string state, ability_name;
                 int angle;
+                RangedValue<int> health, mana;
 
                 msg >> state >> angle;
                 if (state == AttackState::name)
                     msg >> ability_name;
+                msg >> mana >> health;
                 msg >> destination.y >> destination.x;
                 msg >> position.y >> position.x;
                 msg >> client;
 
                 // skip ourselves
-                if (client == Engine::client_id) continue;
+                // if (client == Engine::client_id) continue;
 
                 if (!NetworkComponent::ForEachTillTrue([&](const NetworkComponent& nc) {
                     if (client == nc.client_id) {
                         // post message
                         auto transform = EntityManager::Get<TransformComponent>(nc.parent);
                         auto fsm = EntityManager::Get<ActionFSMComponent>(nc.parent);
-
-                        transform->SetPosition(position);
-                        float radians = M_PI*(2.*angle - 9.)/8.;
-                        dir.x = cos(radians);
-                        dir.y = sin(radians);
-                        fsm->angle = angle;
+                        auto combatant = EntityManager::Get<Combat::Combatant>(nc.parent);
+                        
+                        if (client != Engine::client_id) {
+                            // dont mess with the transform
+                            // unless??
+                            transform->SetPosition(position);
+                            float radians = M_PI*(2.*angle - 9.)/8.;
+                            dir.x = cos(radians);
+                            dir.y = sin(radians);
+                            fsm->angle = angle;
+                        }
                         
                         if (state == AttackState::name)
                             fsm->SetState<AttackState>(ability_name, dir);
@@ -239,6 +246,9 @@ void MainClientState::Update(float dt) {
                             msg->destination = destination;
                             MessageQueue::Push(msg);
                         }
+
+                        combatant->health = health;
+                        combatant->mana = mana;
                         return true; // found
                     }
                     return false;   // not yet
@@ -349,12 +359,15 @@ void MainClientState::SpawnPlayer(Net::message& spawn_msg) {
     Vec2 position, destination, dir;
     std::string state, ability_name;
     int angle;
+    RangedValue<int> health, mana;
+
     Net::ClientID uuid;
 
     // animation....
     spawn_msg >> state >> angle;
     if (state == AttackState::name)
         spawn_msg >> ability_name;
+    spawn_msg >> mana >> health;
     spawn_msg >> destination.y >> destination.x;
     spawn_msg >> position.y >> position.x;
     spawn_msg >> uuid;
@@ -406,7 +419,7 @@ void MainClientState::SpawnPlayer(Net::message& spawn_msg) {
         fsm->SetState<IdleState>();      // set starting state
 
     // combatant
-    combat_handle = EntityManager::Add<Combat::Combatant>(entity, RangedValue<int>{0,100,100}, RangedValue<int>{0,100,100});
+    combat_handle = EntityManager::Add<Combat::Combatant>(entity, health, mana);
     auto combatant = Combat::Combatant::Get(combat_handle);
     combatant->hurt_boxes.push_back({0,10,20,60});
     // network

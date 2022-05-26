@@ -72,6 +72,7 @@ bool ServerState::Start() {
         if (fsm) {
             fsm->SetState<DamagedState>();
         }
+
     });
     CombatHit::RegisterListener([](CombatHit* msg) {
         auto offender = EntityManager::Get<Combat::Combatant>(msg->offender);
@@ -154,6 +155,8 @@ void ServerState::Update(float dt) {
 
             Vec2 position = EntityManager::Get<TransformComponent>(entity)->position;
             Vec2 destination = position;
+            auto combatant = EntityManager::Get<Combat::Combatant>(entity);
+            
 
             // not sure how to handle this part.
             auto path = EntityManager::Get<PathComponent>(entity);
@@ -173,6 +176,9 @@ void ServerState::Update(float dt) {
             snapshot_msg << (unsigned)client;
             snapshot_msg << position.x << position.y;
             snapshot_msg << destination.x << destination.y;
+            snapshot_msg << combatant->health;
+            snapshot_msg << combatant->mana;
+
             if (state == AttackState::name)
                 snapshot_msg << ability_name;
             snapshot_msg << angle << state;

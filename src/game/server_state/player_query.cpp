@@ -4,7 +4,7 @@
 #include "game/network/game_messages.h"
 #include "game/messages/messages.h"
 #include "game/action_states/character_action_states.h"
-
+#include "game/combat/combat.h"
 
 void ServerState::PlayerQuery(Net::message& query_msg, const Net::ClientID& uuid) {
     Net::ClientID client_id = Net::ClientID::INVALID;
@@ -33,10 +33,14 @@ void ServerState::PlayerQuery(Net::message& query_msg, const Net::ClientID& uuid
     if (!EntityManager::Get<PathComponent>(client_entity)->points.empty())
         destination = EntityManager::Get<PathComponent>(client_entity)->points.front();
 
+    auto combatant = EntityManager::Get<Combat::Combatant>(client_entity);
+
     Net::message spawn_msg = {GameMessage::CHARACTER_SPAWN};
     spawn_msg << (unsigned)client_id; 
     spawn_msg << position.x << position.y;
     spawn_msg << destination.x << destination.y;
+    spawn_msg << combatant->health;
+    spawn_msg << combatant->mana;
     if (state == AttackState::name)
         spawn_msg << ability_name;
     spawn_msg << angle << state;
