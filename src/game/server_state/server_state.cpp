@@ -53,6 +53,7 @@ bool ServerState::Start() {
     });
 
     EntityAttackCommand::RegisterListener([] (EntityAttackCommand* msg) {
+        std::cout << "attack dir.x=" << msg->direction.x << " dir.y=" << msg->direction.y << std::endl;
         auto fsm = EntityManager::Get<ActionFSMComponent>(msg->entity);
         if (fsm) {
             fsm->SetState<AttackState>(msg->attack, msg->direction);// not ideal, maybe include option parameter
