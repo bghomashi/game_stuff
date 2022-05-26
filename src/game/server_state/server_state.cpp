@@ -112,9 +112,10 @@ void ServerState::Update(float dt) {
 
     Net::ClientID client_id;
     std::vector<Net::message> messages;
-    if (Engine::server.Recv(messages, client_id)) {
+    while (Engine::server.Recv(messages, client_id)) {
         for (int i = 0; i < messages.size(); i++) {
             auto& msg = messages[i];
+            int history = msg.body.size();
             switch (msg.header.id) {
                 case GameMessage::CLIENT_REQUEST_CONNECTION: {
                     ClientRequestConnect(msg, client_id);
@@ -130,22 +131,30 @@ void ServerState::Update(float dt) {
                 }
                 case GameMessage::PLAYER_QUERY: {
                     PlayerQuery(msg, client_id);
+                    break;
                 }
             }
         }
     }
 
-    if (snapshot_accum >= 1.f/SNAPSHOTS_PER_SECOND) {
-        snapshot_accum -= 1.f/SNAPSHOTS_PER_SECOND;
+    static float bps_accum = 0;
+    bps_accum += dt;
+    if (bps_accum > 1) {
+        bps_accum -= 1;
         bps_sent.push(Engine::server.bytes_sent);
         bps_recv.push(Engine::server.bytes_recv);
         Engine::server.bytes_sent = 0;
         Engine::server.bytes_recv = 0;
         std::stringstream ss;
         ss << std::setprecision(2) << std::fixed
-           << "bps_recv = " << bps_recv.Avg()
-           << " bps_sent = " << bps_sent.Avg();
+            << "bps_recv = " << bps_recv.Avg()
+            << " bps_sent = " << bps_sent.Avg();
         status[1] = ss.str();
+    }
+
+    if (snapshot_accum >= 1.f/SNAPSHOTS_PER_SECOND) {
+        snapshot_accum -= 1.f/SNAPSHOTS_PER_SECOND;
+
 
         // for each component that has a client
         Net::message snapshot_msg;

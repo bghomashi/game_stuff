@@ -11,6 +11,8 @@
 #include "game/abilities/sword_swipe.h"
 #include "game/network/game_messages.h"
 
+#include <sstream>
+#include <iomanip>
 
 using color = OGL::Color;
 using draw = OGL::Draw;
@@ -145,6 +147,8 @@ bool MainClientState::Start() {
         return false;
     
     Engine::debug = Engine::DebugState::None;
+    bps_recv = CircularBuffer<float>(10);
+    bps_sent = CircularBuffer<float>(10);
 
     device::SetViewport(0, 0, 800, 600);
     device::SetClearColor(color::Blue);
@@ -185,6 +189,21 @@ void MainClientState::Update(float dt) {
     }
 
     Engine::client.Update(dt);
+    static float bps_accum = 0;
+    bps_accum += dt;
+    if (bps_accum > 1) {
+        bps_accum -= 1.;
+        bps_sent.push(Engine::client.bytes_sent);
+        bps_recv.push(Engine::client.bytes_recv);
+        Engine::client.bytes_sent = 0;
+        Engine::client.bytes_recv = 0;
+        std::stringstream ss;
+        ss << std::setprecision(2) << std::fixed
+            << "bps_recv = " << bps_recv.Avg()
+            << " bps_sent = " << bps_sent.Avg();
+        bps = ss.str();
+    }
+
     while (Engine::client.messages_waiting()) {
         auto msg = Engine::client.pop_incoming_message();
 
@@ -408,9 +427,9 @@ void MainClientState::Draw(float alpha) {
     // Vec2 mouse = Engine::GetMouseLocation();
     Vec2 win_size = Engine::GetWindowSize();
 
-    // font.RenderText("Mouse=" + std::to_string(mouse.x) + " " + std::to_string(mouse.y), 
-    //             win_size.x/2.f, win_size.y - 20.f, // position
-    //             color::White);
+    font.RenderText(bps, 
+                    win_size.x/2.f, win_size.y - 20.f, // position
+                    color::White);
 
     font.RenderText("FPS=" + std::to_string(Engine::FpsTracker().Avg()), 
                 win_size.x/2.f, win_size.y - 40.f, // position

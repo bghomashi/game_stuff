@@ -57,8 +57,8 @@ namespace Net {
         // we could unlock the message queue now if this were threaded
 
         for (auto& p : packets) {
-            _connection.SendTo(*p);
-            bytes_sent += p->data.size();
+            if (_connection.SendTo(*p))
+                bytes_sent += p->data.size();
         }
 
         Recv();
@@ -70,7 +70,7 @@ namespace Net {
         Packet packet;
         if (!_connection.RecvFrom(packet, false))
             return false;
-        bytes_recv = packet.data.size();
+        bytes_recv += packet.data.size();
 
         if (_addr != packet.addr)        
             return false;

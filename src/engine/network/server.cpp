@@ -117,7 +117,7 @@ namespace Net {
 
         message msg;
         std::uint8_t* byte = packet.data.data();
-
+        messages.clear();
         while (byte - packet.data.data() < packet.data.size()) {
             std::memcpy(&msg.header, byte, sizeof(msg.header)); byte += sizeof(msg.header);
             msg.body.resize(msg.header.size - sizeof(msg.header));

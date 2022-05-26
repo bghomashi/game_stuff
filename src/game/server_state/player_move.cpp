@@ -10,7 +10,8 @@ void ServerState::PlayerMove(Net::message& move_msg, const Net::ClientID& uuid) 
     Net::ClientID client_id = Net::ClientID::INVALID;
     EntityID client_entity = EntityID::INVALID;
 
-    move_msg >> destination.y >> destination.x;
+    move_msg >> destination.y;
+    move_msg >> destination.x;
     move_msg >> client_id;
 
     if (client_id != uuid)
