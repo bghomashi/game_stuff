@@ -82,8 +82,9 @@ public:
         auto entity = s_entities.Get(id);
         ComponentID handle;
 
-        if (Find(*entity, Component<T>::GetID(), handle)) // if the entity already has this component
-            Remove<T>(handle);                           // remove it completely
+        if (entity != NULL && Find(*entity, Component<T>::GetID(), handle)) // if the entity already has this component
+            // Remove<T>(id);                           // remove it completely
+            T::Remove(handle);
 
         T* c = Component<T>::Create(handle);
         *c = T{id, args...};
